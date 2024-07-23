@@ -1,0 +1,40 @@
+// Montserrat
+@import "./variables.scss";
+@import "./mixins";
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  -webkit-tab-highlight-color: transparent;
+  user-select: none;
+  // @include family--montserrat;
+}
+
+body {
+  font-family: "Noto Sans KR", sans-serif;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $black;
+}
+
+ul {
+  list-style-type: none;
+}
+
+video {
+  max-width: 100%;
+}
+
+img {
+  max-width: 100%;
+}
