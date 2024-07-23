@@ -5,15 +5,16 @@ import Image from 'next/image';
 const Header = () => {
     return (
         <header>
-            <div className="container">
+            <div className="container ">
                 <div className='menu-header'>
                     <div className="header-left">
                         <div className="logo">
-                            <Image width={100} height={100} src={'../../images/logo.svg'} alt="logo" />
+                            <Image width={110} height={24} src={'/images/logo.svg'} alt="logo" />
                         </div>
+                        <div className="line"></div>
                         <div className="select">
                             <div className='select-logo'>
-                                <Image width={100} height={100} src={"../../images/icon-word.png"} alt="logo-word" />
+                                <Image width={16} height={16} src={"/images/icon-word.png"} alt="logo-word" />
                             </div>
                             <select className='select-provider' name="provider" id="provider" value="1" onChange={() => { }}>
                                 <option value="1">Provider</option>
@@ -23,10 +24,10 @@ const Header = () => {
 
                     <div className='header-right'>
                         <div className='icon-bell'>
-                            <Image width={100} height={100} src={"../../images/bell.svg"} alt="bell" />
+                            <Image width={32} height={32} src={"/images/bell.svg"} alt="bell" />
                         </div>
                         <div className='account'>
-                            <Image width={100} height={100} src={"../../images/account.svg "} alt="account-icon" />
+                            <Image width={32} height={32} src={"/images/account.svg"} alt="account-icon" />
                         </div>
                     </div>
                 </div>
