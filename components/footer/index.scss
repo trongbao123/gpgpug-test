@@ -1,0 +1,46 @@
+footer {
+    border-top: solid 1px #e0e0e0;
+    height: 73px;
+
+    .container {
+        max-width: 1240px;
+        margin: 0 auto;
+
+        .footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 60px;
+
+            &-icon {
+                width: 23.26px;
+                height: 22px;
+            }
+
+            &-text {
+                color: #5e6166;
+                font-size: 12px;
+                font-weight: 400;
+                line-height: 24px;
+
+                text-align: center;
+            }
+
+            &-right {
+                display: flex;
+                align-items: center;
+                gap: 23px;
+
+                &-send {
+                    width: 20px;
+                    height: 20px;
+                }
+
+                &-close {
+                    width: 18px;
+                    height: 17px;
+                }
+            }
+        }
+    }
+}

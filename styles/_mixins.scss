@@ -1,0 +1,25 @@
+@import "./variables.scss";
+
+@mixin respond-beetwen($breakpoint) {
+  @if $breakpoint == xs {
+    @media (max-width: $mobile) {
+      @content;
+    }
+  } @else if $breakpoint == sm {
+    @media (min-width: $mobile) and (max-width: $tablet-s) {
+      @content;
+    }
+  } @else if $breakpoint == md {
+    @media (min-width: $tablet-s) and (max-width: $large) {
+      @content;
+    }
+  } @else if $breakpoint == lg {
+    @media (min-width: $large) and (max-width: $desktop) {
+      @content;
+    }
+  } @else if $breakpoint == xl {
+    @media (min-width: $desktop) {
+      @content;
+    }
+  }
+}

@@ -1,0 +1,96 @@
+@import "./fonts";
+
+$pretendardVariable: "Pretendard_Variable";
+$pretendardSemiBold: "Pretendard-SemiBold";
+$pretendardExtrabold: "Pretendard-ExtraBold";
+$pretendardMedium: "Pretendard-Medium";
+
+
+$header-height: 72px;
+
+$color: (
+  // theme
+  main: #673dc7,
+  //color
+  // required
+  b: #000,
+  w: #fff,
+  x: #f6f6f6,
+  b-op: rgba(0, 0, 0, 0.8),
+  // notification
+);
+
+$white: #fff;
+$black: #000;
+$bg-lang-active: #e982ab;
+$cl-primary: #068e63;
+
+$xl-font: 40px;
+$lg-font: 35px;
+$md-font: 25px;
+$sm-font: 20px;
+$text-font: 15px;
+
+
+$text-pink: #e04c8a;
+
+// 
+
+$box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 10px;
+$color-text: #999999;
+$bg4-color: #fed614;
+$bg6-color: #f7d6e9;
+$active-color: #f2599c;
+$border-color: #eeeeee;
+$gray-color: #E8E8E8;
+$yellow-color: #FED70C;
+$clText-header: rgba(255, 255, 255, 0.64);
+$bg-button-primary: #0062f4;
+$white-cl: #fff;
+
+// old
+$bg-color: #ffffff;
+$bg3-color: #fad9ec;
+$textBtn-color: #ffaa00;
+$text2Btn-color: #e86db0;
+
+$border-text: rgba(153, 153, 153, 0.318);
+$icon-slide: #ffffff;
+
+$box1-section3: #8475ca;
+$box2-section3: $textBtn-color;
+$box3-section3: #658eea;
+$box4-section3: #41c1cc;
+
+$lg-font: 34px;
+$head-font: 21px;
+
+$lh-p: 1.62;
+
+$mobile-s: 350px;
+$mobile: 415px;
+$tablet: 768px;
+$tablet-s: 600px;
+$large: 1024px;
+$desktop: 1400px;
+$laptop: 1660px;
+///////////////////// PAGE ////////////////////////////
+/// animation ///
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes blurIn {
+  from {
+    filter: opacity(0);
+  }
+  to {
+    filter: opacity(1);
+  }
+}
