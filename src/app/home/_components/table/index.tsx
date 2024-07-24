@@ -121,6 +121,7 @@ export const DeviceTable = () => {
                     style={{ backgroundColor: "black" }}
                     columns={columns}
                     dataSource={provider}
+                    bordered={false}
                     pagination={{ position: ["none", "none"] }}
                 />
             </div>
