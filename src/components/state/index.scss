@@ -1,0 +1,26 @@
+.state {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    line-height: 14.4px;
+    font-weight: 500;
+
+}
+
+
+    .online {
+        color: #50e3c2;
+    }
+
+    .inactive {
+        color: #c6e350;
+    }
+
+    .blocked {
+        color: #cc2929;
+    }
+
+    .paused {
+        color: #737780;
+    }
