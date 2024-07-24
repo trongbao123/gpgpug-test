@@ -1,19 +1,15 @@
-'use-client';
-
-import './index.scss';
+import "./index.scss";
 
 const HeaderMain = () => {
-    return <section className="header-main">
-        <div className="bread">
-            <div className='bread-item'>
-                <div className='bread-item-right active'>
-                    Device
-                </div>
-                <div className='bread-item-left'>
-                    Reward
+    return (
+        <section className="header-main">
+            <div className="bread">
+                <div className="bread-item">
+                    <div className="bread-item-right active">Device</div>
+                    <div className="bread-item-left">Reward</div>
                 </div>
             </div>
-        </div>
-    </section>
-}
+        </section>
+    );
+};
 export default HeaderMain;
