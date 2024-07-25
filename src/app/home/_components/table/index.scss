@@ -6,7 +6,7 @@
     border-radius: 5px;
     border-radius: 12px;
     padding-top: 20px;
-    background-color: black;
+    background-color: transparent;
     overflow: hidden;
 
     .table-header {
@@ -87,6 +87,7 @@
         }
 
         .ant-table {
+            background: transparent;
             &-row {
                 .ant-table-cell {
                     font-size: 12px;
@@ -95,7 +96,7 @@
                     color: #737780;
 
                     &-row-hover {
-                        background: #050505 !important;
+                        background: rgba(5, 5, 5, 0.5) !important;
                     }
                 }
             }
@@ -104,7 +105,7 @@
                 tr {
                     border: solid 1px rgba(255, 255, 255, 0.2);
                     .ant-table-placeholder {
-                        background: #050505;
+                        background: transparent;
                     }
 
                     td {
@@ -119,7 +120,7 @@
                         border-top: solid 1px rgba(255, 255, 255, 0.2);
                         border-radius: 0;
                         border-bottom: solid 1px rgba(255, 255, 255, 0.2);
-                        background: #050505;
+                        background: transparent;
                         color: #737780;
                         border-start-end-radius: 0px !important;
                         border-start-start-radius: 0px !important;
@@ -136,7 +137,7 @@
                 .antd-table-tbody {
                     tr {
                         .ant-table-placeholder {
-                            background: #050505;
+                            background: transparent;
                         }
 
                         td {
@@ -148,9 +149,9 @@
             }
 
             &-cell {
-                background: #050505;
+                background: transparent;
                 &:hover {
-                    background: #050505;
+                    background: transparent;
                 }
             }
         }

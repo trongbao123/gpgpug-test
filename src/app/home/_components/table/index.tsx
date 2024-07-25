@@ -118,7 +118,6 @@ export const DeviceTable = () => {
             </div>
             <div className="table-body">
                 <Table
-                    style={{ backgroundColor: "black" }}
                     columns={columns}
                     dataSource={provider}
                     bordered={false}
