@@ -57,7 +57,7 @@ header {
                 display: flex;
                 align-items: center;
                 gap: 30px;
-                .add-new-deivce{
+                .add-new-deivce {
                     display: flex;
                     align-items: center;
                     gap: 8px;
@@ -65,9 +65,15 @@ header {
                     padding: 10px 12px 10px 16px;
                     color: black;
                     border-radius: 100px;
-                    p{
+                    cursor: pointer;
+                    transition: all 0.2s ease-in-out;
+                    p {
                         color: black;
                         font-size: 14px;
+                    }
+
+                    &:hover {
+                        box-shadow: rgba(0, 0, 0, 1) 0px 0px 5px inset;
                     }
                 }
                 .icon-bell {
