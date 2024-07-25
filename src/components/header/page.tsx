@@ -42,6 +42,10 @@ const Header = () => {
                     </div>
 
                     <div className="header-right">
+                        <div className="add-new-deivce">
+                            <p>Connect New Device</p>
+                            <Image width={16} height={16} src={"/images/icon_plus.svg"} alt="search" />
+                        </div>
                         <div className="icon-bell">
                             <Image width={32} height={32} src={"/images/bell.svg"} alt="bell" />
                         </div>
