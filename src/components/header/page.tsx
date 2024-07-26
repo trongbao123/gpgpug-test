@@ -1,7 +1,6 @@
 "use client";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import "./index.scss";
 
 const Header = () => {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -28,7 +27,8 @@ const Header = () => {
                 <div className="menu-header">
                     <div className="header-left">
                         <div className="logo">
-                            <Image width={110} height={24} src={"/images/logo.svg"} alt="logo" />
+                            <Image width={25} height={24} src={"/images/icon-footer.svg"} alt="footer" className="logo-mob" />
+                            <Image width={110} height={24} src={"/images/logo.svg"} alt="logo" className="logo-desk" />
                         </div>
                         <div className="line"></div>
                         <div className="select">
@@ -50,7 +50,8 @@ const Header = () => {
                             <Image width={32} height={32} src={"/images/bell.svg"} alt="bell" />
                         </div>
                         <div className="account">
-                            <Image width={32} height={32} src={"/images/account.svg"} alt="account-icon" />
+                            <Image width={40} height={40} src={"/images/menu-mob.svg"} alt="account-icon" className="menu-table" />
+                            <Image width={32} height={32} src={"/images/account.svg"} alt="account-icon" className="account-icon" />
                         </div>
                     </div>
                 </div>
