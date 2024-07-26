@@ -1,7 +1,6 @@
 "use client";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import "./index.scss";
 
 const Header = () => {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -36,7 +35,7 @@ const Header = () => {
                             <div className="select-logo">
                                 <Image width={16} height={16} src={"/images/icon-word.png"} alt="logo-word" />
                             </div>
-                            <select className="select-provider" name="provider" id="provider" value="1" onChange={() => { }}>
+                            <select className="select-provider" name="provider" id="provider" value="1" onChange={() => {}}>
                                 <option value="1">Provider</option>
                             </select>
                         </div>
