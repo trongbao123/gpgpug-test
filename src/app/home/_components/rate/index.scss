@@ -38,3 +38,41 @@
         }
     }
 }
+
+@media screen and (max-width: 500px) {
+    .rate-container {
+        max-width: 500px;
+        margin-top: 50px;
+        padding: 0 16px;
+        .grid-rate {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+        }
+    }
+}
+
+@media screen and (min-width: 500px) and (max-width: 1024px) {
+    .rate-container {
+        max-width: 1024px;
+        margin: 0 auto;
+        margin-top: 50px;
+        padding: 0 16px;
+        .grid-rate {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1280px) {
+    .rate-container {
+        max-width: 1280px;
+        margin: 0 auto;
+        margin-top: 50px;
+        padding: 0 8px;
+        .grid-rate {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+}
