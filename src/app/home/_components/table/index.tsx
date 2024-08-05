@@ -1,16 +1,10 @@
 "use client";
-import Image from "next/image";
-import "./index.scss";
-import { Button, Input, Popover, Table } from "antd";
-import { logo, provider } from "@component/constants";
 import StateComponent from "@component/components/state";
+import { logo, provider } from "@component/constants";
+import { Popover, Table } from "antd";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
-import MixedChart from "./Chart";
-import UptimeMonitor from "./UptimeMonitor";
-import InfoBox from "./InfoBox";
-import img from "./image.png"
-import ServiceInfoBox from "./ServiceInfo";
+import "./index.scss";
 
 export const DeviceTable = () => {
     const router = useRouter();
@@ -81,7 +75,7 @@ export const DeviceTable = () => {
                 return (
                     <Popover
                         content={
-                            <div style={{ cursor: "pointer" }} onClick={() => router.push(`/${item.key}`)}>
+                            <div style={{ cursor: "pointer" }} onClick={() => {}}>
                                 detail
                             </div>
                         }
@@ -111,19 +105,17 @@ export const DeviceTable = () => {
                 </div>
             </div>
             <div className="table-body">
-                <Table columns={columns} dataSource={provider} bordered={false} pagination={{ position: ["none", "none"] }} />
-
-                <>
-                    <MixedChart />
-                    <div className="uptime-reward">
-                        <UptimeMonitor />
-                        <InfoBox title="PoT Reward" value="3,463,000" icon="/images/image.png" />
-                    </div>
-                    <div className="total-service" >
-                        <ServiceInfoBox />
-                        <InfoBox title="Hire Fee" value="942,003" icon="/images/token.png" />
-                    </div>
-                </>
+                <Table
+                    onRow={(record, rowIndex) => {
+                        return {
+                            onClick: () => router.push(`/${record.key}`),
+                        };
+                    }}
+                    columns={columns}
+                    dataSource={provider}
+                    bordered={false}
+                    pagination={{ position: ["none", "none"] }}
+                />
             </div>
         </section>
     );
