@@ -1,15 +1,19 @@
 "use client";
 import Image from "next/image";
 import "./index.scss";
-import { Input, Table } from "antd";
+import { Button, Input, Popover, Table } from "antd";
 import { logo, provider } from "@component/constants";
 import StateComponent from "@component/components/state";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
 import MixedChart from "./Chart";
 import UptimeMonitor from "./UptimeMonitor";
 import InfoBox from "./InfoBox";
 import img from "./image.png"
 import ServiceInfoBox from "./ServiceInfo";
+
 export const DeviceTable = () => {
+    const router = useRouter();
     const columns = [
         {
             title: "State",
@@ -29,12 +33,7 @@ export const DeviceTable = () => {
             render: (props: any) => {
                 return (
                     <div className="chip-container">
-                        <Image
-                            src={(logo as any)[props]}
-                            alt="logo"
-                            width={16}
-                            height={16}
-                        />
+                        <Image src={(logo as any)[props]} alt="logo" width={16} height={16} />
                         <p>{props}</p>
                     </div>
                 );
@@ -53,12 +52,7 @@ export const DeviceTable = () => {
             key: "network",
             render: (text: any) => (
                 <div className="chip-container">
-                    <Image
-                        src={"/images/network.svg"}
-                        alt="logo"
-                        width={16}
-                        height={16}
-                    />
+                    <Image src={"/images/network.svg"} alt="logo" width={16} height={16} />
                     <p>{text}</p>
                 </div>
             ),
@@ -83,15 +77,20 @@ export const DeviceTable = () => {
             title: "",
             key: "operation",
             width: 50,
-            render: () => (
-                <Image
-                    style={{ cursor: "pointer" }}
-                    src="/images/action.svg"
-                    width={24}
-                    height={24}
-                    alt="menu"
-                />
-            ),
+            render: (item: any) => {
+                return (
+                    <Popover
+                        content={
+                            <div style={{ cursor: "pointer" }} onClick={() => router.push(`/${item.key}`)}>
+                                detail
+                            </div>
+                        }
+                        trigger="click"
+                    >
+                        <Image style={{ cursor: "pointer" }} src="/images/action.svg" width={24} height={24} alt="menu" />
+                    </Popover>
+                );
+            },
         },
     ];
 
