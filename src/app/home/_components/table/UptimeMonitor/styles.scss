@@ -1,0 +1,52 @@
+.uptime-monitor {
+    padding: 0 20px;
+    border-radius: 8px;
+    color: #c4c9ce;
+    width: 100%;
+    min-height: 107px;
+    border-radius: 12px;
+    border: 1px solid rgba(50, 50, 51, 1);
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.uptime-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.uptime-label {
+    font-size: 18px;
+    font-weight: 500;
+    color: rgba(115, 119, 128, 1);
+}
+
+.uptime-percentage {
+    font-size: 18px;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.uptime-grid {
+    display: grid;
+    grid-template-columns: repeat(20, 1fr);
+    gap: 4px;
+}
+
+.uptime-block {
+    width: 100%;
+    padding-bottom: 20%;
+    background-color: #4a6b63;
+    border-radius: 2px;
+}
+
+.uptime-block.down {
+    background-color: #d9534f;
+}
+
+.uptime-block.up {
+    background-color: #4a6b63;
+}

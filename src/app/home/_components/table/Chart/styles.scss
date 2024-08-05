@@ -1,0 +1,45 @@
+.chart-container {
+    border-radius: 12px;
+    border: 1px solid rgba(50, 50, 51, 1);
+    margin: 20px;
+
+    .chart-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid rgba(50, 50, 51, 1);
+        padding: 20px;
+
+        .chart-header-labels {
+            display: flex;
+            gap: 8px;
+            flex-direction: row;
+
+            .label-button {
+                padding: 6px 8px;
+                border: 1px solid rgba(50, 50, 51, 1);
+                border-radius: 8px;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 4px;
+
+                .hire-icon {
+                    width: 12px;
+                    height: 12px;
+                    background-color: black;
+                    border: 2px solid #fff;
+                    border-radius: 99px;
+                }
+
+                .reward-icon {
+                    width: 12px;
+                    height: 12px;
+                    background: linear-gradient(180deg, #C4C9CE 0%, #272829 100%);
+                    ;
+                    border-radius: 2px;
+                }
+            }
+        }
+    }
+}
