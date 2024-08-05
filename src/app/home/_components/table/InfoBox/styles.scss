@@ -1,0 +1,37 @@
+.info-box {
+
+    padding: 20px;
+    border-radius: 8px;
+    color: #c4c9ce;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+
+    min-height: 107px;
+    border-radius: 12px;
+    border: 1px solid rgba(50, 50, 51, 1);
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.info-title {
+    font-size: 16px;
+    font-weight: 500;
+    color: rgba(115, 119, 128, 1);
+    margin-bottom: 8px;
+}
+
+.info-content {}
+
+.info-value {
+    font-size: 32px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-right: 8px;
+}
+
+.info-icon {
+    width: 24px;
+    height: 24px;
+}
