@@ -8,6 +8,10 @@ const HireStatus: React.FC<Props> = ({ state }) => {
     return (
         <div className="hire-status">
             <div className="left">
+                <div className="power">
+                    <div className="power-title">G-Power</div>
+                    <p>321,466</p>
+                </div>
                 <div className="left-hire">Hire Status</div>
                 <Image src={"/images/word.svg"} alt="word" width={272} height={180} />
                 <div className="left-status">
