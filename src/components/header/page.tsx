@@ -1,8 +1,10 @@
 "use client";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const Header = () => {
+    const router = useRouter();
     const [isScrolled, setIsScrolled] = useState(false);
 
     useEffect(() => {
@@ -26,8 +28,14 @@ const Header = () => {
             <div className="container">
                 <div className="menu-header">
                     <div className="header-left">
-                        <div className="logo">
-                            <Image width={25} height={24} src={"/images/icon-footer.svg"} alt="footer" className="logo-mob" />
+                        <div className="logo" onClick={() => router.push("/")}>
+                            <Image
+                                width={25}
+                                height={24}
+                                src={"/images/icon-footer.svg"}
+                                alt="footer"
+                                className="logo-mob"
+                            />
                             <Image width={110} height={24} src={"/images/logo.svg"} alt="logo" className="logo-desk" />
                         </div>
                         <div className="line"></div>
@@ -35,7 +43,13 @@ const Header = () => {
                             <div className="select-logo">
                                 <Image width={16} height={16} src={"/images/icon-word.png"} alt="logo-word" />
                             </div>
-                            <select className="select-provider" name="provider" id="provider" value="1" onChange={() => {}}>
+                            <select
+                                className="select-provider"
+                                name="provider"
+                                id="provider"
+                                value="1"
+                                onChange={() => {}}
+                            >
                                 <option value="1">Provider</option>
                             </select>
                         </div>
@@ -50,8 +64,20 @@ const Header = () => {
                             <Image width={32} height={32} src={"/images/bell.svg"} alt="bell" />
                         </div>
                         <div className="account">
-                            <Image width={40} height={40} src={"/images/menu-mob.svg"} alt="account-icon" className="menu-table" />
-                            <Image width={32} height={32} src={"/images/account.svg"} alt="account-icon" className="account-icon" />
+                            <Image
+                                width={40}
+                                height={40}
+                                src={"/images/menu-mob.svg"}
+                                alt="account-icon"
+                                className="menu-table"
+                            />
+                            <Image
+                                width={32}
+                                height={32}
+                                src={"/images/account.svg"}
+                                alt="account-icon"
+                                className="account-icon"
+                            />
                         </div>
                     </div>
                 </div>

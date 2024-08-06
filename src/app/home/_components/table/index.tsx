@@ -1,6 +1,6 @@
 "use client";
 import StateComponent from "@component/components/state";
-import { logo, provider } from "@component/constants";
+import { logo, provider } from "@/constants/constant";
 import { Popover, Table } from "antd";
 import Image from "next/image";
 import { useRouter } from "next/navigation";

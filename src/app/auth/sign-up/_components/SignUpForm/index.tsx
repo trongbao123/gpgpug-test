@@ -5,13 +5,12 @@ import Button from "../Button";
 import Icon from "../Icon";
 import Text from "../Text";
 import "./index.scss";
+import Link from "next/link";
 
 const EmailSignUp: React.FC = () => {
     const router = useRouter();
     return (
-        <div className="signup-form">
-            <Icon src="/images/logo_no-slogan.svg" alt="icon" height={24} width={24} />
-
+        <>
             <h1>Sign up</h1>
 
             <Text className="terms-text">
@@ -36,11 +35,7 @@ const EmailSignUp: React.FC = () => {
                     }}
                 />
             </div>
-
-            <Text className="signin-text">
-                Do you already have an account? <a href="/signin">Sign in</a>
-            </Text>
-        </div>
+        </>
     );
 };
 

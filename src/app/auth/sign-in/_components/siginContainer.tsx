@@ -33,7 +33,7 @@ const SigninContainer: React.FC<Props> = ({ children }) => {
                     {children}
                     <div className="signin-account">
                         <p>Do you need a new account?</p>
-                        <Link href="/sign-up">Sign up</Link>
+                        <Link href="/auth/sign-up">Sign up</Link>
                     </div>
                 </div>
             </div>

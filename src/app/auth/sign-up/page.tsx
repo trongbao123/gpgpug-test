@@ -4,6 +4,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { Suspense } from "react";
 import EmailSignUpForm from "./_components/EmailSignUpForm";
 import SignUpForm from "./_components/SignUpForm";
+import FormLayout from "./_components/FormLayout";
 
 type Props = {};
 
@@ -12,13 +13,13 @@ const SignUp = (props: Props) => {
     const searchParams = useSearchParams();
     const isEmail = searchParams.get("isEmail");
     return (
-            <div className="content">
-                <div className="sign-in_navigation" onClick={() => router.push("/")}>
-                    <IconLeft /> Return to GPGPU
-                </div>
-
-                {isEmail ? <EmailSignUpForm /> : <SignUpForm />}
+        <div className="content">
+            <div className="sign-in_navigation" onClick={() => router.push("/")}>
+                <IconLeft /> Return to GPGPU
             </div>
+
+            <FormLayout>{isEmail ? <EmailSignUpForm /> : <SignUpForm />}</FormLayout>
+        </div>
     );
 };
 
