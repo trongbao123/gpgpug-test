@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, type FC } from "react";
 import Button from "../Button";
 import Icon from "../Icon";
 import Text from "../Text";
@@ -22,7 +22,7 @@ const schema = yup.object().shape({
         .matches(/[!@#$%^&*(),.?":{}|<>]/, "Password must include a special character"),
     confirmPassword: yup.string().oneOf([yup.ref("password")], "Passwords must match"),
 });
-const index = (props: Props) => {
+const EmailSignUpForm: FC<Props> = (props) => {
     const {
         register,
         handleSubmit,
@@ -94,4 +94,4 @@ const index = (props: Props) => {
     );
 };
 
-export default index;
+export default EmailSignUpForm;

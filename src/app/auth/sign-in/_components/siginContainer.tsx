@@ -4,7 +4,7 @@ import "../index.scss";
 import { useRouter } from "next/navigation";
 
 import Link from "next/link";
-import Google from "../../../constants/Icon";
+import { Google } from "@/constants/Icon";
 
 type Props = {
     children?: React.ReactNode;

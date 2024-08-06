@@ -1,12 +1,12 @@
 "use client";
 import { Envelope, Google } from "@component/constants/Icon";
+import { useRouter } from "next/navigation";
 import Button from "../Button";
 import Icon from "../Icon";
 import Text from "../Text";
 import "./index.scss";
-import { useRouter } from "next/navigation";
 
-const index: React.FC = () => {
+const EmailSignUp: React.FC = () => {
     const router = useRouter();
     return (
         <div className="signup-form">
@@ -44,4 +44,4 @@ const index: React.FC = () => {
     );
 };
 
-export default index;
+export default EmailSignUp;
