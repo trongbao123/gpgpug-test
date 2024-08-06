@@ -1,6 +1,6 @@
 "use client";
 import "./index.scss";
-import HeaderMain from "../home/_components/header-main/page";
+import HeaderMain from "../../home/_components/header-main/page";
 import Image from "next/image";
 import { logo, provider } from "@component/constants";
 import StateComponent from "@component/components/state";
