@@ -5,7 +5,7 @@ const nextConfig = {
     sassOptions: {
         includePaths: [Path.join("styles")],
     },
-    images: { loader: "gpgpu-front", domain: "gpgpu-front.netlify.app" },
+    images: { domain: "gpgpu-front.netlify.app" },
     swcMinify: true,
 };
 
