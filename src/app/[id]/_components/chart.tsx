@@ -11,7 +11,7 @@ const ChartReward = () => {
                         <p>Hire Fee</p>
                     </div>
                     <div className="fee">
-                        <Image src={"/images/fee.svg"} width={10} height={10} alt="fee" />
+                        <Image src={"../../../../public/images/fee.svg"} width={10} height={10} alt="fee" />
                         <p>PoT Reward</p>
                     </div>
                 </div>
