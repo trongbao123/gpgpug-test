@@ -108,7 +108,7 @@ export const DeviceTable = () => {
                 <Table
                     onRow={(record, rowIndex) => {
                         return {
-                            onClick: () => router.push(`/details/${record.key}`),
+                            onClick: () => router.push(`/${record.key}`),
                         };
                     }}
                     columns={columns}
