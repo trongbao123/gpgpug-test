@@ -1,13 +1,14 @@
 "use client";
+import { yupResolver } from "@hookform/resolvers/yup";
 import { useState, type FC } from "react";
+import { useForm } from "react-hook-form";
+import * as yup from "yup";
 import Button from "../Button";
 import Icon from "../Icon";
 import Text from "../Text";
 import TextInput from "../TextInput";
 import "./index.scss";
-import * as yup from "yup";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { useForm, type SubmitHandler } from "react-hook-form";
+import { IconV, IconX } from "@component/constants/Icon";
 
 type Props = {};
 
@@ -20,7 +21,11 @@ const schema = yup.object().shape({
         .min(8, "Password must be at least 8 characters long")
         .matches(/\d/, "Password must include a number")
         .matches(/[!@#$%^&*(),.?":{}|<>]/, "Password must include a special character"),
-    confirmPassword: yup.string().oneOf([yup.ref("password")], "Passwords must match"),
+    confirmPassword: yup
+        .string()
+        .required("Re-password is required")
+        .min(8, "Password must be at least 8 characters long")
+        .oneOf([yup.ref("password")], "Password is not the same"),
 });
 const EmailSignUpForm: FC<Props> = (props) => {
     const {
@@ -29,15 +34,20 @@ const EmailSignUpForm: FC<Props> = (props) => {
         watch,
         formState: { errors },
     } = useForm({
-        resolver: yupResolver(schema),
+        resolver: yupResolver(schema, { abortEarly: false }),
     });
     const password = watch("password", "");
     console.log(errors);
     const [isSendingCode, setIsSendingCode] = useState(false);
 
-    const handleSendCode = () => {
+    const handleSendCode = (e: any) => {
+        e.preventDefault();
         // Logic to send verification code
         setIsSendingCode(true);
+    };
+    const handleCheckCode = (e: any) => {
+        e.preventDefault();
+        setIsSendingCode(false);
     };
 
     const handleCreateAccount = (data: any) => {
@@ -55,35 +65,49 @@ const EmailSignUpForm: FC<Props> = (props) => {
                 <Text className="terms-text">
                     By logging in to GPGPU, <br /> you agree to Terms of Service and Privacy Policy.
                 </Text>
-
                 <TextInput
                     name="email"
                     label="Email address"
                     type="email"
-                    buttonText={isSendingCode ? "Sending..." : "Send a code"}
-                    onButtonClick={handleSendCode}
                     register={register}
+                    buttonText={isSendingCode ? "Sended" : "Send a code"}
+                    onButtonClick={handleSendCode}
                 />
                 {errors.email ? <p className="error">{errors.email.message}</p> : <p className="no-error"></p>}
-                <TextInput name="verificationCode" label="Verification Code" type="text" register={register} />
+
+                <TextInput
+                    name="verificationCode"
+                    label="Verification Code"
+                    type="text"
+                    register={register}
+                    buttonText={isSendingCode ? "Check" : ""}
+                    onButtonClick={handleCheckCode}
+                />
                 {errors.verificationCode ? (
                     <p className="error">{errors.verificationCode.message}</p>
                 ) : (
                     <p className="no-error"></p>
                 )}
-
                 <TextInput name="password" label="Password" type="password" register={register} />
-                {errors.password ? (
+                {password || errors.password ? (
                     <div className="validation-rules">
-                        <p className={password.length >= 8 ? "valid" : "invalid"}>8 characters or more</p>
-                        <p className={/\d/.test(password) ? "valid" : "invalid"}>Including numbers</p>
+                        <p className={password.length >= 8 ? "valid" : "invalid"}>
+                            {password.length >= 8 ? <IconV /> : <IconX />} 8 characters or more
+                        </p>
+                        <p className={/\d/.test(password) ? "valid" : "invalid"}>
+                            {/\d/.test(password) ? <IconV /> : <IconX />} Including numbers
+                        </p>
                         <p className={/[!@#$%^&*(),.?":{}|<>]/.test(password) ? "valid" : "invalid"}>
-                            Include special characters
+                            {/[!@#$%^&*(),.?":{}|<>]/.test(password) ? <IconV /> : <IconX />} Include special characters
                         </p>
                     </div>
                 ) : null}
-                <TextInput name="confirm-password" label="Re-enter password" type="password" register={register} />
-                {errors.confirmPassword && <p className="error">{errors.confirmPassword.message}</p>}
+                <TextInput name="confirmPassword" label="Re-enter password" type="password" register={register} />
+                {errors.confirmPassword ? (
+                    <p className="error mb-24">{errors.confirmPassword.message}</p>
+                ) : (
+                    <p className="no-error mb-24"></p>
+                )}
                 <Button text="Create account" type="submit" />
             </form>
 

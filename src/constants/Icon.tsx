@@ -38,10 +38,10 @@ const Envelope = (props: any) => (
 
 const IconLeft = (props: any) => (
     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M10 4L6 8L10 12" stroke="#F5F5F5" stroke-linecap="round" stroke-linejoin="round" />
+        <path d="M10 4L6 8L10 12" stroke="#F5F5F5" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
 );
-const LogoNoSlogan = (props: any) => {
+const LogoNoSlogan = (props: any) => (
     <svg width="24" height="22" viewBox="0 0 24 22" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g clip-path="url(#clip0_2721_10792)">
             <path
@@ -54,11 +54,25 @@ const LogoNoSlogan = (props: any) => {
             />
         </g>
         <defs>
-            <linearGradient id="paint0_linear_2721_10792" x1="11.9982" y1="8.24491" x2="11.9982" y2="2.51928" gradientUnits="userSpaceOnUse">
+            <linearGradient
+                id="paint0_linear_2721_10792"
+                x1="11.9982"
+                y1="8.24491"
+                x2="11.9982"
+                y2="2.51928"
+                gradientUnits="userSpaceOnUse"
+            >
                 <stop stop-color="#E6E8EC" />
                 <stop offset="1" stop-color="#C1C5CE" />
             </linearGradient>
-            <linearGradient id="paint1_linear_2721_10792" x1="12.5271" y1="13.7608" x2="12.5271" y2="19.5995" gradientUnits="userSpaceOnUse">
+            <linearGradient
+                id="paint1_linear_2721_10792"
+                x1="12.5271"
+                y1="13.7608"
+                x2="12.5271"
+                y2="19.5995"
+                gradientUnits="userSpaceOnUse"
+            >
                 <stop stop-color="#E6E8EC" />
                 <stop offset="1" stop-color="#C1C5CE" />
             </linearGradient>
@@ -66,6 +80,23 @@ const LogoNoSlogan = (props: any) => {
                 <rect width="23.2571" height="22" fill="white" transform="translate(0.371094)" />
             </clipPath>
         </defs>
-    </svg>;
-};
-export { Google, Envelope, IconLeft, LogoNoSlogan };
+    </svg>
+);
+const IconX = (props: any) => (
+    <svg width="10" height="9" viewBox="0 0 10 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M9 0.5L1 8.5" stroke="#CC2929" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M9 8.5L1 0.5" stroke="#CC2929" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+);
+const IconV = (props: any) => (
+    <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+            d="M10.6099 0.890625L4.3973 7.1032L1.29102 3.99691"
+            stroke="#50E3C2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+        />
+    </svg>
+);
+
+export { Google, Envelope, IconLeft, LogoNoSlogan, IconX, IconV };

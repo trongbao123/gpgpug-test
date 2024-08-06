@@ -8,7 +8,7 @@ interface TextInputProps {
     value?: string;
     onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
     buttonText?: string;
-    onButtonClick?: () => void;
+    onButtonClick?: (e: any) => void;
     register?: any;
 }
 
@@ -21,18 +21,21 @@ const TextInput: React.FC<TextInputProps> = ({
     buttonText,
     onButtonClick,
     register,
-}) => (
-    <div className="text-input">
-        <label>{label}</label>
-        <div className="input-wrapper">
-            {register ? (
-                <input type={type} value={value} onChange={onChange} {...register(name)} formNoValidate />
-            ) : (
-                <input type={type} value={value} onChange={onChange} formNoValidate />
-            )}
-            {buttonText && <button onClick={onButtonClick}>{buttonText}</button>}
+}) => {
+    console.log(name, register);
+    return (
+        <div className="text-input">
+            <label>{label}</label>
+            <div className="input-wrapper">
+                {register ? (
+                    <input type={type} value={value} onChange={onChange} {...register(name)} formNoValidate />
+                ) : (
+                    <input type={type} value={value} onChange={onChange} formNoValidate />
+                )}
+                {buttonText && <button onClick={onButtonClick}>{buttonText}</button>}
+            </div>
         </div>
-    </div>
-);
+    );
+};
 
 export default TextInput;
