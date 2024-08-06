@@ -46,7 +46,7 @@ export const DeviceTable = () => {
             key: "network",
             render: (text: any) => (
                 <div className="chip-container">
-                    <Image src={"../../../../../public/images/network.svg"} alt="logo" width={16} height={16} />
+                    <Image src={"/images/network.svg"} alt="logo" width={16} height={16} />
                     <p>{text}</p>
                 </div>
             ),
@@ -81,7 +81,7 @@ export const DeviceTable = () => {
                         }
                         trigger="click"
                     >
-                        <Image style={{ cursor: "pointer" }} src="../../../../../public/images/images/action.svg" width={24} height={24} alt="menu" />
+                        <Image style={{ cursor: "pointer" }} src="/images/action.svg" width={24} height={24} alt="menu" />
                     </Popover>
                 );
             },

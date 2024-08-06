@@ -49,7 +49,7 @@ const PageDetail = ({ params }: { params: { id: string } }) => {
                                     <StateComponent state={itemDetail?.state} />
                                 </div>
                                 <div className="flex-item">
-                                    <Image src={"../../../public/images/delete.svg"} width={16} height={16} alt="delete" />
+                                    <Image src={"/images/delete.svg"} width={16} height={16} alt="delete" />
                                     <p>Terminate</p>
                                 </div>
                             </div>
