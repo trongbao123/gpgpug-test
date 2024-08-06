@@ -1,4 +1,5 @@
 import "../../styles/index.scss";
+import DeviceResponsive from "./home/_components/deviceResponsive";
 import HeaderMain from "./home/_components/header-main/page";
 import Rate from "./home/_components/rate/page";
 import { DeviceTable } from "./home/_components/table";
@@ -10,7 +11,10 @@ export default function Home() {
             <div className="content">
                 <HeaderMain />
                 <Rate />
-                <DeviceTable />
+                <div className="res">
+                    <DeviceTable />
+                </div>
+                <DeviceResponsive />
             </div>
         </main>
     );
