@@ -1,10 +1,9 @@
-// layout 
+// layout
 @import "../src/components/footer/index.scss";
 @import "../src/components/header/index.scss";
 
 // main page
 @import "../src/app/page.scss";
 
-
 // detail page
-@import "../src/app/details/[id]/index.scss";
+@import "../src/app/[id]/index.scss";
