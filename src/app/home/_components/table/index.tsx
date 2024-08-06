@@ -73,16 +73,14 @@ export const DeviceTable = () => {
             width: 50,
             render: (item: any) => {
                 return (
-                    <Popover
-                        content={
-                            <div style={{ cursor: "pointer" }} onClick={() => {}}>
-                                detail
-                            </div>
-                        }
-                        trigger="click"
-                    >
-                        <Image style={{ cursor: "pointer" }} src="/images/action.svg" width={24} height={24} alt="menu" />
-                    </Popover>
+                    <Image
+                        style={{ cursor: "pointer" }}
+                        src="/images/action.svg"
+                        width={24}
+                        height={24}
+                        alt="menu"
+                        onClick={() => router.push(`/${item.key}`)}
+                    />
                 );
             },
         },
