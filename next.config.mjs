@@ -1,11 +1,13 @@
 /** @type {import('next').NextConfig} */
-import { join } from "path";
-import Path from "path";
+import { join } from 'path';
+import Path from 'path';
 const nextConfig = {
     sassOptions: {
-        includePaths: [Path.join("styles")],
+        includePaths: [
+            Path.join('styles')
+        ],
     },
-    images: { domain: "gpgpu-front.netlify.app" },
+    images: { unoptimized: false },
     swcMinify: true,
 };
 
