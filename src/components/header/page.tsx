@@ -1,7 +1,6 @@
 "use client";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import "./index.scss"
 
 const Header = () => {
     const [isScrolled, setIsScrolled] = useState(false);
