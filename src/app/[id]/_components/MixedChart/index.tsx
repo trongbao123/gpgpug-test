@@ -32,7 +32,7 @@ const MixedChart: React.FC = () => {
         labels,
         datasets: [
             {
-                type: "line" as const,
+                type: "line",
                 label: "Line Dataset",
                 data: dataLine,
                 borderColor: "rgba(255, 255, 255, 1)",
@@ -48,7 +48,7 @@ const MixedChart: React.FC = () => {
                 order: 1,
             },
             {
-                type: "bar" as const,
+                type: "bar",
                 label: "Bar Dataset",
                 data: dataBar,
                 backgroundColor: function (context: any) {
