@@ -6,7 +6,7 @@ import Text from "../Text";
 import "./index.scss";
 import { useRouter } from "next/navigation";
 
-const index: React.FC = () => {
+const Page: React.FC = () => {
     const router = useRouter();
     return (
         <div className="signup-form">
@@ -38,10 +38,10 @@ const index: React.FC = () => {
             </div>
 
             <Text className="signin-text">
-                Do you already have an account? <a href="/signin">Sign in</a>
+                Do you already have an account? <a href="/auth/sign-in">Sign in</a>
             </Text>
         </div>
     );
 };
 
-export default index;
+export default Page;

@@ -15,7 +15,7 @@ const Signin: React.FC<Props> = ({}) => {
                 <Google />
                 <p>Google Sign in</p>
             </div>
-            <div className="signin-google" onClick={() => router.push("/sign-in/email")}>
+            <div className="signin-google" onClick={() => router.push("/auth/sign-in/email")}>
                 <Image width={18} height={18} src={"/images/email.svg"} alt="google" />
                 <p>Email Sign in</p>
             </div>

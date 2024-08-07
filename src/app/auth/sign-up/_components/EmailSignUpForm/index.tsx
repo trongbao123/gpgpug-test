@@ -22,7 +22,7 @@ const schema = yup.object().shape({
         .matches(/[!@#$%^&*(),.?":{}|<>]/, "Password must include a special character"),
     confirmPassword: yup.string().oneOf([yup.ref("password")], "Passwords must match"),
 });
-const index = (props: Props) => {
+const Page = (props: Props) => {
     const {
         register,
         handleSubmit,
@@ -88,10 +88,10 @@ const index = (props: Props) => {
             </form>
 
             <Text className="signin-text">
-                Do you already have an account? <a href="/signin">Sign in</a>
+                Do you already have an account? <a href="/auth/sign-in">Sign in</a>
             </Text>
         </div>
     );
 };
 
-export default index;
+export default Page;

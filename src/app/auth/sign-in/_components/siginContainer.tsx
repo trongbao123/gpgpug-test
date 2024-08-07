@@ -4,7 +4,7 @@ import "../index.scss";
 import { useRouter } from "next/navigation";
 
 import Link from "next/link";
-import Google from "../../../constants/Icon";
+
 
 type Props = {
     children?: React.ReactNode;
@@ -33,7 +33,7 @@ const SigninContainer: React.FC<Props> = ({ children }) => {
                     {children}
                     <div className="signin-account">
                         <p>Do you need a new account?</p>
-                        <Link href="/sign-up">Sign up</Link>
+                        <Link href="/auth/sign-up">Sign up</Link>
                     </div>
                 </div>
             </div>

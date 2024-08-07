@@ -7,8 +7,12 @@ const nextConfig = {
             Path.join('styles')
         ],
     },
-    images: { unoptimized: false },
+    images: { unoptimized: true },
     swcMinify: true,
+    output: "export",
+    experimental: {
+        missingSuspenseWithCSRBailout: false,
+    },
 };
 
 export default nextConfig;
