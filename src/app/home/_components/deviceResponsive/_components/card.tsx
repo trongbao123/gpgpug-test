@@ -1,5 +1,6 @@
 import StateComponent from "@component/components/state";
-import { logo, provider } from "@component/constants";
+import { logo, provider } from "@component/constants/constant";
+
 import Image from "next/image";
 
 const Card = () => {
@@ -12,7 +13,13 @@ const Card = () => {
                             <h1>Device Name</h1>
                             <p>{item.name}</p>
                         </div>
-                        <Image style={{ cursor: "pointer" }} src="/images/action.svg" width={24} height={24} alt="menu" />
+                        <Image
+                            style={{ cursor: "pointer" }}
+                            src="/images/action.svg"
+                            width={24}
+                            height={24}
+                            alt="menu"
+                        />
                     </div>
                     <div className="card-body">
                         <div className="card-body-item">
@@ -30,7 +37,10 @@ const Card = () => {
                         </div>
                         <div className="card-body-uptime">
                             <h1>Uptime:</h1>
-                            <p>{item.uptime}</p>
+                            <div className="card-body-uptime-content">
+                                <p>{item.date}</p>D<p>{item.hour}</p>Hrs
+                                <p>{item.min}</p>Mins
+                            </div>
                         </div>
                         <div className="card-body-line">
                             <div className="chip-container">

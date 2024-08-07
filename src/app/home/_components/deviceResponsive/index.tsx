@@ -1,7 +1,5 @@
 import Image from "next/image";
 import "./index.scss";
-import { provider } from "@component/constants";
-import StateComponent from "@component/components/state";
 import Card from "./_components/card";
 const DeviceResponsive = () => {
     return (
