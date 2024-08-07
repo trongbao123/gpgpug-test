@@ -1,5 +1,5 @@
 import Image from "next/image";
-import './index.scss';
+import "./index.scss";
 
 type Props = {
     state: string;
@@ -8,12 +8,12 @@ type Props = {
 };
 
 const stateImages: any = {
-    Online: '/images/online.svg',
-    Inactive: '/images/Inactive.svg',
-    Deleted: '/images/default.svg',
-    Paused: '/images/default.svg',
-    Blocked: '/images/blocked.svg',
-    Offline: '/images/default.svg',
+    Online: "/images/online.svg",
+    Inactive: "/images/Inactive.svg",
+    Deleted: "/images/default.svg",
+    Paused: "/images/default.svg",
+    Blocked: "/images/blocked.svg",
+    Offline: "/images/default.svg",
 };
 
 const StateComponent: React.FC<Props> = ({ state, className }) => {
@@ -21,11 +21,10 @@ const StateComponent: React.FC<Props> = ({ state, className }) => {
 
     let stateClass = `state ${state.toLowerCase()}`;
 
-    if (['Deleted', 'Paused', 'Offline'].includes(state)) stateClass = 'state paused';
-
+    if (["Deleted", "Paused", "Offline"].includes(state)) stateClass = "state paused";
 
     return (
-        <div className={`${stateClass} ${className || ''}`}>
+        <div className={`${stateClass} ${className || ""}`}>
             <Image src={stateImg} alt={state} width={12} height={12} />
             {state}
         </div>
