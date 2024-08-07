@@ -1,10 +1,9 @@
 "use client";
 import Image from "next/image";
-import "../index.scss";
 import { useRouter } from "next/navigation";
+import "../index.scss";
 
 import Link from "next/link";
-import { Google } from "@/constants/Icon";
 
 type Props = {
     children?: React.ReactNode;

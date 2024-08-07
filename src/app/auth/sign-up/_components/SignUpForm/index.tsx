@@ -1,16 +1,17 @@
 "use client";
 import { Envelope, Google } from "@component/constants/Icon";
-import { useRouter } from "next/navigation";
 import Button from "../Button";
 import Icon from "../Icon";
 import Text from "../Text";
 import "./index.scss";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 
-const EmailSignUp: React.FC = () => {
+const Page: React.FC = () => {
     const router = useRouter();
     return (
-        <>
+        <div className="signup-form">
+            <Icon src="/images/logo_no-slogan.svg" alt="icon" height={24} width={24} />
+
             <h1>Sign up</h1>
 
             <Text className="terms-text">
@@ -35,8 +36,12 @@ const EmailSignUp: React.FC = () => {
                     }}
                 />
             </div>
-        </>
+
+            <Text className="signin-text">
+                Do you already have an account? <a href="/auth/sign-in">Sign in</a>
+            </Text>
+        </div>
     );
 };
 
-export default EmailSignUp;
+export default Page;
