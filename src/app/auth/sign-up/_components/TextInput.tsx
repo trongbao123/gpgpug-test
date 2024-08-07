@@ -22,7 +22,6 @@ const TextInput: React.FC<TextInputProps> = ({
     onButtonClick,
     register,
 }) => {
-    console.log(name, register);
     return (
         <div className="text-input">
             <label>{label}</label>
