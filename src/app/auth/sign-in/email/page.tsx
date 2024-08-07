@@ -1,3 +1,4 @@
+import TextInput from "../../sign-up/_components/TextInput";
 import SigninContainer from "../_components/siginContainer";
 
 const Email = () => {
@@ -5,13 +6,16 @@ const Email = () => {
         <SigninContainer>
             <div className="signin-email">
                 <div className="signin-email-content">
-                    <p>Email address</p>
-                    <input type="email" placeholder="Email address" />
+                    <TextInput name="email" label="Email address" type="email" placeholder="Email address" />
+                    {/* <p>Email address</p>
+                    <input type="email" /> */}
                 </div>
                 <div className="signin-email-content">
-                    <p>Password</p>
-                    <input type="password" placeholder="Enter password" />
+                    <TextInput name="password" label="Password" type="password" placeholder="Enter Password" />
+                    {/* <p>Email address</p>
+                    <input type="email" /> */}
                 </div>
+
                 <div className="signin-email-content">
                     <button>Sign in</button>
                 </div>

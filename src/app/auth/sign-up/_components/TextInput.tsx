@@ -10,6 +10,7 @@ interface TextInputProps {
     buttonText?: string;
     onButtonClick?: (e: any) => void;
     register?: any;
+    placeholder?: string;
 }
 
 const TextInput: React.FC<TextInputProps> = ({
@@ -21,15 +22,23 @@ const TextInput: React.FC<TextInputProps> = ({
     buttonText,
     onButtonClick,
     register,
+    placeholder = "",
 }) => {
     return (
         <div className="text-input">
             <label>{label}</label>
             <div className="input-wrapper">
                 {register ? (
-                    <input type={type} value={value} onChange={onChange} {...register(name)} formNoValidate />
+                    <input
+                        type={type}
+                        value={value}
+                        onChange={onChange}
+                        {...register(name)}
+                        formNoValidate
+                        placeholder={placeholder}
+                    />
                 ) : (
-                    <input type={type} value={value} onChange={onChange} formNoValidate />
+                    <input type={type} value={value} onChange={onChange} formNoValidate placeholder={placeholder} />
                 )}
                 {buttonText && <button onClick={onButtonClick}>{buttonText}</button>}
             </div>
