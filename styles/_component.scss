@@ -2,6 +2,13 @@
 @import "../src/components/footer/index.scss";
 @import "../src/components/header/index.scss";
 
+// auth
+@import "../src/app/auth/sign-up/index.scss";
+@import "../src/app/auth/sign-up/_components/SignUpForm/index.scss";
+@import "../src/app/auth/sign-up/_components/EmailSignUpForm/index.scss";
+
+@import "../src/app/auth/sign-in/index.scss";
+
 // main page
 @import "../src/app/page.scss";
 
