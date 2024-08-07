@@ -1,5 +1,5 @@
 import StateComponent from "@component/components/state";
-import { logo } from "@component/constants";
+import { logo } from "@/constants/constant";
 import Image from "next/image";
 
 const RewardHistory = () => {

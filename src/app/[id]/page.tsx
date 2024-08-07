@@ -1,7 +1,7 @@
 
 import HeaderMain from "../home/_components/header-main/page";
 import Image from "next/image";
-import { logo, provider } from "@component/constants";
+import { logo, provider } from "@/constants/constant";
 import StateComponent from "@component/components/state";
 import HireStatus from "./_components/hire-status";
 import Reward from "./_components/reward-chart";

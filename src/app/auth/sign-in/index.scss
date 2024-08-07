@@ -1,9 +1,9 @@
 .container-signin {
     min-height: 100vh;
-    background-image: url("https://s3-alpha-sig.figma.com/img/4e99/ef60/8f3c4bf6c95b0c82073deeb2ff69d32f?Expires=1724025600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=TaS6~w0MH43FtuBvmYDBgPTdhvy-jYviDqruOfkGBMArkyI3q~ugumiPwe1U62NxZ~tdLqVm8S-m--h8ousZYJtSLHu-kPz7o~laeXuvBKLUlGjSr33vA~ZtxhlV0J86BQieSWTvMZIy9lHS7wHEQ0hpmM675Qsnmzsz0ob-G~2vskNs85ykgPTlBvKAjmUtvqQh4bB17zseoHx0eAiHUcMzj5LHBZHO6V7R2BPuILOnSiq3mFkklvlrCGp0hpOhPEILGvnXdZN2sxfNPdruozYVLCG5tMXpYbjb3v6aAZ77BJevvi-SrsNdMHm6h4rWqvhBvZ~wzdP8l5VOwpTKFQ__");
+    background-image: url("/images/bg_squad.png");
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;
+    background-position: bottom;
     width: 100%;
     height: auto;
     padding-top: 64px;
@@ -16,7 +16,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background-image: linear-gradient(156deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 1) 100%);
+        background-image: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.8) 71%, rgba(0, 0, 0, 0.6) 100%);
         z-index: 1;
     }
     .content {
@@ -73,6 +73,11 @@
                 font-size: 14px;
                 font-weight: 400;
                 color: rgba(142, 145, 153, 1);
+            }
+            &-option {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
             }
             &-google {
                 display: flex;
