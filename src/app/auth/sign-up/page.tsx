@@ -4,6 +4,7 @@ import EmailSignUpForm from "./_components/EmailSignUpForm";
 import SignUpForm from "./_components/SignUpForm";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Suspense } from "react";
+import FormLayout from "./_components/FormLayout";
 type Props = {};
 
 const Page = () => {
@@ -18,7 +19,7 @@ const Page = () => {
                     <IconLeft /> Return to GPGPU
                 </div>
 
-                {isEmail ? <EmailSignUpForm /> : <SignUpForm />}
+                <FormLayout>{isEmail ? <EmailSignUpForm /> : <SignUpForm />}</FormLayout>
             </div>
         </Suspense>
     );

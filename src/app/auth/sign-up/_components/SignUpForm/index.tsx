@@ -9,9 +9,7 @@ import { useRouter } from "next/navigation";
 const Page: React.FC = () => {
     const router = useRouter();
     return (
-        <div className="signup-form">
-            <Icon src="/images/logo_no-slogan.svg" alt="icon" height={24} width={24} />
-
+        <>
             <h1>Sign up</h1>
 
             <Text className="terms-text">
@@ -40,7 +38,7 @@ const Page: React.FC = () => {
             <Text className="signin-text">
                 Do you already have an account? <a href="/auth/sign-in">Sign in</a>
             </Text>
-        </div>
+        </>
     );
 };
 
