@@ -34,10 +34,6 @@ const Page: React.FC = () => {
                     }}
                 />
             </div>
-
-            <Text className="signin-text">
-                Do you already have an account? <a href="/auth/sign-in">Sign in</a>
-            </Text>
         </>
     );
 };
