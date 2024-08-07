@@ -1,10 +1,9 @@
 "use client";
 import { IconLeft } from "@component/constants/Icon";
 import { useRouter, useSearchParams } from "next/navigation";
-import { Suspense } from "react";
 import EmailSignUpForm from "./_components/EmailSignUpForm";
-import SignUpForm from "./_components/SignUpForm";
 import FormLayout from "./_components/FormLayout";
+import SignUpForm from "./_components/SignUpForm";
 
 type Props = {};
 
