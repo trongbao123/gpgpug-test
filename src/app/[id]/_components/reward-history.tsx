@@ -1,6 +1,8 @@
 import StateComponent from "@component/components/state";
 import { logo } from "@/constants/constant";
 import Image from "next/image";
+import DeviceResponsive from "@component/app/home/_components/deviceResponsive";
+import ResponsiveTable from "./responsiveTable";
 
 const RewardHistory = () => {
     return (
@@ -39,6 +41,8 @@ const RewardHistory = () => {
                     </tr>
                 </tbody>
             </table>
+
+            <ResponsiveTable />
         </div>
     );
 };

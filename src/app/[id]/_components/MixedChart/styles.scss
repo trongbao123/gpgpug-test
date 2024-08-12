@@ -1,14 +1,17 @@
+@import "../../../../../styles/index.scss";
 .chart-container {
     border-radius: 12px;
     border: 1px solid rgba(50, 50, 51, 1);
-
+    display: block;
     .chart-header {
         display: flex;
         align-items: center;
         justify-content: space-between;
         border-bottom: 1px solid rgba(50, 50, 51, 1);
         padding: 20px;
-
+        &-title {
+            color: #fff;
+        }
         .chart-header-labels {
             display: flex;
             gap: 8px;
@@ -22,7 +25,9 @@
                 flex-direction: row;
                 align-items: center;
                 gap: 4px;
-
+                span {
+                    color: #fff;
+                }
                 .hire-icon {
                     width: 12px;
                     height: 12px;
@@ -34,10 +39,34 @@
                 .reward-icon {
                     width: 12px;
                     height: 12px;
-                    background: linear-gradient(180deg, #C4C9CE 0%, #272829 100%);
+                    background: linear-gradient(180deg, #c4c9ce 0%, #272829 100%);
                     border-radius: 2px;
                 }
             }
         }
+    }
+}
+
+@include respond-beetwen(xs) {
+    .chart-container {
+        display: none;
+    }
+}
+
+@include respond-beetwen(sm) {
+    .chart-container {
+        display: none;
+    }
+}
+
+@include respond-beetwen(md) {
+    .chart-container {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1280px) {
+    .chart-container {
+        display: none;
     }
 }
