@@ -18,13 +18,7 @@ const Page: React.FC = () => {
             </Text>
 
             <div className="form-button">
-                <Button
-                    icon={<Google />}
-                    text="Google Sign up"
-                    onClick={() => {
-                        /* Handle Google sign up */
-                    }}
-                />
+                {/* <Button icon={<Google />} text="Google Sign up" onClick={() => {}} /> */}
                 <Button
                     icon={<Envelope />}
                     text="Email Sign up"
