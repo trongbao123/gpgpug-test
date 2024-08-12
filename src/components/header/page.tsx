@@ -56,7 +56,7 @@ const Header = () => {
                     </div>
 
                     <div className="header-right">
-                        <div className="add-new-deivce">
+                        <div className="add-new-deivce" onClick={() => router.push("/connect")}>
                             <p>Connect New Device</p>
                             <Image width={16} height={16} src={"/images/icon_plus.svg"} alt="search" />
                         </div>
