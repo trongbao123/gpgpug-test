@@ -118,3 +118,65 @@ export const logo = {
     ["M2 Pro"]: "/images/apple.svg",
     ["GeForce RTX 3050 Ti Laptop"]: "/images/device.svg",
 };
+
+export const steps = [
+    {
+        id: 1,
+        title: 1,
+        content: [
+            {
+                id: 1,
+                img: "/images/window.svg",
+                title: "Windows",
+                link: "",
+            },
+            {
+                id: 2,
+                img: "/images/apple.svg",
+                title: "Mac",
+                link: "",
+            },
+            {
+                id: 3,
+                img: "/images/untubu.svg",
+                title: "Untubu",
+                link: "",
+            },
+        ],
+        subTitle: "Os Select",
+        subContent: "Download WNC installer for your operating system",
+    },
+    {
+        id: 2,
+        title: 2,
+        content: [
+            {
+                id: 1,
+                img: "/images/dowload.svg",
+                title: "Download Docker",
+                link: "https://www.docker.com/products/docker-desktop/",
+            },
+            {
+                id: 2,
+                img: "/images/dowload.svg",
+                title: "Install and run WNC through the downloaded installer",
+                link: "https://provider.gpgpu.ai/download/window-msi",
+            },
+            {
+                id: 3,
+                img: "/images/dowload.svg",
+                title: "Copy the connection code to WNC",
+                link: "https://www.docker.com/products/docker-desktop/",
+            },
+        ],
+        subTitle: "Set Up",
+        subContent: "Follow the instructions below to set up a cennection via the WNC",
+    },
+    {
+        id: 3,
+        title: 3,
+        content: [],
+        subTitle: "Connection",
+        subContent: "Check and confirm specifications of your connected device",
+    },
+];
