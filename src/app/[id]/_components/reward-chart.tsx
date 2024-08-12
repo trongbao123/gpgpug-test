@@ -1,5 +1,3 @@
-
-
 import MixedChart from "./MixedChart";
 import InfoBox from "./InfoBox";
 import Reboot from "./re-boot";
@@ -20,7 +18,7 @@ const Reward = () => {
                 <ServiceInfoBox />
                 <InfoBox title="Hire Fee" value="942,003" icon="/images/token.png" />
             </div>
-            
+
             <Reboot />
             <RewardHistory />
         </div>

@@ -1,4 +1,3 @@
-
 import HeaderMain from "../home/_components/header-main/page";
 import Image from "next/image";
 import { logo, provider } from "@/constants/constant";
@@ -14,7 +13,7 @@ export async function generateStaticParams() {
 }
 const PageDetail = ({ params }: { params: { id: string } }) => {
     const itemDetail: any = provider.find((item: any) => item.key === params.id);
-   
+
     return (
         <div className="detail-container">
             <div className="overlay" />
@@ -22,7 +21,7 @@ const PageDetail = ({ params }: { params: { id: string } }) => {
                 <HeaderMain />
                 <div className="container">
                     <div className="nav">
-                       <NavBack />
+                        <NavBack />
                         <div className="nav-title">
                             <p>{itemDetail?.name}</p>
                             <div className="nav-title-icon">

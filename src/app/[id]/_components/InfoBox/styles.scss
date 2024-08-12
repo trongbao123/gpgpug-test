@@ -1,5 +1,5 @@
+@import "../../../../../styles/index.scss";
 .info-box {
-
     padding: 20px;
     border-radius: 8px;
     color: #c4c9ce;
@@ -22,7 +22,8 @@
     margin-bottom: 8px;
 }
 
-.info-content {}
+.info-content {
+}
 
 .info-value {
     font-size: 32px;
@@ -34,4 +35,32 @@
 .info-icon {
     width: 24px;
     height: 24px;
+}
+
+@include respond-beetwen(xs) {
+    .info-box {
+        max-width: 100%;
+        margin: 0;
+    }
+}
+
+@include respond-beetwen(sm) {
+    .info-box {
+        max-width: 100%;
+        margin: 0;
+    }
+}
+
+@include respond-beetwen(md) {
+    .info-box {
+        max-width: 100%;
+        margin: 0;
+    }
+}
+
+@include respond-beetwen(lg) {
+    .info-box {
+        max-width: 100%;
+        margin: 0;
+    }
 }

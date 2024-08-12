@@ -13,7 +13,9 @@ const HireStatus: React.FC<Props> = ({ state }) => {
                     <p>321,466</p>
                 </div>
                 <div className="left-hire">Hire Status</div>
-                <Image src={"/images/word.svg"} alt="word" width={272} height={180} />
+                <div className="img-word">
+                    <Image src={"/images/word.svg"} alt="word" width={272} height={180} />
+                </div>
                 <div className="left-status">
                     <div className="left-status-item hire">Hire</div>
                     <div className="left-status-item ready">Ready</div>
