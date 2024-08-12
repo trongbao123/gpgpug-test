@@ -1,17 +1,17 @@
-
-import React from 'react'
-import Image from 'next/image';
+"use client";
+import React from "react";
+import Image from "next/image";
+import { usePathname } from "next/navigation";
 const Footer = () => {
+    const path = usePathname();
     return (
-        <footer>
+        <footer className={`${path === "/auth/sign-up" || path === "/auth/sign-in" ? "footer-hidden" : ""}`}>
             <div className="container">
                 <div className="footer">
                     <div className="footer-icon">
                         <Image width={23} height={22} src={"/images/icon-footer.svg"} alt="footer" />
                     </div>
-                    <div className="footer-text">
-                        © Copyright by gpgpu.ai, inc.
-                    </div>
+                    <div className="footer-text">© Copyright by gpgpu.ai, inc.</div>
                     <div className="footer-right">
                         <div className="footer-right-send">
                             <Image width={20} height={20} src={"/images/footer-sent.svg"} alt="footer-sent-icon" />
@@ -23,7 +23,7 @@ const Footer = () => {
                 </div>
             </div>
         </footer>
-    )
-}
+    );
+};
 
-export default Footer
+export default Footer;
