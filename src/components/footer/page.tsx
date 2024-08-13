@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 const Footer = () => {
     const path = usePathname();
     return (
-        <footer className={`${path === "/auth/sign-up" || path === "/auth/sign-in" ? "footer-hidden" : ""}`}>
+        <footer>
             <div className="container">
                 <div className="footer">
                     <div className="footer-icon">
