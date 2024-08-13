@@ -8,14 +8,19 @@ import { steps } from "@component/constants/constant";
 import Step1 from "./_components/step1";
 import Step2 from "./_components/step2";
 import Step3 from "./_components/step3";
+
 const Connect = () => {
     const [active, setActive] = useState(0);
     const [deviceName, setDeviceName] = useState("");
     const [congratulation, setCongratulation] = useState("");
     const [isFinish, setIsFinish] = useState(false);
     const [checked, setChecked] = useState(false);
+    const [activeItem, setActiveItem] = useState<null | number>(null);
 
-    const handleChecked = (e: React.ChangeEvent<HTMLInputElement>) => setChecked(e.target.checked);
+    const handleChecked = (e: number) => {
+        setChecked(true);
+        setActiveItem(e);
+    };
     const handleDeviceName = (e: React.ChangeEvent<HTMLInputElement>) => {
         setDeviceName(e.target.value);
         setIsFinish(true);
@@ -64,7 +69,9 @@ const Connect = () => {
                         isFinish={isFinish}
                         checked={checked}
                     >
-                        {active === 0 && <Step1 checked={checked} handleChecked={handleChecked} active={active} />}
+                        {active === 0 && (
+                            <Step1 activeItem={activeItem} handleChecked={handleChecked} active={active} />
+                        )}
                         {active === 1 && <Step2 active={active} />}
                         {active === 2 && (
                             <Step3

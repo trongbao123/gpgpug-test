@@ -3,22 +3,27 @@ import Image from "next/image";
 import "./index.scss";
 type Props = {
     active: number;
-    checked?: boolean;
-    handleChecked: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    handleChecked: (e: number) => void;
+    activeItem: number | null;
 };
-const Step1: React.FC<Props> = ({ active, checked, handleChecked }) => {
+const Step1: React.FC<Props> = ({ active, activeItem, handleChecked }) => {
     return (
         <div className="right">
-            {steps[active]?.content?.map((item) => {
+            {steps[active]?.content?.map((item, index) => {
                 return (
-                    <div key={item.id} className="right-item">
+                    <div
+                        onClick={() => handleChecked(index)}
+                        key={item.id}
+                        style={{ cursor: "pointer" }}
+                        className="right-item"
+                    >
                         <div className="logo-item">
                             <Image src={item?.img} alt="logo" width={32} height={32} />
                             <p> {item?.title}</p>
                         </div>
                         <input
-                            onChange={handleChecked}
-                            checked={checked}
+                            onChange={() => handleChecked(index)}
+                            checked={activeItem === index}
                             type="radio"
                             name="myRadio"
                             className="radio-input"
