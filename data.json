@@ -1,0 +1,826 @@
+{
+    "info": {
+        "_postman_id": "661902d3-2f0d-43e1-ae79-2f48230f8a47",
+        "name": "지피지피유 엔지니어",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "_exporter_id": "16549659",
+        "_collection_link": "https://lively-capsule-238249.postman.co/workspace/aaa~380be51c-b47f-48da-884f-2408c6600467/collection/16549659-661902d3-2f0d-43e1-ae79-2f48230f8a47?action=share&source=collection_link&creator=16549659"
+    },
+    "item": [
+        {
+            "name": "engineer",
+            "item": [
+                {
+                    "name": "engineer signup",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Serverkit_instance_id",
+                                "value": "{{Serverkit_instance_id}}",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"email\":\"fireking5994@gmail.com\",\n    \"password\":\"fireking5994@gmail.com\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{enduserGatewayDomain}}/engineer/signup",
+                            "host": ["{{enduserGatewayDomain}}"],
+                            "path": ["engineer", "signup"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "engineer password",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Serverkit_instance_id",
+                                "value": "{{Serverkit_instance_id}}",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"email\":\"fireking5997@gmail.com\",\n    \"password\":\"fireking5996@gmail.com\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{enduserGatewayDomain}}/engineer/password",
+                            "host": ["{{enduserGatewayDomain}}"],
+                            "path": ["engineer", "password"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "engineer login",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Serverkit_instance_id",
+                                "value": "{{Serverkit_instance_id}}",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"email\":\"fireking5994@gmail.com\",\n    \"password\":\"fireking5994@gmail.com\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{enduserGatewayDomain}}/engineer/login",
+                            "host": ["{{enduserGatewayDomain}}"],
+                            "path": ["engineer", "login"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "engineer signout",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Serverkit_instance_id",
+                                "value": "{{Serverkit_instance_id}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Userkit_token",
+                                "value": "{{engineerToken}}",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{enduserGatewayDomain}}/engineer/signuot",
+                            "host": ["{{enduserGatewayDomain}}"],
+                            "path": ["engineer", "signuot"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "user-group",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test(`set systemManagerId}`,function(){",
+                                    "    pm.response.to.have.status(200);",
+                                    "",
+                                    "    const body = pm.response.json();",
+                                    "",
+                                    "    const foodManagerGroupId = body.data.find(item=>item.name.includes(\"foodManager(4)\"))._id;",
+                                    "    pm.environment.set('foodManagerGroupId',foodManagerGroupId);",
+                                    "    ",
+                                    "    const systemManagerGroupId = body.data.find(item=>item.name.includes(\"systemManager(4)\"))._id;",
+                                    "",
+                                    "    pm.environment.set('systemManagerGroupId',systemManagerGroupId);",
+                                    "})",
+                                    ""
+                                ],
+                                "type": "text/javascript",
+                                "packages": {}
+                            }
+                        }
+                    ],
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "serverkit_instance_id",
+                                "value": "{{Serverkit_instance_id}}"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{userkitDomain}}/user-group",
+                            "host": ["{{userkitDomain}}"],
+                            "path": ["user-group"]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "project",
+            "item": [
+                {
+                    "name": "create project",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Serverkit_instance_id",
+                                "value": "{{Serverkit_instance_id}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Userkit_token",
+                                "value": "{{engineerToken}}",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"name\":\"새로운 프로젝트\",\n    \"description\":\"새로운 프로젝트 입니다.\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{enduserGatewayDomain}}/engineer/project",
+                            "host": ["{{enduserGatewayDomain}}"],
+                            "path": ["engineer", "project"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "update project",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Serverkit_instance_id",
+                                "value": "{{Serverkit_instance_id}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Userkit_token",
+                                "value": "{{engineerToken}}",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"name\":\"새로운 프로젝트21\",\n    \"description\":\"새로운 프로젝트 입니다2.\",\n    \"projectId\":\"f4baed18-50fa-4a8e-b58a-d69ec6387470\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{enduserGatewayDomain}}/engineer/project",
+                            "host": ["{{enduserGatewayDomain}}"],
+                            "path": ["engineer", "project"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "search project",
+                    "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                    },
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Serverkit_instance_id",
+                                "value": "{{Serverkit_instance_id}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Userkit_token",
+                                "value": "{{engineerToken}}",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{enduserGatewayDomain}}/engineer/project?page=1&projectId=a8722215-69bd-4ecf-abe0-3dd4984d2041&length=10&name=1",
+                            "host": ["{{enduserGatewayDomain}}"],
+                            "path": ["engineer", "project"],
+                            "query": [
+                                {
+                                    "key": "page",
+                                    "value": "1"
+                                },
+                                {
+                                    "key": "projectId",
+                                    "value": "a8722215-69bd-4ecf-abe0-3dd4984d2041"
+                                },
+                                {
+                                    "key": "length",
+                                    "value": "10"
+                                },
+                                {
+                                    "key": "name",
+                                    "value": "1"
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "delete project",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Serverkit_instance_id",
+                                "value": "{{Serverkit_instance_id}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Userkit_token",
+                                "value": "{{engineerToken}}",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"projectId\":\"45a7bae6-8499-4f7c-beca-44ba53353e56\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{enduserGatewayDomain}}/engineer/project",
+                            "host": ["{{enduserGatewayDomain}}"],
+                            "path": ["engineer", "project"]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "event",
+            "item": [
+                {
+                    "name": "create event",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Serverkit_instance_id",
+                                "value": "{{Serverkit_instance_id}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Userkit_token",
+                                "value": "{{engineerToken}}",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"projectId\":\"45a7bae6-8499-4f7c-beca-44ba53353e56\",\n    \"title\":\"title\",\n    \"message\":\"message\",\n    \"level\":\"high\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{enduserGatewayDomain}}/engineer/event",
+                            "host": ["{{enduserGatewayDomain}}"],
+                            "path": ["engineer", "event"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "search event",
+                    "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                    },
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Serverkit_instance_id",
+                                "value": "{{Serverkit_instance_id}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Userkit_token",
+                                "value": "{{engineerToken}}",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{enduserGatewayDomain}}/engineer/event?page=1&projectId=45a7bae6-8499-4f7c-beca-44ba53353e56&length=10",
+                            "host": ["{{enduserGatewayDomain}}"],
+                            "path": ["engineer", "event"],
+                            "query": [
+                                {
+                                    "key": "page",
+                                    "value": "1"
+                                },
+                                {
+                                    "key": "projectId",
+                                    "value": "45a7bae6-8499-4f7c-beca-44ba53353e56"
+                                },
+                                {
+                                    "key": "length",
+                                    "value": "10"
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "work",
+            "item": [
+                {
+                    "name": "create work",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Serverkit_instance_id",
+                                "value": "{{Serverkit_instance_id}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Userkit_token",
+                                "value": "{{engineerToken}}",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"projectId\":\"45a7bae6-8499-4f7c-beca-44ba53353e56\",\n    \"name\":\"새로운 워크2\",\n    \"description\":\"새로운 워크 설명\",\n    \"learningDataIds\":[\"id1\",\"id2\"],\n    \"resources\":[\n        {\n            \"id\":\"resource2\",\n            \"unit\":\"H\",\n            \"amount\":30\n\n        }\n    ]\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{enduserGatewayDomain}}/engineer/work",
+                            "host": ["{{enduserGatewayDomain}}"],
+                            "path": ["engineer", "work"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "update work",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Serverkit_instance_id",
+                                "value": "{{Serverkit_instance_id}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Userkit_token",
+                                "value": "{{engineerToken}}",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"id\":\"06d46581-c0aa-4879-a230-50c3756ecb89\",\n    \"name\":\"새로운 워크1zz\",\n    \"description\":\"새로운 워크 설명\",\n    \"execFileId\":\"\",\n    \"resources\":[\n        {\n            \"id\":\"resource1\",\n            \"unit\":\"H\",\n            \"amount\":30\n        }\n    ]\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{enduserGatewayDomain}}/engineer/work",
+                            "host": ["{{enduserGatewayDomain}}"],
+                            "path": ["engineer", "work"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "upload work",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Serverkit_instance_id",
+                                "value": "{{Serverkit_instance_id}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Userkit_token",
+                                "value": "{{engineerToken}}",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"id\":\"06d46581-c0aa-4879-a230-50c3756ecb89\",\n    \"execFileId\":\"123\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{enduserGatewayDomain}}/engineer/work/upload",
+                            "host": ["{{enduserGatewayDomain}}"],
+                            "path": ["engineer", "work", "upload"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "status work",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Serverkit_instance_id",
+                                "value": "{{Serverkit_instance_id}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Userkit_token",
+                                "value": "{{engineerToken}}",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"id\":\"06d46581-c0aa-4879-a230-50c3756ecb89\",\n    \"status\":\"123\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{enduserGatewayDomain}}/engineer/work/status",
+                            "host": ["{{enduserGatewayDomain}}"],
+                            "path": ["engineer", "work", "status"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "delete work",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Serverkit_instance_id",
+                                "value": "{{Serverkit_instance_id}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Userkit_token",
+                                "value": "{{engineerToken}}",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"id\":\"06d46581-c0aa-4879-a230-50c3756ecb89\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{enduserGatewayDomain}}/engineer/work",
+                            "host": ["{{enduserGatewayDomain}}"],
+                            "path": ["engineer", "work"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "search work",
+                    "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                    },
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Serverkit_instance_id",
+                                "value": "{{Serverkit_instance_id}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Userkit_token",
+                                "value": "{{engineerToken}}",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{enduserGatewayDomain}}/engineer/work",
+                            "host": ["{{enduserGatewayDomain}}"],
+                            "path": ["engineer", "work"],
+                            "query": [
+                                {
+                                    "key": "page",
+                                    "value": "1",
+                                    "disabled": true
+                                },
+                                {
+                                    "key": "length",
+                                    "value": "10",
+                                    "disabled": true
+                                },
+                                {
+                                    "key": "projectId",
+                                    "value": "c060360e-f5c2-464c-8888-fb7a2923cb7f",
+                                    "disabled": true
+                                },
+                                {
+                                    "key": "status",
+                                    "value": "working",
+                                    "disabled": true
+                                },
+                                {
+                                    "key": "startDate",
+                                    "value": "2024-07-18T20:22:25.812Z",
+                                    "disabled": true
+                                },
+                                {
+                                    "key": "endDate",
+                                    "value": "2024-07-24T20:22:25.812Z",
+                                    "disabled": true
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "main",
+            "item": [
+                {
+                    "name": "login",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "serverkit_instance_id",
+                                "value": "{{Serverkit_instance_id}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Userkit_token",
+                                "value": "{{engineerToken}}",
+                                "type": "text",
+                                "disabled": true
+                            },
+                            {
+                                "key": "serverkit_project_id",
+                                "value": "{{serverkit_project_id}}",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"email\":\"fireking5997@gmail.com\",\n    \"password\":\"1q2w3e4r1!\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{enduserGatewayDomain}}/user/login",
+                            "host": ["{{enduserGatewayDomain}}"],
+                            "path": ["user", "login"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "signup send email verification code",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "serverkit_instance_id",
+                                "value": "{{Serverkit_instance_id}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Userkit_token",
+                                "value": "{{engineerToken}}",
+                                "type": "text",
+                                "disabled": true
+                            },
+                            {
+                                "key": "serverkit_project_id",
+                                "value": "{{serverkit_project_id}}",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"email\":\"fireking5997@gmail.com\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{enduserGatewayDomain}}/user/signup/send-verification-code",
+                            "host": ["{{enduserGatewayDomain}}"],
+                            "path": ["user", "signup", "send-verification-code"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "signup",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "serverkit_instance_id",
+                                "value": "{{Serverkit_instance_id}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Userkit_token",
+                                "value": "{{engineerToken}}",
+                                "type": "text",
+                                "disabled": true
+                            },
+                            {
+                                "key": "serverkit_project_id",
+                                "value": "{{serverkit_project_id}}",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"email\":\"fireking5997@gmail.com\",\n    \"password\":\"1q2w3e4r1!\",\n    \"verificationCode\":\"SjQiNwWA\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{enduserGatewayDomain}}/user/signup",
+                            "host": ["{{enduserGatewayDomain}}"],
+                            "path": ["user", "signup"]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "exec": [""]
+            }
+        },
+        {
+            "listen": "test",
+            "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "exec": [""]
+            }
+        }
+    ],
+    "variable": [
+        {
+            "key": "Serverkit_instance_id",
+            "value": "6698cf0bf37f857fefb073d7",
+            "type": "string"
+        },
+        {
+            "key": "userkitDomain",
+            "value": "https://userkit.server-kit.com",
+            "type": "string"
+        },
+        {
+            "key": "enduserGatewayDomain",
+            "value": "https://api.server-kit.com",
+            "type": "string"
+        },
+        {
+            "key": "engineerToken",
+            "value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Imd0WmVDTi1xUDNCWkNzaGMiLCJwZXJtaXNzaW9ucyI6WyI2Njk4Y2YwYmYzN2Y4NTdmZWZiMDczZDdfNjY5OGQ4OTJkOWQxOTBiZmI2ZTExMzEwIl0sInVzZXJHcm91cElkIjoiNjY5OGNmMGJmMzdmODU3ZmVmYjA3M2Q3XzY2OThkODkyZDlkMTkwYmZiNmUxMTMwZiIsImlhdCI6MTcyMTI5ODczOH0.Q6i2moSYRt9FOy-7LOK_h-8vm4n92_p7sOBm9J2D_MQX8hgMUduGaY3XKv2ynv984XH2-sF_w6LaX1JbqnmAVZaAMiDPQRHrwuIij2JQCqreuuceEKyPhIlwjSnXlECoexYZgxyyvwB8HPXrqlKvhPP4pQt2OI-XtW3tg8XGlxq86y4I9uadsNjF5W9wFWmWHPhNf5aY2vCVo1KD7YbGFZvt6bi-MBM9hlFfFCAr0qIcbCLeTyqDp8cPNf9Dt2ErGbNys6EIdaC0Wu1AFK1qgpwg_dTYRyxTEQI9EC8jb7pXExunCtvsSeq2fSOjyVeozi_8tQz_CI1dHjmyxb9kBg",
+            "type": "string"
+        },
+        {
+            "key": "serverkit_project_id",
+            "value": "6698cf0b58103f80928bab76",
+            "type": "string"
+        }
+    ]
+}
