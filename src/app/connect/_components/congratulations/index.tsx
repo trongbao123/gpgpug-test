@@ -1,12 +1,16 @@
 import Image from "next/image";
 import "./index.scss";
-const Congratulations = () => {
+
+type Props = {
+    name: string;
+};
+const Congratulations: React.FC<Props> = ({ name }) => {
     return (
         <div className="congratulations">
             <div className="congratulations-header">Congratulations</div>
             <div className="congratulations-title">The device has been successfully connected!</div>
             <div className="congratulations-body">
-                <p>Onlyone-mac</p>
+                <p>{name}</p>
                 <div className="congratulations-body-item-icon">
                     <Image src={"/images/device.svg"} alt="logo" width={20} height={20} />
                     RTX 4000 SFF Ada Generation

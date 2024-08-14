@@ -17,6 +17,8 @@ const ConnectMain: React.FC<Props> = ({
     handleNextStep,
     handleFinish,
     deviceName,
+    congratulation,
+    handleBackDashboard,
 }) => {
     return (
         <div className="connect-main">
@@ -52,13 +54,17 @@ const ConnectMain: React.FC<Props> = ({
                     >
                         Next Step
                     </button>
-                ) : (
+                ) : !congratulation ? (
                     <button
                         disabled={deviceName ? false : true}
                         className={`next-step ${deviceName ? "device-connect" : "disabled"}`}
                         onClick={handleFinish}
                     >
                         Connect {isFinish && <Image src={"/images/loading.svg"} alt="check" width={20} height={20} />}
+                    </button>
+                ) : (
+                    <button className={`next-step device-connect`} onClick={handleBackDashboard}>
+                        Done
                     </button>
                 )}
             </div>
