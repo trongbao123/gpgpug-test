@@ -23,7 +23,7 @@ const handleError = (response: any) => {
         return [data, error, statusText, status];
     }
 
-    if (status >= HttpStatus.OK && status < HttpStatus.INTERNAL_SERVER_ERROR) return [data, error, statusText, status];
+    if (status >= HttpStatus.OK && status <= HttpStatus.INTERNAL_SERVER_ERROR) return [data, error, statusText, status];
 
     error = new Error("444");
     error.response = response;

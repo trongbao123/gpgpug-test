@@ -8,6 +8,8 @@ import { steps } from "@component/constants/constant";
 import Step1 from "./_components/step1";
 import Step2 from "./_components/step2";
 import Step3 from "./_components/step3";
+import { connect } from "@component/services/connect";
+import Notification from "@component/components/common/notification";
 
 const Connect = () => {
     const [active, setActive] = useState(0);
@@ -21,18 +23,7 @@ const Connect = () => {
         setChecked(true);
         setActiveItem(e);
     };
-    const handleDeviceName = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setDeviceName(e.target.value);
-        setIsFinish(true);
-    };
-
-    useEffect(() => {
-        const timeoutId = setTimeout(() => {
-            setIsFinish(false);
-        }, 500);
-
-        return () => clearTimeout(timeoutId);
-    }, [deviceName]);
+    const handleDeviceName = (e: React.ChangeEvent<HTMLInputElement>) => setDeviceName(e.target.value);
 
     const handleNextStep = () => {
         setActive((prevStep) => {
@@ -52,7 +43,30 @@ const Connect = () => {
         });
     };
 
-    const handleFinish = () => setCongratulation("congratulation");
+    const handleFinish = async () => {
+        setIsFinish(true);
+        try {
+            const response: any = await connect({
+                data: {
+                    deviceId: "ADjjjt0PZz5TAuqo",
+                    deviceUUID: "GPU-48ddb048-ab35-3504-f9c4-847895e4551a",
+                    deviceType: deviceName,
+                },
+            });
+
+            if (response && response.message === "success") {
+                setCongratulation(response.message);
+            } else throw response;
+        } catch (error: any) {
+            Notification({
+                type: "error",
+                message: error.message,
+                placement: "topRight",
+            });
+        } finally {
+            setIsFinish(false);
+        }
+    };
 
     return (
         <div className="connect">
