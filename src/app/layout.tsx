@@ -6,6 +6,7 @@ import Header from "../components/header/page";
 import Footer from "../components/footer/page";
 import Head from "next/head";
 import { Suspense } from "react";
+import { LoadingProvider } from "@component/contexts/loadingContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,9 +26,11 @@ export default function RootLayout({
                 <link rel="shortcut icon" href="./logo.png" sizes="any" />
             </Head>
             <body className={inter.className}>
-                <Header />
-                <Suspense>{children}</Suspense>
-                <Footer />
+                <LoadingProvider>
+                    <Header />
+                    <Suspense>{children}</Suspense>
+                    <Footer />
+                </LoadingProvider>
             </body>
         </html>
     );

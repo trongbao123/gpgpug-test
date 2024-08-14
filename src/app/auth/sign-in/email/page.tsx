@@ -1,43 +1,69 @@
 "use client";
 
-import { login } from "@component/services/login";
+import { login } from "@component/services/auth";
 import TextInput from "../../sign-up/_components/TextInput";
 import SigninContainer from "../_components/siginContainer";
 import { useForm } from "react-hook-form";
 import { USERKIT_TOKEN } from "@component/constants/setting";
 import { useRouter } from "next/navigation";
-
+import Notification from "@component/components/common/notification";
+import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useLoading } from "@component/contexts/loadingContext";
 type FormData = {
     email: string;
     password: string;
 };
 const Email = () => {
     const router = useRouter();
+    const { setIsLoading } = useLoading();
+
+    const schema = yup
+        .object({
+            email: yup.string().email("Invalid email").required("Email is required"),
+            password: yup.string().required("Password is required"),
+        })
+        .required();
+
     const {
         register,
         handleSubmit,
         watch,
         formState: { errors },
-    } = useForm<FormData>();
+    } = useForm({
+        resolver: yupResolver(schema),
+    });
 
     const handleSignIn = async (data: any) => {
+        setIsLoading(true);
         try {
             const response: any = await login({ data });
             if (response && response.token) {
                 localStorage.setItem(USERKIT_TOKEN, JSON.stringify(response));
-                alert("Login success");
+                Notification({
+                    type: "success",
+                    message: "Sign in successfully!",
+                    placement: "topRight",
+                });
                 router.push("/");
             } else {
                 throw response;
             }
         } catch (error: any) {
-            alert(error?.message);
+            Notification({
+                type: "error",
+                message: error.message || error,
+                placement: "topRight",
+            });
+        } finally {
+            setIsLoading(false);
         }
     };
 
     return (
         <SigninContainer>
             <form onSubmit={handleSubmit(handleSignIn)} className="signin-email">
+                {errors && <p className="error">{errors.email?.message || errors.password?.message}</p>}
                 <div className="signin-email-content">
                     <TextInput
                         name="email"

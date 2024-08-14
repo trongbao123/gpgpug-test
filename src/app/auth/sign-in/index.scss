@@ -124,6 +124,14 @@
                 flex-direction: column;
                 align-items: start !important;
                 gap: 24px;
+                .error {
+                    color: rgba(204, 41, 41, 1);
+                    font-size: 14px;
+                    line-height: 22px;
+                    font-weight: 400;
+                    text-align: center !important;
+                    width: 100%;
+                }
                 &-content {
                     display: flex;
                     flex-direction: column;
