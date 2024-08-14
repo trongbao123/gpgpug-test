@@ -5,16 +5,22 @@ import Navigation from "./_components/navigation";
 import "./index.scss";
 import { stepCreateProject } from "@component/constants/constant";
 import CreateProjectNamePage from "./_components/create-project-name-page";
+import DropzoneUpload from "./_components/drop-zone-upload";
 
 type Props = {};
 
 const Page = (props: Props) => {
     const [active, setActive] = useState<number>(0);
-    const [activeItem, setActiveItem] = useState<null | number>(null);
+    const [activeItem, setActiveItem] = useState<null | number | string>(null);
     const [checked, setChecked] = useState(false);
 
-    const handleChecked = (e: number) => {
-        setChecked(true);
+    const handleChecked = (e: number | string) => {
+        console.log(e)
+        if (e) {
+            setChecked(true);
+        }else{
+            setChecked(false);
+        }
         setActiveItem(e);
     };
 
@@ -26,8 +32,6 @@ const Page = (props: Props) => {
             return prevStep;
         });
     };
-
-    console.log(active)
 
     const handleNextStep = () => {
         setActive((prevStep) => {
@@ -41,6 +45,7 @@ const Page = (props: Props) => {
     const handleFinish = () => {
         console.log("done");
     };
+    console.log(checked);
     return (
         <div className="container">
             <Navigation handlePrevStep={handlePrevStep} active={active} />
@@ -51,6 +56,7 @@ const Page = (props: Props) => {
                 checked={checked}
             >
                 {active === 0 && <CreateProjectNamePage handleChecked={handleChecked} active={active} />}
+                {active === 1 && <DropzoneUpload />}
             </CreateProjectMain>
         </div>
     );

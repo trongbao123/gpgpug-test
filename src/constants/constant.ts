@@ -191,9 +191,8 @@ export const stepCreateProject = [
                 id: 1,
                 img: "/images/device.svg",
                 title: "Device",
-            }
-        
-        ]
+            },
+        ],
     },
     {
         id: 2,
@@ -201,3 +200,82 @@ export const stepCreateProject = [
         subTitle: "Select the device you want to use for your project",
     },
 ];
+
+export interface FileData {
+    id: string;
+    fileName: string;
+    fileSize: number; // in MB
+    uploadedSize: number; // in MB
+    progress: number; // in percentage
+    status: "uploading" | "done" | "error";
+    error?: string;
+}
+
+interface FileCategories {
+    uploadingOrFail: FileData[];
+    uploaded: FileData[];
+}
+
+export const fileData: FileCategories = {
+    uploadingOrFail: [
+        {
+            id: "1",
+            fileName: "check_test_rv1.zip",
+            fileSize: 885.65,
+            uploadedSize: 123.51,
+            progress: 21,
+            status: "uploading",
+        },
+        {
+            id: "2",
+            fileName: "check_test_rv1.zip",
+            fileSize: 885.65,
+            uploadedSize: 123.51,
+            progress: 78,
+            status: "uploading",
+        },
+        {
+            id: "3",
+            fileName: "check_test_rv1.zip",
+            fileSize: 885.65,
+            uploadedSize: 123.51,
+            progress: 100,
+            status: "error",
+            error: "Error",
+        },
+    ],
+    uploaded: [
+        {
+            id: "4",
+            fileName: "check_test_rv1.zip",
+            fileSize: 885.65,
+            uploadedSize: 885.65,
+            progress: 100,
+            status: "done",
+        },
+        {
+            id: "5",
+            fileName: "check_test_rv1.zip",
+            fileSize: 885.65,
+            uploadedSize: 885.65,
+            progress: 100,
+            status: "done",
+        },
+        {
+            id: "6",
+            fileName: "check_test_rv1.zip",
+            fileSize: 885.65,
+            uploadedSize: 885.65,
+            progress: 100,
+            status: "done",
+        },
+        {
+            id: "7",
+            fileName: "check_test_rv1.zip",
+            fileSize: 885.65,
+            uploadedSize: 885.65,
+            progress: 100,
+            status: "done",
+        },
+    ],
+};

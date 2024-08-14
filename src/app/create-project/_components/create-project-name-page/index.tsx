@@ -5,7 +5,7 @@ import "./index.scss";
 
 type Props = {
     active: number;
-    handleChecked: (e: number) => void;
+    handleChecked: (e: number | string) => void;
 };
 
 const CreateProjectNamePage = ({ active, handleChecked }: Props) => {
@@ -14,13 +14,12 @@ const CreateProjectNamePage = ({ active, handleChecked }: Props) => {
             {stepCreateProject[active]?.content?.map((item, index) => {
                 return (
                     <div
-                        onClick={() => handleChecked(index)}
                         key={item.id}
                         style={{ cursor: "pointer" }}
                         className="right-item"
                     >
                         <input
-                            onChange={() => handleChecked(index)}
+                            onChange={(e) => handleChecked(e.target.value)}
                             type="text"
                             name="myRadio"
                             className="text-input"
