@@ -8,7 +8,7 @@ type Props = {
     congratulation: string;
 };
 const Step3: React.FC<Props> = ({ active, handleDeviceName, deviceName, congratulation }) => {
-    return congratulation !== "congratulation" ? (
+    return congratulation !== "success" ? (
         <div className="step3-container">
             <div className="step3">
                 <div className="step3-header">
