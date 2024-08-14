@@ -9,6 +9,9 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm, type SubmitHandler } from "react-hook-form";
 import { IconV, IconX } from "@component/constants/Icon";
+import { useLoading } from "@component/contexts/loadingContext";
+import Notification from "@component/components/common/notification";
+import { signup, signupVerification } from "@component/services/auth";
 
 type Props = {};
 
@@ -21,7 +24,10 @@ const schema = yup.object().shape({
         .min(8, "Password must be at least 8 characters long")
         .matches(/\d/, "Password must include a number")
         .matches(/[!@#$%^&*(),.?":{}|<>]/, "Password must include a special character"),
-    confirmPassword: yup.string().oneOf([yup.ref("password")], "Passwords must match").required("Confirm password is required"),
+    confirmPassword: yup
+        .string()
+        .oneOf([yup.ref("password")], "Passwords must match")
+        .required("Confirm password is required"),
 });
 const Page = (props: Props) => {
     const {
@@ -32,12 +38,37 @@ const Page = (props: Props) => {
     } = useForm({
         resolver: yupResolver(schema),
     });
+    const { setIsLoading } = useLoading();
     const password = watch("password", "");
+    const email = watch("email");
     const [isSendingCode, setIsSendingCode] = useState(false);
 
-    const handleSendCode = () => {
+    const handleSendCode = async () => {
         // Logic to send verification code
         setIsSendingCode(true);
+        setIsSendingCode(true);
+        try {
+            const response: any = await signupVerification({ data: { email: email } });
+            console.log(response);
+
+            if (response && response.message === "success") {
+                Notification({
+                    type: "success",
+                    message: response.message,
+                    placement: "topRight",
+                });
+            } else {
+                throw response;
+            }
+        } catch (error: any) {
+            Notification({
+                type: "error",
+                message: error.message || error,
+                placement: "topRight",
+            });
+        } finally {
+            setIsLoading(false);
+        }
     };
 
     const handleCheckCode = (e: any) => {
@@ -45,9 +76,29 @@ const Page = (props: Props) => {
         setIsSendingCode(false);
     };
 
-    const handleCreateAccount = (data: any) => {
+    const handleCreateAccount = async (data: any) => {
         // Logic to create account
-        console.log(data);
+        setIsLoading(true);
+        try {
+            const response: any = await signup({ data });
+            if (response && response.message === "success") {
+                Notification({
+                    type: "success",
+                    message: response.message,
+                    placement: "topRight",
+                });
+            } else {
+                throw response;
+            }
+        } catch (error: any) {
+            Notification({
+                type: "error",
+                message: error.message || error,
+                placement: "topRight",
+            });
+        } finally {
+            setIsLoading(false);
+        }
     };
 
     return (
