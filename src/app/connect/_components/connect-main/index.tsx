@@ -39,7 +39,7 @@ const ConnectMain: React.FC<Props> = ({
                                     <p>{step.title}</p>
                                 )}
                             </div>
-                            {active > index ? <div className="completed" /> : <div className="not-completed" />}
+                            {step.id < steps.length ? <div className="completed" /> : <div className="not-completed" />}
                         </div>
                     ))}
                 </div>

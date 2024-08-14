@@ -1,0 +1,22 @@
+.create-project {
+  &-nav-back {
+    padding-top: 50px;
+    align-items: center;
+    display: flex;
+    gap: 6px; 
+    cursor: pointer;
+    p {
+        font-size: 16px;
+        font-weight: 400;
+        color: #999ea7;
+    }
+    .color-text {
+        color: #999ea7;
+    }
+    &:hover {
+        p {
+            color: #fff;
+        }
+    }
+}
+}

@@ -99,4 +99,17 @@ const IconV = (props: any) => (
     </svg>
 );
 
-export { Google, Envelope, IconLeft, LogoNoSlogan, IconX, IconV };
+const ArrowBack = ({ size, className, color }: { size: number; className?: string; color?: string }) => (
+    <svg
+        className={className}
+        width={size}
+        height={size}
+        viewBox="0 0 16 16"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <path d="M10 4L6 8L10 12" stroke={color} strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+);
+
+export { Google, Envelope, IconLeft, LogoNoSlogan, IconX, IconV, ArrowBack };

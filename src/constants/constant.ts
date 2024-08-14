@@ -180,3 +180,24 @@ export const steps = [
         subContent: "Check and confirm specifications of your connected device",
     },
 ];
+
+export const stepCreateProject = [
+    {
+        id: 1,
+        title: "New Project name",
+        subTitle: "Please enter a project name to create a new project",
+        content: [
+            {
+                id: 1,
+                img: "/images/device.svg",
+                title: "Device",
+            }
+        
+        ]
+    },
+    {
+        id: 2,
+        title: "Select Device",
+        subTitle: "Select the device you want to use for your project",
+    },
+];
