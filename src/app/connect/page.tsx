@@ -8,10 +8,12 @@ import { steps } from "@component/constants/constant";
 import Step1 from "./_components/step1";
 import Step2 from "./_components/step2";
 import Step3 from "./_components/step3";
-import { connect } from "@component/services/connect";
+import { connect, createConnect } from "@component/services/connect";
 import Notification from "@component/components/common/notification";
+import { useRouter } from "next/navigation";
 
 const Connect = () => {
+    const router = useRouter();
     const [active, setActive] = useState(0);
     const [deviceName, setDeviceName] = useState("");
     const [congratulation, setCongratulation] = useState("");
@@ -25,6 +27,7 @@ const Connect = () => {
     };
     const handleDeviceName = (e: React.ChangeEvent<HTMLInputElement>) => setDeviceName(e.target.value);
 
+    const handleBackDashboard = () => router.push("/");
     const handleNextStep = () => {
         setActive((prevStep) => {
             if (prevStep < steps.length) {
@@ -46,15 +49,18 @@ const Connect = () => {
     const handleFinish = async () => {
         setIsFinish(true);
         try {
-            const response: any = await connect({
+            const response: any = await createConnect({
                 data: {
-                    deviceId: "ADjjjt0PZz5TAuqo",
-                    deviceUUID: "GPU-48ddb048-ab35-3504-f9c4-847895e4551a",
-                    deviceType: deviceName,
+                    name: deviceName,
                 },
             });
 
             if (response && response.message === "success") {
+                Notification({
+                    type: "success",
+                    message: response.message,
+                    placement: "topRight",
+                });
                 setCongratulation(response.message);
             } else throw response;
         } catch (error: any) {
@@ -82,6 +88,8 @@ const Connect = () => {
                         handleNextStep={handleNextStep}
                         isFinish={isFinish}
                         checked={checked}
+                        congratulation={congratulation}
+                        handleBackDashboard={handleBackDashboard}
                     >
                         {active === 0 && (
                             <Step1 activeItem={activeItem} handleChecked={handleChecked} active={active} />
