@@ -12,6 +12,7 @@ import { IconV, IconX } from "@component/constants/Icon";
 import { useLoading } from "@component/contexts/loadingContext";
 import Notification from "@component/components/common/notification";
 import { signup, signupVerification } from "@component/services/auth";
+import { useRouter } from "next/navigation";
 
 type Props = {};
 
@@ -30,6 +31,7 @@ const schema = yup.object().shape({
         .required("Confirm password is required"),
 });
 const Page = (props: Props) => {
+    const router = useRouter();
     const {
         register,
         handleSubmit,
@@ -46,10 +48,9 @@ const Page = (props: Props) => {
     const handleSendCode = async () => {
         // Logic to send verification code
         setIsSendingCode(true);
-        setIsSendingCode(true);
+        setIsLoading(true);
         try {
             const response: any = await signupVerification({ data: { email: email } });
-            console.log(response);
 
             if (response && response.message === "success") {
                 Notification({
@@ -87,6 +88,7 @@ const Page = (props: Props) => {
                     message: response.message,
                     placement: "topRight",
                 });
+                router.push("/auth/sign-in");
             } else {
                 throw response;
             }

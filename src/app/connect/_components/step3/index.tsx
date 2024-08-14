@@ -54,7 +54,7 @@ const Step3: React.FC<Props> = ({ active, handleDeviceName, deviceName, congratu
             </div>
         </div>
     ) : (
-        <Congratulations />
+        <Congratulations name={deviceName} />
     );
 };
 

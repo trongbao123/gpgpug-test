@@ -9,4 +9,12 @@ const connect = async (options?: any) => {
     return data;
 };
 
-export { connect };
+const createConnect = async (options?: any) => {
+    const data = await request({
+        method: "POST",
+        url: `/device`,
+        ...options,
+    });
+    return data;
+};
+export { connect, createConnect };
