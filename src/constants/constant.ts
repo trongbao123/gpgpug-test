@@ -279,3 +279,47 @@ export const fileData: FileCategories = {
         },
     ],
 };
+
+export const project = [
+    {
+        id: "1",
+        name: "Project_name",
+        resulting: "3,153.14 MB",
+        createDate: "2024-06-20 12:32",
+        listWork: [
+            {
+                id: 1,
+                state: "Online",
+                name: "Running test",
+                device: 3,
+                data: 1.5,
+                upTimeHours: 4,
+                upTimeMinutes: 11,
+                upTimeSeconds: 32,
+                createdAt: "2024-06-30 01:42",
+            },
+            {
+                id: 2,
+                state: "Paused",
+                name: "Running test_test",
+                device: 3,
+                data: 1.5,
+                upTimeHours: 4,
+                upTimeMinutes: 11,
+                upTimeSeconds: 32,
+                createdAt: "2024-06-30 01:42",
+            },
+            {
+                id: 3,
+                state: "Finished",
+                name: "Running test_test",
+                device: 3,
+                data: 1.5,
+                upTimeHours: 4,
+                upTimeMinutes: 11,
+                upTimeSeconds: 32,
+                createdAt: "2024-06-30 01:42",
+            },
+        ],
+    },
+];
