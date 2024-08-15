@@ -1,11 +1,15 @@
 "use client";
+import { USERKIT_TOKEN } from "@component/constants/setting";
+import { useAuth } from "@component/contexts/AuthContext";
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const Header = () => {
     const router = useRouter();
     const [isScrolled, setIsScrolled] = useState(false);
+    const { user } = useAuth();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -22,7 +26,6 @@ const Header = () => {
             window.removeEventListener("scroll", handleScroll);
         };
     }, []);
-
     return (
         <header className={isScrolled ? "header_background" : ""}>
             <div className="container">
@@ -63,22 +66,28 @@ const Header = () => {
                         <div className="icon-bell">
                             <Image width={32} height={32} src={"/images/bell.svg"} alt="bell" />
                         </div>
-                        <div className="account">
-                            <Image
-                                width={40}
-                                height={40}
-                                src={"/images/menu-mob.svg"}
-                                alt="account-icon"
-                                className="menu-table"
-                            />
-                            <Image
-                                width={32}
-                                height={32}
-                                src={"/images/account.svg"}
-                                alt="account-icon"
-                                className="account-icon"
-                            />
-                        </div>
+                        {user ? (
+                            <div className="account">
+                                <Image
+                                    width={40}
+                                    height={40}
+                                    src={"/images/menu-mob.svg"}
+                                    alt="account-icon"
+                                    className="menu-table"
+                                />
+                                <Image
+                                    width={32}
+                                    height={32}
+                                    src={"/images/account.svg"}
+                                    alt="account-icon"
+                                    className="account-icon"
+                                />
+                            </div>
+                        ) : (
+                            <div className="account_no_login">
+                                <Link href="/auth/sign-in">Sign in</Link>
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>

@@ -7,6 +7,7 @@ import Footer from "../components/footer/page";
 import Head from "next/head";
 import { Suspense } from "react";
 import { LoadingProvider } from "@component/contexts/loadingContext";
+import { AuthProvider } from "@component/contexts/AuthContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,9 +28,11 @@ export default function RootLayout({
             </Head>
             <body className={inter.className}>
                 <LoadingProvider>
-                    <Header />
-                    <Suspense>{children}</Suspense>
-                    <Footer />
+                    <AuthProvider>
+                        <Header />
+                        <Suspense>{children}</Suspense>
+                        <Footer />
+                    </AuthProvider>
                 </LoadingProvider>
             </body>
         </html>

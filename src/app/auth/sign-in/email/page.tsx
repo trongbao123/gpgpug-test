@@ -10,6 +10,7 @@ import Notification from "@component/components/common/notification";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useLoading } from "@component/contexts/loadingContext";
+import { useAuth } from "@component/contexts/AuthContext";
 type FormData = {
     email: string;
     password: string;
@@ -17,7 +18,7 @@ type FormData = {
 const Email = () => {
     const router = useRouter();
     const { setIsLoading } = useLoading();
-
+    const { checkLogin } = useAuth();
     const schema = yup
         .object({
             email: yup.string().email("Invalid email").required("Email is required"),
@@ -45,6 +46,7 @@ const Email = () => {
                     message: "Sign in successfully!",
                     placement: "topRight",
                 });
+                checkLogin();
                 router.push("/");
             } else {
                 throw response;
