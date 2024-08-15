@@ -6,6 +6,7 @@ header {
     right: 0;
     z-index: 999;
     width: 100%;
+
     .container {
         max-width: 1240px;
         margin: 0 auto;
@@ -24,15 +25,18 @@ header {
                     width: 100%;
                     height: 100%;
                     cursor: pointer;
+
                     &-mob {
                         display: none;
                     }
                 }
+
                 .line {
                     width: 1px;
                     height: 24px;
                     background: #9e9e9e;
                 }
+
                 .select {
                     display: flex;
                     gap: 6px;
@@ -61,6 +65,13 @@ header {
                 display: flex;
                 align-items: center;
                 gap: 8px;
+
+                &-buttons {
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                }
+
                 .add-new-deivce {
                     display: flex;
                     align-items: center;
@@ -71,6 +82,7 @@ header {
                     border-radius: 100px;
                     cursor: pointer;
                     transition: all 0.2s ease-in-out;
+
                     p {
                         color: black;
                         font-size: 14px;
@@ -80,6 +92,7 @@ header {
                         box-shadow: rgba(0, 0, 0, 1) 0px 0px 5px inset;
                     }
                 }
+
                 .icon-bell {
                     width: 32px;
                     height: 32px;
@@ -91,6 +104,7 @@ header {
                     &-icon {
                         display: block;
                     }
+
                     .menu-table {
                         display: none;
                     }
@@ -121,6 +135,7 @@ header {
     from {
         background-color: rgba(255, 255, 255, 0);
     }
+
     to {
         background-color: rgba(255, 255, 255, 0.05);
     }
@@ -131,6 +146,7 @@ header {
         .container {
             max-width: 500px;
             padding: 0 8px 0 16px;
+
             .menu-header {
                 .header-left {
                     .logo {
@@ -143,15 +159,19 @@ header {
                         }
                     }
                 }
+
                 .header-right {
                     gap: 8px;
+
                     .add-new-deivce {
                         display: none;
                     }
+
                     .account {
                         &-icon {
                             display: none;
                         }
+
                         .menu-table {
                             display: block;
                         }
@@ -167,6 +187,7 @@ header {
         .container {
             max-width: 1280px;
             padding: 0 8px 0 16px;
+
             .menu-header {
                 .header-left {
                     .logo {
@@ -182,13 +203,16 @@ header {
 
                 .header-right {
                     gap: 8px;
+
                     .add-new-deivce {
                         display: none;
                     }
+
                     .account {
                         &-icon {
                             display: none;
                         }
+
                         .menu-table {
                             display: block;
                         }

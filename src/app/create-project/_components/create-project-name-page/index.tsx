@@ -23,6 +23,7 @@ const CreateProjectNamePage = ({ active, handleChecked }: Props) => {
                             type="text"
                             name="myRadio"
                             className="text-input"
+                            placeholder="Project name"
                         />
                     </div>
                 );
