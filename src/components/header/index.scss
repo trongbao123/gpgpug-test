@@ -60,7 +60,7 @@ header {
             .header-right {
                 display: flex;
                 align-items: center;
-                gap: 30px;
+                gap: 8px;
                 .add-new-deivce {
                     display: flex;
                     align-items: center;
@@ -93,6 +93,17 @@ header {
                     }
                     .menu-table {
                         display: none;
+                    }
+                }
+
+                .account_no_login {
+                    display: flex;
+                    gap: 8px;
+                    color: white;
+
+                    a {
+                        color: white;
+                        font-size: 14px;
                     }
                 }
             }
