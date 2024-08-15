@@ -1,18 +1,18 @@
 "use client";
-import { useState } from "react";
+import Notification from "@component/components/common/notification";
+import { IconV, IconX } from "@component/constants/Icon";
+import { useLoading } from "@component/contexts/loadingContext";
+import { signup, signupVerification } from "@component/services/auth";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useRouter } from "next/navigation";
+import { useState, type MouseEvent } from "react";
+import { useForm } from "react-hook-form";
+import * as yup from "yup";
 import Button from "../Button";
-import Icon from "../Icon";
 import Text from "../Text";
 import TextInput from "../TextInput";
 import "./index.scss";
-import * as yup from "yup";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { useForm, type SubmitHandler } from "react-hook-form";
-import { IconV, IconX } from "@component/constants/Icon";
-import { useLoading } from "@component/contexts/loadingContext";
-import Notification from "@component/components/common/notification";
-import { signup, signupVerification } from "@component/services/auth";
-import { useRouter } from "next/navigation";
+import axios from "axios";
 
 type Props = {};
 
@@ -45,10 +45,12 @@ const Page = (props: Props) => {
     const email = watch("email");
     const [isSendingCode, setIsSendingCode] = useState(false);
 
-    const handleSendCode = async () => {
+    const handleSendCode = async (e: MouseEvent<HTMLElement>) => {
+        e.preventDefault();
         // Logic to send verification code
         setIsSendingCode(true);
         setIsLoading(true);
+
         try {
             const response: any = await signupVerification({ data: { email: email } });
 
@@ -64,7 +66,7 @@ const Page = (props: Props) => {
         } catch (error: any) {
             Notification({
                 type: "error",
-                message: error.message || error,
+                message: error?.message || error,
                 placement: "topRight",
             });
         } finally {
