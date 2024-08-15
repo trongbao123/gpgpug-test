@@ -6,7 +6,7 @@ import "../../styles/index.scss";
 import Header from "../components/header/page";
 import Footer from "../components/footer/page";
 import Head from "next/head";
-import { Suspense } from "react";
+import { Suspense, useEffect } from "react";
 import { LoadingProvider } from "@component/contexts/loadingContext";
 import AuthWrapper from "@component/components/auth-wrapper/authWrapper";
 
@@ -22,10 +22,14 @@ const RootLayout = ({
 }: Readonly<{
     children: React.ReactNode;
 }>) => {
+    useEffect(() => {
+        document.title = "GPGPU";
+    }, []);
     return (
         <html lang="en">
             <Head>
                 <link rel="shortcut icon" href="./logo.png" sizes="any" />
+                <title>{document.title}</title>
             </Head>
             <body className={inter.className}>
                 <LoadingProvider>
