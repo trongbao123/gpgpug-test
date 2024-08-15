@@ -1,1 +1,1 @@
-export const USERKIT_TOKEN = "userkit_token";
+export const USERKIT_TOKEN = "gpgpu_userkit_token";
