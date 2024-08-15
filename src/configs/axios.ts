@@ -38,26 +38,26 @@ const handleRequestError = (error: any): Promise<never> => {
 };
 
 const sendRequest = async <T>(options: RequestType): Promise<T | undefined> => {
-    const { method, url, data, params } = options || {};
+    const { method, url, data: requestData, params } = options || {};
 
-    const config: AxiosRequestConfig = {
+    const config: AxiosRequestConfig = addTokenToRequest({
         url,
         method,
-        data,
+        data: requestData,
         params,
-    };
-
+    });
     try {
-        const response = await axiosInstance(addTokenToRequest(config));
+        const response = await axiosInstance.post(url, requestData, config);
         const [data, error, statusText, status] = handleError(response);
 
-        if (error)
+        if (error) {
             throw {
                 error,
                 status,
                 statusText,
                 data,
             };
+        }
 
         return data;
     } catch (errorResponse: any) {
