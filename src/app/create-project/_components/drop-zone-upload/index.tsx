@@ -1,6 +1,5 @@
 import axios from "axios";
 import React, { useCallback, useState } from "react";
-import { useDropzone } from "react-dropzone";
 import "./index.scss";
 import Image from "next/image";
 import { fileData } from "@component/constants/constant";
