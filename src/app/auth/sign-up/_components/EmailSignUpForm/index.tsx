@@ -5,7 +5,7 @@ import { useLoading } from "@component/contexts/loadingContext";
 import { signup, signupVerification } from "@component/services/auth";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useState, type MouseEvent } from "react";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import Button from "../Button";
@@ -45,7 +45,8 @@ const Page = (props: Props) => {
     const email = watch("email");
     const [isSendingCode, setIsSendingCode] = useState(false);
 
-    const handleSendCode = async () => {
+    const handleSendCode = async (e: MouseEvent<HTMLElement>) => {
+        e.preventDefault();
         // Logic to send verification code
         setIsSendingCode(true);
         setIsLoading(true);
