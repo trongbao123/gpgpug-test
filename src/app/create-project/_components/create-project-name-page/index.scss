@@ -1,0 +1,40 @@
+.right {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+
+    &-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-radius: 12px;
+        padding-left: 24px;
+        padding-right: 24px;
+        border: solid 1px rgba(64, 68, 75, 1);
+
+        input[type="text"] {
+            height: 92px;
+            width: 532px;
+        }
+        input[type="text"],
+        textarea {
+            background: inherit;
+            border: none;
+            color: white;
+            font-size: 29px;
+        }
+    }
+
+    .logo-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+
+        p {
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 19px;
+            color: rgba(193, 197, 206, 1);
+        }
+    }
+}
