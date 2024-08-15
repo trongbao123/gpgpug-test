@@ -1,10 +1,11 @@
+"use client";
 import "../../styles/index.scss";
 import DeviceResponsive from "./home/_components/deviceResponsive";
 import HeaderMain from "./home/_components/header-main/page";
 import Rate from "./home/_components/rate/page";
 import { DeviceTable } from "./home/_components/table";
 
-export default function Home() {
+const Home = () => {
     return (
         <main className="main">
             <div className="overlay" />
@@ -18,4 +19,6 @@ export default function Home() {
             </div>
         </main>
     );
-}
+};
+
+export default Home;

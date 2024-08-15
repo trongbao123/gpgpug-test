@@ -1,3 +1,4 @@
+"use client";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 // import "./globals.css";
@@ -7,19 +8,20 @@ import Footer from "../components/footer/page";
 import Head from "next/head";
 import { Suspense } from "react";
 import { LoadingProvider } from "@component/contexts/loadingContext";
+import AuthWrapper from "@component/components/auth-wrapper/authWrapper";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata: Metadata = {
-    title: "GPGPU",
-    description: "GPGPU Dashboard",
-};
+// export const metadata: Metadata = {
+//     title: "GPGPU",
+//     description: "GPGPU Dashboard",
+// };
 
-export default function RootLayout({
+const RootLayout = ({
     children,
 }: Readonly<{
     children: React.ReactNode;
-}>) {
+}>) => {
     return (
         <html lang="en">
             <Head>
@@ -34,4 +36,6 @@ export default function RootLayout({
             </body>
         </html>
     );
-}
+};
+
+export default AuthWrapper(RootLayout);
