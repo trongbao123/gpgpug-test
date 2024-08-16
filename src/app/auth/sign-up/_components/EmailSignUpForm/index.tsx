@@ -119,7 +119,7 @@ const Page = (props: Props) => {
                     label="Email address"
                     type="email"
                     register={register}
-                    buttonText={isSendingCode ? "Sended" : "Send a code"}
+                    buttonText={email && !errors.email ? (isSendingCode ? "Sended" : "Send a code") : ""}
                     onButtonClick={handleSendCode}
                 />
                 {errors.email ? <p className="error">{errors.email.message}</p> : <p className="no-error"></p>}
@@ -129,8 +129,8 @@ const Page = (props: Props) => {
                     label="Verification Code"
                     type="text"
                     register={register}
-                    buttonText={isSendingCode ? "Check" : ""}
-                    onButtonClick={handleCheckCode}
+                    // buttonText={isSendingCode ? "Check" : ""}
+                    // onButtonClick={handleCheckCode}
                 />
                 {errors.verificationCode ? (
                     <p className="error">{errors.verificationCode.message}</p>
