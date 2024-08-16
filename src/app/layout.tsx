@@ -10,6 +10,7 @@ import { Suspense, useEffect } from "react";
 import { LoadingProvider } from "@component/contexts/loadingContext";
 import { AuthProvider } from "@component/contexts/AuthContext";
 import AuthWrapper from "@component/components/auth-wrapper/authWrapper";
+import AuthWrapperSession from "@component/contexts/authWrapper";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,21 +28,23 @@ const RootLayout = ({
         document.title = "GPGPU";
     }, []);
     return (
-        <html lang="en">
-            <Head>
-                <link rel="shortcut icon" href="./logo.png" sizes="any" />
-                <title>{document.title}</title>
-            </Head>
-            <body className={inter.className}>
-                <LoadingProvider>
-                    <AuthProvider>
+        <AuthWrapperSession>
+            <html lang="en">
+                <Head>
+                    <link rel="shortcut icon" href="./logo.png" sizes="any" />
+                    <title>{document.title}</title>
+                </Head>
+                <body className={inter.className}>
+                    <LoadingProvider>
+                        {/* <AuthProvider> */}
                         <Header />
                         <Suspense>{children}</Suspense>
                         <Footer />
-                    </AuthProvider>
-                </LoadingProvider>
-            </body>
-        </html>
+                        {/* </AuthProvider> */}
+                    </LoadingProvider>
+                </body>
+            </html>
+        </AuthWrapperSession>
     );
 };
 

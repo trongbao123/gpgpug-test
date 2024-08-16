@@ -1,6 +1,6 @@
 "use client";
 import { USERKIT_TOKEN } from "@component/constants/setting";
-import { useAuth } from "@component/contexts/AuthContext";
+import { useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -9,8 +9,7 @@ import { useEffect, useState } from "react";
 const Header = () => {
     const router = useRouter();
     const [isScrolled, setIsScrolled] = useState(false);
-    const { user } = useAuth();
-
+    const { data: session } = useSession();
     useEffect(() => {
         const handleScroll = () => {
             if (window.scrollY > 0.5) {
@@ -26,6 +25,10 @@ const Header = () => {
             window.removeEventListener("scroll", handleScroll);
         };
     }, []);
+
+    useEffect(() => {
+        if (session && session.user?.email) localStorage.setItem(USERKIT_TOKEN, JSON.stringify(session.user.email));
+    }, [session]);
     return (
         <header className={isScrolled ? "header_background" : ""}>
             <div className="container">
@@ -59,7 +62,7 @@ const Header = () => {
                     </div>
 
                     <div className="header-right">
-                        {user && (
+                        {session?.user && (
                             <div className="header-right-buttons">
                                 <div className="add-new-deivce" onClick={() => router.push("/connect")}>
                                     <p>Connect New Device</p>
@@ -76,7 +79,7 @@ const Header = () => {
                         <div className="icon-bell">
                             <Image width={32} height={32} src={"/images/bell.svg"} alt="bell" />
                         </div>
-                        {user ? (
+                        {session?.user ? (
                             <div className="account">
                                 <Image
                                     width={40}
