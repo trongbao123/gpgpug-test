@@ -43,7 +43,7 @@ const CreateProjectMain: FC<Props> = ({ children, active, handleNextStep, ...res
                 <p className="instruction">{stepCreateProject[active]?.subTitle}</p>
                 {active !== 1 ? (
                     <button
-                        // disabled={checked ? false : true}
+                        disabled={checked ? false : true}
                         className={`${checked && "step-active "} next-step`}
                         onClick={handleNextStep}
                     >

@@ -93,6 +93,27 @@ header {
                     }
                 }
 
+                .add-new-project {
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                    background: white;
+                    padding: 10px 12px 10px 16px;
+                    color: black;
+                    border-radius: 100px;
+                    cursor: pointer;
+                    transition: all 0.2s ease-in-out;
+
+                    p {
+                        color: black;
+                        font-size: 14px;
+                    }
+
+                    &:hover {
+                        box-shadow: rgba(0, 0, 0, 1) 0px 0px 5px inset;
+                    }
+                }
+
                 .icon-bell {
                     width: 32px;
                     height: 32px;
@@ -163,7 +184,7 @@ header {
                 .header-right {
                     gap: 8px;
 
-                    .add-new-deivce {
+                    .add-new-project {
                         display: none;
                     }
 
