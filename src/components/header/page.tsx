@@ -16,8 +16,6 @@ const Header = () => {
     const [selected, setSelected] = useState("provider");
 
     const handleChange = (event: any) => {
-        console.log(event);
-        // const select = event.target.value;
         setSelected(event);
         localStorage.setItem("selectedProvider", event);
         if (event === "provider") {
@@ -26,7 +24,9 @@ const Header = () => {
             router.push("/project");
         }
     };
+
     const { data: session } = useSession();
+
     useEffect(() => {
         const handleScroll = () => {
             if (window.scrollY > 0.5) {
@@ -45,12 +45,10 @@ const Header = () => {
 
     useEffect(() => {
         if (session && session.user?.email) localStorage.setItem(USERKIT_TOKEN, JSON.stringify(session.user.email));
-    }, [session]);
-
-    useEffect(() => {
         const storedValue = localStorage.getItem(SELECTED_PROVIDER);
         if (storedValue) setSelected(storedValue);
-    }, []);
+    }, [session]);
+
     return (
         <header className={isScrolled ? "header_background" : ""}>
             <div className="container">
