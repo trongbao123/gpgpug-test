@@ -15,10 +15,9 @@ const Page = (props: Props) => {
     const [checked, setChecked] = useState(false);
 
     const handleChecked = (e: number | string) => {
-        console.log(e)
         if (e) {
             setChecked(true);
-        }else{
+        } else {
             setChecked(false);
         }
         setActiveItem(e);
@@ -45,7 +44,7 @@ const Page = (props: Props) => {
     const handleFinish = () => {
         console.log("done");
     };
-    console.log(checked);
+
     return (
         <div className="container">
             <Navigation handlePrevStep={handlePrevStep} active={active} />

@@ -66,7 +66,7 @@ const Header = () => {
                                     <Image width={16} height={16} src={"/images/icon_plus.svg"} alt="search" />
                                 </div>
 
-                                <div className="add-new-deivce" onClick={() => router.push("/create-project")}>
+                                <div className="add-new-project" onClick={() => router.push("/create-project")}>
                                     <p>Create project</p>
                                     <Image width={16} height={16} src={"/images/icon_plus.svg"} alt="search" />
                                 </div>
