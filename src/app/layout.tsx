@@ -1,16 +1,14 @@
 "use client";
-import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 // import "./globals.css";
-import "../../styles/index.scss";
-import Header from "../components/header/page";
-import Footer from "../components/footer/page";
+import AuthWrapper from "@component/components/auth-wrapper/authWrapper";
+import { LoadingProvider } from "@component/contexts/loadingContext";
+import { SessionProvider } from "next-auth/react";
 import Head from "next/head";
 import { Suspense, useEffect } from "react";
-import { LoadingProvider } from "@component/contexts/loadingContext";
-import { AuthProvider } from "@component/contexts/AuthContext";
-import AuthWrapper from "@component/components/auth-wrapper/authWrapper";
-import AuthWrapperSession from "@component/contexts/authWrapper";
+import "../../styles/index.scss";
+import Footer from "../components/footer/page";
+import Header from "../components/header/page";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -28,11 +26,11 @@ const RootLayout = ({
         document.title = "GPGPU";
     }, []);
     return (
-        <AuthWrapperSession>
+        <SessionProvider>
             <html lang="en">
                 <Head>
                     <link rel="shortcut icon" href="./logo.png" sizes="any" />
-                    <title>{document.title}</title>
+                    <title>{window.document.title}</title>
                 </Head>
                 <body className={inter.className}>
                     <LoadingProvider>
@@ -44,8 +42,8 @@ const RootLayout = ({
                     </LoadingProvider>
                 </body>
             </html>
-        </AuthWrapperSession>
+        </SessionProvider>
     );
 };
 
-export default AuthWrapper(RootLayout);
+export default RootLayout;

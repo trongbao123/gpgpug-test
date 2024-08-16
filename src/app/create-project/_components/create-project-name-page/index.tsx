@@ -22,7 +22,6 @@ const CreateProjectNamePage = ({ active, handleChecked }: Props) => {
                             onChange={(e) => handleChecked(e.target.value)}
                             type="text"
                             name="myRadio"
-                            className="text-input"
                             placeholder="Project name"
                         />
                     </div>

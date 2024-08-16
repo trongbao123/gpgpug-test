@@ -16,8 +16,13 @@ import axios from "axios";
 
 type Props = {};
 
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 const schema = yup.object().shape({
-    email: yup.string().email("Invalid email").required("Email is required"),
+    email: yup
+        .string()
+        .matches(/^[^\s@]+@[^\s@]+\.[^\s@]+$/, "This field must be email")
+        .required("Email is required"),
     verificationCode: yup.string().required("Verification code is required"),
     password: yup
         .string()
@@ -41,14 +46,14 @@ const Page = (props: Props) => {
         resolver: yupResolver(schema),
     });
     const { setIsLoading } = useLoading();
+    const [isSendedCode, setIsSendedCode] = useState(false);
     const password = watch("password", "");
-    const email = watch("email");
-    const [isSendingCode, setIsSendingCode] = useState(false);
+    const email = watch("email", "");
 
-    const handleSendCode = async (e: MouseEvent<HTMLElement>) => {
+    const handleSendCode = async (e: MouseEvent<HTMLElement>): Promise<void> => {
         e.preventDefault();
         // Logic to send verification code
-        setIsSendingCode(true);
+        setIsSendedCode(true);
         setIsLoading(true);
 
         try {
@@ -74,10 +79,10 @@ const Page = (props: Props) => {
         }
     };
 
-    const handleCheckCode = (e: any) => {
-        e.preventDefault();
-        setIsSendingCode(false);
-    };
+    // const handleCheckCode = (e: any) => {
+    //     e.preventDefault();
+    //     setIsSendingCode(false);
+    // };
 
     const handleCreateAccount = async (data: any) => {
         // Logic to create account
@@ -85,6 +90,7 @@ const Page = (props: Props) => {
         try {
             const response: any = await signup({ data });
             if (response && response.message === "success") {
+                console.log(response);
                 Notification({
                     type: "success",
                     message: response.message,
@@ -117,10 +123,11 @@ const Page = (props: Props) => {
                 <TextInput
                     name="email"
                     label="Email address"
-                    type="email"
+                    type="text"
                     register={register}
-                    buttonText={email && !errors.email ? (isSendingCode ? "Sended" : "Send a code") : ""}
-                    onButtonClick={handleSendCode}
+                    buttonText={email && emailRegex.test(email) ? (isSendedCode ? "Sended" : "Send a code") : ""}
+                    onButtonClick={(e) => (email && emailRegex.test(email) && !isSendedCode ? handleSendCode(e) : null)}
+                    formNoValidate
                 />
                 {errors.email ? <p className="error">{errors.email.message}</p> : <p className="no-error"></p>}
 

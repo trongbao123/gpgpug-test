@@ -1,15 +1,18 @@
 "use client";
 import { USERKIT_TOKEN } from "@component/constants/setting";
-import { useSession } from "next-auth/react";
+import { Divider, Popover } from "antd";
+import { signOut, useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const Header = () => {
     const router = useRouter();
+    const pathname = usePathname();
     const [isScrolled, setIsScrolled] = useState(false);
     const { data: session } = useSession();
+
     useEffect(() => {
         const handleScroll = () => {
             if (window.scrollY > 0.5) {
@@ -64,15 +67,20 @@ const Header = () => {
                     <div className="header-right">
                         {session?.user && (
                             <div className="header-right-buttons">
-                                <div className="add-new-deivce" onClick={() => router.push("/connect")}>
-                                    <p>Connect New Device</p>
-                                    <Image width={16} height={16} src={"/images/icon_plus.svg"} alt="search" />
-                                </div>
+                                {pathname === "/dashboard" && (
+                                    <div className="add-new-deivce" onClick={() => router.push("/connect")}>
+                                        <p>Connect New Device</p>
+                                        <Image width={16} height={16} src={"/images/icon_plus.svg"} alt="search" />
+                                    </div>
+                                )}
 
-                                <div className="add-new-project" onClick={() => router.push("/create-project")}>
-                                    <p>Create project</p>
-                                    <Image width={16} height={16} src={"/images/icon_plus.svg"} alt="search" />
-                                </div>
+                                {/* path name show in detail in cloud and project list but it not define then i check !== dashboard */}
+                                {pathname !== "/dashboard" && (
+                                    <div className="add-new-project" onClick={() => router.push("/create-project")}>
+                                        <p>Create project</p>
+                                        <Image width={16} height={16} src={"/images/icon_plus.svg"} alt="search" />
+                                    </div>
+                                )}
                             </div>
                         )}
 
@@ -88,13 +96,20 @@ const Header = () => {
                                     alt="account-icon"
                                     className="menu-table"
                                 />
-                                <Image
-                                    width={32}
-                                    height={32}
-                                    src={"/images/account.svg"}
-                                    alt="account-icon"
-                                    className="account-icon"
-                                />
+                                <Popover
+                                    content={PopoverContent}
+                                    trigger="click"
+                                    placement="bottomRight"
+                                    overlayClassName="custom-popover"
+                                >
+                                    <Image
+                                        width={32}
+                                        height={32}
+                                        src={"/images/account.svg"}
+                                        alt="account-icon"
+                                        className="account-icon"
+                                    />
+                                </Popover>
                             </div>
                         ) : (
                             <div className="account_no_login">
@@ -105,6 +120,25 @@ const Header = () => {
                 </div>
             </div>
         </header>
+    );
+};
+
+const PopoverContent = () => {
+    const handleLogout = () => {
+        signOut({ callbackUrl: "/auth/sign-in", redirect: true });
+        localStorage.removeItem(USERKIT_TOKEN);
+    };
+    return (
+        <div className="popover-content">
+            <Link href="/dashboard">Dashboard</Link>
+            <Divider style={{ margin: "5px 0", borderColor: "rgba(255, 255, 255, 0.2)" }} />
+            <Link href="/profile">Profile</Link>
+            <Divider style={{ margin: "5px 0", borderColor: "rgba(255, 255, 255, 0.2)" }} />
+
+            <Link href="#" onClick={handleLogout}>
+                Sign out
+            </Link>
+        </div>
     );
 };
 
