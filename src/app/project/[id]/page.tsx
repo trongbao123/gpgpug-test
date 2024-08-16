@@ -5,13 +5,14 @@ import NavToMain from "./_components/nav-to-main";
 import Image from "next/image";
 
 import DropzoneUpload from "./_components/drop-zone-upload";
-import WorkAndHistory from "./_components/work";
 import InformationProject from "./_components/information";
-export async function generateStaticParams() {
-    return project.map((path) => ({
-        id: path.id,
-    }));
-}
+import WorkAndHistory from "./_components/work";
+
+// export async function generateStaticParams() {
+//     return project.map((path) => ({
+//         id: path.id,
+//     }));
+// }
 const ProjectDetail = ({ params }: { params: { id: string } }) => {
     const itemDetail: any = project.find((item: any) => item.id === params.id);
     return (

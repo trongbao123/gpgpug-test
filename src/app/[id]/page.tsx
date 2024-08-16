@@ -6,11 +6,11 @@ import HireStatus from "./_components/hire-status";
 import Reward from "./_components/reward-chart";
 import NavBack from "./_components/NavBack";
 
-export async function generateStaticParams() {
-    return provider.map((path) => ({
-        id: path.key,
-    }));
-}
+// export async function generateStaticParams() {
+//     return provider.map((path) => ({
+//         id: path.key,
+//     }));
+// }
 const PageDetail = ({ params }: { params: { id: string } }) => {
     const itemDetail: any = provider.find((item: any) => item.key === params.id);
 

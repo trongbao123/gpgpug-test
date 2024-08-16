@@ -22,7 +22,7 @@ const axiosInstance = axios.create({
 const addTokenToRequest = (config: AxiosRequestConfig): AxiosRequestConfig => {
     const storedData = localStorage.getItem(USERKIT_TOKEN);
     const parsedData = storedData ? JSON.parse(storedData) : null;
-    const token = parsedData?.token ?? null;
+    const token = parsedData ?? null;
 
     if (token)
         config.headers = {
