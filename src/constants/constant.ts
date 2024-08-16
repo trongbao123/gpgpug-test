@@ -1,3 +1,5 @@
+export const unAuthenticatedRoute = ["/auth/sign-in", "/auth/sign-in/email", "/auth/sign-up", "/"];
+
 export const rate = [
     {
         id: 1,
