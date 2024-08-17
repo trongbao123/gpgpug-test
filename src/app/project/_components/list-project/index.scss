@@ -1,0 +1,99 @@
+.project-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+    margin-top: 20px;
+
+    &-item {
+        padding: 24px 20px;
+        border-radius: 12px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        border: solid 1px rgba(255, 255, 255, 0.2);
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            width: 100%;
+            &-left {
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+                font-size: 16px;
+                font-weight: 500;
+                line-height: 19px;
+                color: rgba(255, 255, 255, 1);
+                span {
+                    font-size: 16px;
+                    font-weight: 500;
+                    line-height: 17px;
+                    color: rgba(255, 255, 255, 1);
+                }
+                p {
+                    font-size: 12px;
+                    font-weight: 400;
+                    line-height: 17px;
+                    color: rgba(115, 119, 128, 1);
+                }
+            }
+        }
+
+        .billing-data {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 8px;
+            width: 85%;
+            &-content {
+                display: flex;
+                justify-content: start;
+                align-items: center;
+                gap: 6px;
+                padding: 4px 8px;
+                border-radius: 6px;
+                background-color: rgba(255, 255, 255, 0.05);
+                font-size: 12px;
+                font-weight: 500;
+                line-height: 14px;
+                color: rgba(115, 119, 128, 1);
+                p {
+                    font-size: 12px;
+                    font-weight: 500;
+                    line-height: 14px;
+                    color: rgba(153, 158, 167, 1);
+                }
+            }
+        }
+
+        .item-line {
+            border-bottom: solid 1px rgba(30, 30, 31, 1);
+            width: 100%;
+            height: 1px;
+        }
+
+        .captancy {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            p {
+                font-size: 12px;
+                font-weight: 400;
+                line-height: 14px;
+                color: rgba(115, 119, 128, 1);
+            }
+
+            .data-result {
+                display: flex;
+                align-items: center;
+                gap: 4px;
+                p {
+                    font-size: 12px;
+                    font-weight: 500;
+                    line-height: 14px;
+                    color: rgba(229, 229, 229, 1);
+                }
+            }
+        }
+    }
+}

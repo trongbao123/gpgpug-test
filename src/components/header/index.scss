@@ -75,9 +75,27 @@ header {
                         width: 16px;
                         height: 16px;
                     }
+                    .ant-select-selector {
+                        background: transparent;
+                        border: none;
+                        span {
+                            color: white;
+                            font-size: 18px;
+                            text-align: center;
+                            line-height: 21.6px;
+                            font-weight: 300;
+                        }
 
+                        &:focus-visible {
+                            outline: none;
+                        }
+                    }
+
+                    .ant-select .ant-select-arrow {
+                        color: white;
+                    }
                     &-provider {
-                        width: 93px;
+                        width: fit-content;
                         height: 22px;
                         background: transparent;
                         border: none;

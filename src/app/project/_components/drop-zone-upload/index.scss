@@ -1,0 +1,152 @@
+.upload-container {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    max-width: 580px;
+    &-select-zone {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .icon-plus {
+            fill: white;
+        }
+
+        .icon-upload {
+            cursor: pointer;
+        }
+
+        &-data {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 4px;
+            p {
+                font-size: 18px;
+                color: rgba(229, 229, 229, 1);
+                line-height: 22px;
+                font-weight: 500;
+            }
+            .data-number {
+                width: 23px;
+                border-radius: 100%;
+                height: 23px;
+                // padding: 6px 8px 6px 8px;
+                text-align: center;
+                border: 1px solid rgba(50, 50, 51, 1);
+                font-size: 12px;
+                color: rgba(229, 229, 229, 1);
+                line-height: 14px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                font-weight: 500;
+            }
+        }
+    }
+    &-uploading {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 8px;
+        .uploading-card {
+            border: 1px solid rgba(25, 25, 26, 1);
+            border-radius: 12px;
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            .file-info {
+                display: flex;
+                flex-direction: column;
+                gap: 6px;
+                flex-grow: 1;
+                .header-info {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    p {
+                        font-size: 16px;
+                    }
+                }
+                .progress-bar {
+                    background-color: #3a3a3a;
+                    border-radius: 5px;
+                    overflow: hidden;
+                    width: 100%;
+                    height: 3px;
+                    .progress {
+                        background-color: #007bff;
+                        height: 100%;
+                    }
+                }
+                .error-progress {
+                    background-color: #cc2929;
+                    border-radius: 5px;
+                    overflow: hidden;
+                    width: 100%;
+                    height: 3px;
+                    .error-progress-bar {
+                        background-color: #cc2929;
+                        height: 100%;
+                    }
+                }
+                .progress-info {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                }
+                p {
+                    color: rgba($color: #fff, $alpha: 0.6);
+                    font-weight: 300;
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+    &-uploaded {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 8px;
+        .uploaded-card {
+            border: 1px solid rgba(25, 25, 26, 1);
+            border-radius: 12px;
+            padding: 16px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            .file-info {
+                display: flex;
+                flex-direction: column;
+                gap: 6px;
+                flex-grow: 1;
+                .progress-info {
+                    font-size: 12px;
+                    color: rgba(115, 119, 128, 1);
+                }
+            }
+            .icon_trash {
+                background: rgba(115, 119, 128, 0.1);
+                border-radius: 6px;
+                img {
+                    margin: 4px;
+                    display: block;
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+        }
+    }
+}
+
+.icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border: 1px solid rgba($color: #fff, $alpha: 0.4);
+    border-radius: 7px;
+    fill: red;
+}
