@@ -1,16 +1,16 @@
 "use client";
+import Notification from "@component/components/common/notification";
+import { steps } from "@component/constants/constant";
+import { createConnect } from "@component/services/connect";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import HeaderMain from "../home/_components/header-main/page";
 import ConnectMain from "./_components/connect-main";
 import NavToMain from "./_components/nav-to-main";
-import "./index.scss";
-import { steps } from "@component/constants/constant";
 import Step1 from "./_components/step1";
 import Step2 from "./_components/step2";
 import Step3 from "./_components/step3";
-import { connect, createConnect } from "@component/services/connect";
-import Notification from "@component/components/common/notification";
-import { useRouter } from "next/navigation";
+import "./index.scss";
 
 const Connect = () => {
     const router = useRouter();
@@ -29,7 +29,7 @@ const Connect = () => {
 
     const handleBackDashboard = () => router.push("/");
     const handleNextStep = () => {
-        router.push('/connect?deviceName=' + activeItem);
+        router.push("/connect?deviceName=" + activeItem);
         setActive((prevStep) => {
             if (prevStep < steps.length) {
                 return prevStep + 1;
@@ -75,6 +75,12 @@ const Connect = () => {
         }
     };
 
+
+    useEffect(() => {
+        if(checked){
+            setChecked(false)
+        }
+    },[active])
     return (
         <div className="connect">
             <div className="overlay" />
@@ -89,8 +95,10 @@ const Connect = () => {
                         handleNextStep={handleNextStep}
                         isFinish={isFinish}
                         checked={checked}
+                        setChecked={setChecked}
                         congratulation={congratulation}
                         handleBackDashboard={handleBackDashboard}
+                        handleChecked={handleChecked}
                     >
                         {active === 0 && (
                             <Step1 activeItem={activeItem} handleChecked={handleChecked} active={active} />

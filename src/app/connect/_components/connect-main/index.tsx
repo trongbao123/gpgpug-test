@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./index.scss";
 import Image from "next/image";
 import { steps } from "@component/constants/constant";
@@ -19,7 +19,19 @@ const ConnectMain: React.FC<Props> = ({
     deviceName,
     congratulation,
     handleBackDashboard,
+    handleChecked,
+    setChecked
 }) => {
+    const [deviceCode, setDeviceCode] = useState("");
+
+    const handleDeviceCode = (e: any) => {
+        setDeviceCode(e.target.value);
+    }
+
+    const onClickSubmitDeviceCode = () => {
+        handleChecked(deviceCode);
+    }
+
     return (
         <div className="connect-main">
             <div className="connect-main-left">
@@ -45,6 +57,23 @@ const ConnectMain: React.FC<Props> = ({
                 </div>
                 <h2 className="setup">{steps[active]?.subTitle}</h2>
                 <p className="instruction">{steps[active]?.subContent}</p>
+
+                {steps[active].isCLILog && (
+                    <div className="connect-main-left-section-device">
+                        <div className="connect-main-left-section-device-input">
+                            <div className="input-name">Device Code</div>
+                            <input
+                                value={deviceCode}
+                                className="input"
+                                placeholder="Enter Device Code"
+                                onChange={handleDeviceCode}
+                            />
+                        </div>
+                        <button className="connect-main-left-section-device-button" onClick={onClickSubmitDeviceCode}>
+                            Confirm
+                        </button>
+                    </div>
+                )}
 
                 {active !== 2 ? (
                     <button

@@ -205,6 +205,7 @@ export const steps = [
         subTitle: "Set Up",
         subContent: "Follow the instructions below to set up a cennection via the WNC",
         markdown: markdownData,
+        isCLILog: true,
     },
     {
         id: 3,
