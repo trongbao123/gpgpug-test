@@ -1,28 +1,46 @@
 "use client";
-import { USERKIT_TOKEN } from "@component/constants/setting";
+
+import { useEffect, ReactNode } from "react";
 import { usePathname, useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { useSession } from "next-auth/react";
+import { USERKIT_TOKEN } from "@component/configs/setting";
 
-const AuthWrapper = (Component: any) => {
-    return function ProtectedRoute(props: any) {
-        const router = useRouter();
-        const pathname = usePathname();
-        const auth = localStorage.getItem(USERKIT_TOKEN);
-        const skipAuth = ["/auth/sign-in", "/auth/sign-in/email", "/auth/sign-up"];
+interface AuthWrapperProps {
+    children: ReactNode;
+}
 
-        useEffect(() => {
-            if (auth) {
-                router.push(!skipAuth.includes(pathname) ? pathname : "/");
+const AuthWrapper = ({ children }: AuthWrapperProps) => {
+    const router = useRouter();
+    const pathname = usePathname();
+    const { data: session, status } = useSession();
+
+    const skipAuth = ["/auth/sign-in", "/auth/sign-in/email", "/auth/sign-up", "/"];
+
+    const handleAuthentication = () => {
+        const localToken = localStorage.getItem(USERKIT_TOKEN);
+
+        if (session?.accessToken || localToken) {
+            if (session?.accessToken) {
+                localStorage.setItem(USERKIT_TOKEN, session.accessToken);
             }
-            if (!auth && !skipAuth.includes(pathname)) {
-                router.push("/auth/sign-in");
+            if (skipAuth.includes(pathname)) {
+                router.push("/");
             }
-        }, [auth, pathname]);
-        if (!auth && !skipAuth.includes(pathname)) {
-            return null;
+        } else if (!skipAuth.includes(pathname)) {
+            router.push("/auth/sign-in");
         }
-        return <Component {...props} />;
     };
+
+    useEffect(() => {
+        if (status !== "loading") {
+            handleAuthentication();
+        }
+    }, [pathname, status]);
+
+    return status === "loading" ||
+        (!session?.accessToken && !localStorage.getItem(USERKIT_TOKEN) && !skipAuth.includes(pathname)) ? null : (
+        <>{children}</>
+    );
 };
 
 export default AuthWrapper;

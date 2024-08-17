@@ -25,22 +25,23 @@ const RootLayout = ({
     children: React.ReactNode;
 }>) => {
     useEffect(() => {
-        document.title = "GPGPU";
+        if (typeof window !== "undefined") {
+            window.document.title = "GPGPU";
+        }
     }, []);
     return (
         <AuthWrapperSession>
             <html lang="en">
                 <Head>
                     <link rel="shortcut icon" href="./logo.png" sizes="any" />
-                    <title>{document.title}</title>
                 </Head>
                 <body className={inter.className}>
                     <LoadingProvider>
-                        {/* <AuthProvider> */}
-                        <Header />
-                        <Suspense>{children}</Suspense>
-                        <Footer />
-                        {/* </AuthProvider> */}
+                        <AuthWrapper>
+                            <Header />
+                            <Suspense>{children}</Suspense>
+                            <Footer />
+                        </AuthWrapper>
                     </LoadingProvider>
                 </body>
             </html>
@@ -48,4 +49,4 @@ const RootLayout = ({
     );
 };
 
-export default AuthWrapper(RootLayout);
+export default RootLayout;

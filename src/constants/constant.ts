@@ -153,16 +153,16 @@ export const steps = [
                 title: "Windows",
                 link: "",
             },
-            {
-                id: 2,
-                img: "/images/apple.svg",
-                title: "Mac",
-                link: "",
-            },
+            // {
+            //     id: 2,
+            //     img: "/images/apple.svg",
+            //     title: "Mac",
+            //     link: "",
+            // },
             {
                 id: 3,
                 img: "/images/untubu.svg",
-                title: "Untubu",
+                title: "Linux",
                 link: "",
             },
         ],
@@ -175,19 +175,19 @@ export const steps = [
         content: [
             {
                 id: 1,
-                img: "/images/dowload.svg",
+                img: "/images/icon_copy.svg",
                 title: "Download Docker",
                 link: "https://www.docker.com/products/docker-desktop/",
             },
             {
                 id: 2,
-                img: "/images/dowload.svg",
+                img: "/images/icon_copy.svg",
                 title: "Install and run WNC through the downloaded installer",
                 link: "https://provider.gpgpu.ai/download/window-msi",
             },
             {
                 id: 3,
-                img: "/images/dowload.svg",
+                img: "/images/icon_copy.svg",
                 title: "Copy the connection code to WNC",
                 link: "https://www.docker.com/products/docker-desktop/",
             },

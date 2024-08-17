@@ -30,10 +30,23 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
                     throw new Error("User not found.");
                 }
                 const user: any = {
-                    email: token,
+                    email: credentials.email as string,
+                    token: token as string,
                 };
                 return user;
             },
         }),
     ],
+    callbacks: {
+        async jwt({ token, user }) {
+            if (user) {
+                token.accessToken = user.token;
+            }
+            return token;
+        },
+        async session({ session, token }) {
+            session.accessToken = token.accessToken as string;
+            return session;
+        },
+    },
 });
