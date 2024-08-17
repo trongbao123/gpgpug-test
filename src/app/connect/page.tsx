@@ -19,9 +19,9 @@ const Connect = () => {
     const [congratulation, setCongratulation] = useState("");
     const [isFinish, setIsFinish] = useState(false);
     const [checked, setChecked] = useState(false);
-    const [activeItem, setActiveItem] = useState<null | number>(null);
+    const [activeItem, setActiveItem] = useState<null | number | string>(null);
 
-    const handleChecked = (e: number) => {
+    const handleChecked = (e: string | number) => {
         setChecked(true);
         setActiveItem(e);
     };
@@ -29,6 +29,7 @@ const Connect = () => {
 
     const handleBackDashboard = () => router.push("/");
     const handleNextStep = () => {
+        router.push('/connect?deviceName=' + activeItem);
         setActive((prevStep) => {
             if (prevStep < steps.length) {
                 return prevStep + 1;

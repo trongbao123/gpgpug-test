@@ -1,16 +1,18 @@
 "use client";
-import { steps } from "@component/constants/constant";
-import "./index.scss";
-import Image from "next/image";
-import { useState } from "react";
 import Notification from "@component/components/common/notification";
+import { steps } from "@component/constants/constant";
+import Image from "next/image";
+import { useSearchParams } from "next/navigation";
+import SyntaxHighlighter from "react-syntax-highlighter";
+import { docco } from "react-syntax-highlighter/dist/esm/styles/hljs";
+import "./index.scss";
 
 type Props = {
     active: number;
 };
 const Step2: React.FC<Props> = ({ active }) => {
-    const [copySuccess, setCopySuccess] = useState("");
-
+    const params = useSearchParams();
+    const deviceName = params.get("deviceName");
     const copyToClipboard = async () => {
         const textToCopy = document.getElementsByClassName("copy-text")[0].textContent;
         console.log(textToCopy);
@@ -22,10 +24,7 @@ const Step2: React.FC<Props> = ({ active }) => {
                 message: "Copied!",
                 placement: "top",
             });
-            setCopySuccess("Copied!");
-        } catch (err) {
-            setCopySuccess("Failed to copy!");
-        }
+        } catch (err) {}
     };
     return (
         <div className="step2">
@@ -33,8 +32,8 @@ const Step2: React.FC<Props> = ({ active }) => {
                 <p>Download docker desktop</p>
             </div>
             <div className="step2-body">
-                {steps[active]?.content.map((item, index) => {
-                    return (
+                {deviceName !== "Linux" &&
+                    steps[active]?.content.map((item, index) => (
                         <div key={item?.id} className="step2-body-item">
                             <div className="step2-body-item-content">
                                 {item?.id}. {item?.title}
@@ -57,8 +56,54 @@ const Step2: React.FC<Props> = ({ active }) => {
                                 />
                             </div>
                         </div>
-                    );
-                })}
+                    ))}
+                {deviceName === "Linux" && (
+                    <div className="shell-container">
+                        <div className="shell-content">
+                            <div style={{ padding: "20px", overflowY: "auto" }}>
+                                {steps[active]?.markdown &&
+                                    steps[active]?.markdown.map((key, index) => (
+                                        <>
+                                            <h2 style={{ color: "white" }}>{key.title}</h2>
+                                            <div>
+                                                <div className="shell-header">
+                                                    <p className="shell-header-title">Shell</p>
+                                                    <button className="shell-header-icon">
+                                                        <Image
+                                                            src={"/images/icon_copy.svg"}
+                                                            alt="logo"
+                                                            width={15}
+                                                            height={15}
+                                                            style={{
+                                                                color: "white",
+                                                                display: "block",
+                                                                cursor: "pointer",
+                                                            }}
+                                                            onClick={copyToClipboard}
+                                                        />
+                                                    </button>
+                                                </div>
+                                                <SyntaxHighlighter
+                                                    language="bash"
+                                                    style={docco}
+                                                    customStyle={{
+                                                        background: "#202020",
+                                                        color: "white",
+                                                        padding: "10px",
+                                                        overflowX: "hidden",
+                                                        marginBottom: "7px",
+                                                    }}
+                                                    className="copy-text syntax-highlighter-container"
+                                                >
+                                                    {key.content}
+                                                </SyntaxHighlighter>
+                                            </div>
+                                        </>
+                                    ))}
+                            </div>
+                        </div>
+                    </div>
+                )}
             </div>
         </div>
     );
