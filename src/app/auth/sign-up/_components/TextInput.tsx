@@ -1,14 +1,14 @@
 import { register } from "module";
 import "./TextInput.scss";
 
-interface TextInputProps {
+interface TextInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
     name: string;
     label: string;
     type: string;
     value?: string;
     onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
     buttonText?: string;
-    onButtonClick?: (e: any) => void;
+    onButtonClick?: (e: any) => Promise<void> | null;
     register?: any;
     placeholder?: string;
 }
@@ -23,6 +23,7 @@ const TextInput: React.FC<TextInputProps> = ({
     onButtonClick,
     register,
     placeholder = "",
+    ...rest
 }) => {
     return (
         <div className="text-input">
@@ -36,6 +37,7 @@ const TextInput: React.FC<TextInputProps> = ({
                         {...register(name)}
                         formNoValidate
                         placeholder={placeholder}
+                        {...rest}
                     />
                 ) : (
                     <input type={type} value={value} onChange={onChange} formNoValidate placeholder={placeholder} />

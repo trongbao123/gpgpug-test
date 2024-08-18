@@ -1,4 +1,5 @@
 "use client";
+import { unAuthenticatedRoute } from "@component/constants/constant";
 import { USERKIT_TOKEN } from "@component/constants/setting";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect } from "react";
@@ -8,17 +9,16 @@ const AuthWrapper = (Component: any) => {
         const router = useRouter();
         const pathname = usePathname();
         const auth = localStorage.getItem(USERKIT_TOKEN);
-        const skipAuth = ["/auth/sign-in", "/auth/sign-in/email", "/auth/sign-up"];
 
         useEffect(() => {
             if (auth) {
-                router.push(!skipAuth.includes(pathname) ? pathname : "/");
+                router.push(!unAuthenticatedRoute.includes(pathname) ? pathname : "/");
             }
-            if (!auth && !skipAuth.includes(pathname)) {
+            if (!auth && !unAuthenticatedRoute.includes(pathname)) {
                 router.push("/auth/sign-in");
             }
         }, [auth, pathname]);
-        if (!auth && !skipAuth.includes(pathname)) {
+        if (!auth && !unAuthenticatedRoute.includes(pathname)) {
             return null;
         }
         return <Component {...props} />;

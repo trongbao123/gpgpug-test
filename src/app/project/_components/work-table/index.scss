@@ -1,0 +1,156 @@
+.work-table {
+    .table-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 38px;
+        padding: 40px 26px 40px 26px;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        border: solid 1px rgba(255, 255, 255, 0.2);
+
+        &-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+
+            span {
+                height: 28px;
+                font-size: 20px;
+                line-height: 28px;
+                font-weight: 500;
+                text-align: center;
+                color: #fff;
+            }
+            .search {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                border-radius: 8px;
+                border: solid 1px rgba(255, 255, 255, 0.2);
+                padding: 6px 8px 6px 8px;
+                height: 38px;
+                width: 410px;
+                input {
+                    border: none;
+                    background: none;
+                    flex-grow: 1;
+                    height: 100%;
+                    color: #fff;
+                    &:focus {
+                        outline: none;
+                    }
+
+                    &::placeholder {
+                        color: rgba(255, 255, 255, 0.5);
+                    }
+                }
+            }
+        }
+        &-right {
+            img {
+                cursor: pointer;
+            }
+        }
+    }
+
+    .ant-table-wrapper .ant-table-tbody > tr > td {
+        border-bottom: solid 1px rgba(255, 255, 255, 0.2);
+    }
+    .ant-spin-container {
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+        border-left: solid 1px rgba(255, 255, 255, 0.2);
+        border-right: solid 1px rgba(255, 255, 255, 0.2);
+    }
+    .ant-table {
+        background: transparent;
+        &-row {
+            .ant-table-cell {
+                font-size: 12px;
+                line-height: 14.4px;
+                font-weight: 500;
+                color: #737780;
+                cursor: pointer;
+                &-row-hover {
+                    background: rgba(5, 5, 5, 0.5) !important;
+                }
+            }
+        }
+        &-body {
+            tr {
+                border: solid 1px rgba(255, 255, 255, 0.2);
+                .ant-table-placeholder {
+                    background: transparent;
+                }
+
+                td {
+                    transition: none;
+                    border-bottom: solid 1px rgba(255, 255, 255, 0.2);
+                }
+            }
+        }
+
+        &-wrapper {
+            tr {
+                th {
+                    border-top: solid 1px rgba(255, 255, 255, 0.2);
+                    border-radius: 0;
+                    border-bottom: solid 1px rgba(255, 255, 255, 0.2);
+                    background: transparent;
+                    color: #737780;
+                    border-start-end-radius: 0px !important;
+                    border-start-start-radius: 0px !important;
+                    text-align: start;
+                    font-size: 12px;
+                    line-height: 14.4px;
+                    font-weight: 500;
+                    &::before {
+                        display: none;
+                    }
+                }
+            }
+
+            .antd-table-tbody {
+                tr {
+                    .ant-table-placeholder {
+                        background: transparent;
+                    }
+
+                    td {
+                        transition: none;
+                        border-bottom: solid 1px rgba(255, 255, 255, 0.2) !important;
+                    }
+                }
+            }
+        }
+    }
+
+    .ant-pagination {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        .ant-pagination-item-link {
+            color: rgba(137, 143, 153, 1);
+        }
+        .ant-pagination-disabled:hover {
+            cursor: not-allowed;
+            color: gray;
+        }
+        .ant-pagination-prev {
+            color: gray;
+        }
+        .ant-pagination-item {
+            background: transparent;
+
+            a {
+                color: rgba(255, 255, 255, 1);
+                font-size: 14px;
+            }
+        }
+
+        .ant-pagination-item-link {
+            color: rgba(255, 255, 255, 1);
+            font-size: 14px;
+        }
+    }
+}

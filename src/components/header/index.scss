@@ -1,3 +1,32 @@
+.custom-popover .ant-popover-inner {
+    background: rgba(0, 0, 0, 0.8); /* Màu nền tùy chỉnh */
+    border-radius: 8px; /* Bo tròn góc */
+    padding: 0; /* Khoảng cách nội dung */
+    border: solid 1px rgba(255, 255, 255, 0.2);
+    position: relative;
+
+    .popover-content {
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+        a {
+            color: white;
+        }
+    }
+}
+
+.custom-popover .ant-popover-arrow {
+    border-color: transparent transparent #f0f0f0 transparent; /* Màu của mũi tên */
+}
+
+.custom-popover .ant-popover-title {
+    font-weight: bold; /* Tùy chỉnh font-weight của tiêu đề */
+    color: #333; /* Màu của tiêu đề */
+}
+
+.custom-popover .ant-popover-inner-content {
+    color: #555; /* Màu chữ của nội dung */
+}
 header {
     height: 64px;
     position: fixed;
@@ -46,9 +75,27 @@ header {
                         width: 16px;
                         height: 16px;
                     }
+                    .ant-select-selector {
+                        background: transparent;
+                        border: none;
+                        span {
+                            color: white;
+                            font-size: 18px;
+                            text-align: center;
+                            line-height: 21.6px;
+                            font-weight: 300;
+                        }
 
+                        &:focus-visible {
+                            outline: none;
+                        }
+                    }
+
+                    .ant-select .ant-select-arrow {
+                        color: white;
+                    }
                     &-provider {
-                        width: 93px;
+                        width: fit-content;
                         height: 22px;
                         background: transparent;
                         border: none;
@@ -187,7 +234,9 @@ header {
                     .add-new-project {
                         display: none;
                     }
-
+                    .popover {
+                        background: black;
+                    }
                     .account {
                         &-icon {
                             display: none;
