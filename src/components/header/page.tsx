@@ -46,7 +46,7 @@ const Header = () => {
     }, []);
 
     useEffect(() => {
-        if (session && session.user?.email) localStorage.setItem(USERKIT_TOKEN, JSON.stringify(session.user.email));
+        // if (session && session.user?.email) localStorage.setItem(USERKIT_TOKEN, JSON.stringify(session.user.email));
         const storedValue = localStorage.getItem(SELECTED_PROVIDER);
         if (storedValue) setSelected(storedValue);
     }, [session]);

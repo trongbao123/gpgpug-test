@@ -27,6 +27,14 @@ const signup = async (options?: any) => {
     return data;
 };
 
+const loginCli = async (options?: any) => {
+    const data = await request({
+        method: "POST",
+        url: `/user/cli/login`,
+        ...options,
+    });
+    return data;
+};
 const verifyCode = async (options?: any) => {
     const data = await request({
         method: "POST",
@@ -36,4 +44,4 @@ const verifyCode = async (options?: any) => {
     return data;
 }
 
-export { login, signupVerification, signup, verifyCode };
+export { login, signupVerification, signup, loginCli, verifyCode };
