@@ -1,18 +1,42 @@
 "use client";
 import StateComponent from "@component/components/state";
 import { logo, provider } from "@/constants/constant";
-import { Popover, Table } from "antd";
+import { Popover, Skeleton, Table } from "antd";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import "./index.scss";
 
-export const DeviceTable = () => {
+type Props = {
+    tableData: any[];
+    loading?: boolean;
+};
+
+export const DeviceTable = ({ tableData, loading }: Props) => {
+    console.log(tableData);
+    console.log(loading)
     const router = useRouter();
+
+    function timeDifference(createdAt: string): string {
+        const createdDate = new Date(createdAt);
+        const currentDate = new Date();
+
+        const diffInMs = currentDate.getTime() - createdDate.getTime();
+        const diffInMins = Math.floor(diffInMs / (1000 * 60));
+        const diffInHrs = Math.floor(diffInMins / 60);
+        const diffInDays = Math.floor(diffInHrs / 24);
+
+        const minutes = diffInMins % 60;
+        const hours = diffInHrs % 24;
+        const days = diffInDays;
+
+        return `${-days}D ${hours}Hrs ${minutes}Mins`;
+    }
+
     const columns = [
         {
             title: "State",
-            dataIndex: "state",
-            key: "state",
+            dataIndex: "status",
+            key: "status",
             render: (text: any) => <StateComponent state={text} />,
         },
         {
@@ -22,8 +46,8 @@ export const DeviceTable = () => {
         },
         {
             title: "Chip",
-            dataIndex: "chip",
-            key: "chip",
+            dataIndex: "os",
+            key: "os",
             render: (props: any) => {
                 return (
                     <div className="chip-container">
@@ -53,19 +77,20 @@ export const DeviceTable = () => {
         },
         {
             title: "Uptime",
-            dataIndex: "uptime",
-            key: "uptime",
+            dataIndex: "createdAt",
+            key: "createdAt",
+            render: (text: any) => <div className="chip-cointainer">{timeDifference(text)}</div>,
         },
         {
             title: "Hire Status",
-            dataIndex: "hire",
-            key: "hire",
+            dataIndex: "hireStatus",
+            key: "hireStatus",
             render: (text: any) => <div className="hire">{text}</div>,
         },
         {
             title: "Pool Type",
-            dataIndex: "pool",
-            key: "pool",
+            dataIndex: "poolType",
+            key: "poolType",
         },
         {
             title: "",
@@ -103,17 +128,22 @@ export const DeviceTable = () => {
                 </div>
             </div>
             <div className="table-body">
-                <Table
-                    onRow={(record, rowIndex) => {
-                        return {
-                            onClick: () => router.push(`/${record.key}`),
-                        };
-                    }}
-                    columns={columns}
-                    dataSource={provider}
-                    bordered={false}
-                    pagination={{ position: ["none", "none"] }}
-                />
+                {!loading ? (
+                    <Table
+                        onRow={(record, rowIndex) => {
+                            return {
+                                onClick: () => router.push(`/${record.key}`),
+                            };
+                        }}
+                        columns={columns}
+                        dataSource={tableData}
+                        // dataSource={provider}
+                        bordered={false}
+                        pagination={{ position: ["none", "none"] }}
+                    />
+                ) : (
+                    <Skeleton />
+                )}
             </div>
         </section>
     );

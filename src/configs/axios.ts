@@ -47,7 +47,7 @@ const sendRequest = async <T>(options: RequestType): Promise<T | undefined> => {
         params,
     });
     try {
-        const response = await axiosInstance.post(url, requestData, config);
+        const response = await axiosInstance(config);
         const [data, error, statusText, status] = handleError(response);
 
         if (error) {
