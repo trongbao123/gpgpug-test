@@ -13,8 +13,8 @@ type Props = {
 const Step2: React.FC<Props> = ({ active }) => {
     const params = useSearchParams();
     const deviceName = params.get("deviceName");
-    const copyToClipboard = async () => {
-        const textToCopy = document.getElementsByClassName("copy-text")[0].textContent;
+    const copyToClipboard = async (index:number) => {
+        const textToCopy = document.getElementsByClassName("copy-text")[index].textContent;
         try {
             if (!textToCopy) return;
             await navigator.clipboard.writeText(textToCopy);
@@ -28,7 +28,7 @@ const Step2: React.FC<Props> = ({ active }) => {
     return (
         <div className="step2">
             <div className="step2-header">
-                <p>Download docker desktop</p>
+                <p>Instructions</p>
             </div>
             <div className="step2-body">
                 {deviceName !== "Linux" &&
@@ -37,23 +37,25 @@ const Step2: React.FC<Props> = ({ active }) => {
                             <div className="step2-body-item-content">
                                 {item?.id}. {item?.title}
                             </div>
-                            <div className="step2-body-item-icon">
-                                <span className="copy-text">{item?.link}</span>
+                            {item.link && (
+                                <div className="step2-body-item-icon">
+                                    <span className="copy-text">{item?.link}</span>
 
-                                <Image
-                                    src={item?.img}
-                                    alt="logo"
-                                    width={28}
-                                    height={28}
-                                    style={{
-                                        padding: "7px",
-                                        borderRadius: "7px",
-                                        border: "1px solid #999EA7",
-                                        cursor: "pointer",
-                                    }}
-                                    onClick={copyToClipboard}
-                                />
-                            </div>
+                                    <Image
+                                        src={item?.img}
+                                        alt="logo"
+                                        width={28}
+                                        height={28}
+                                        style={{
+                                            padding: "7px",
+                                            borderRadius: "7px",
+                                            border: "1px solid #999EA7",
+                                            cursor: "pointer",
+                                        }}
+                                        onClick={() => copyToClipboard(index)}
+                                    />
+                                </div>
+                            )}
                         </div>
                     ))}
                 {deviceName === "Linux" && (
@@ -78,7 +80,7 @@ const Step2: React.FC<Props> = ({ active }) => {
                                                                 display: "block",
                                                                 cursor: "pointer",
                                                             }}
-                                                            onClick={copyToClipboard}
+                                                            onClick={() => copyToClipboard(index)}
                                                         />
                                                     </button>
                                                 </div>

@@ -56,7 +56,7 @@ const Step3: React.FC<Props> = ({ active, handleDeviceName, deviceName, congratu
                     <div className="step3-body-item">
                         <div className="step3-body-item-content">GPU Chip</div>
                         <div className="step3-body-item-icon">
-                            <Image src={(logo as any)[deviceType?.os]} alt="logo" width={20} height={20} />
+                            {/* <Image src={(logo as any)[deviceType?.os]} alt="logo" width={20} height={20} /> */}
                             {deviceType?.deviceType}
                         </div>
                     </div>

@@ -46,12 +46,12 @@ export const DeviceTable = ({ tableData, loading }: Props) => {
         },
         {
             title: "Chip",
-            dataIndex: "os",
-            key: "os",
+            dataIndex: "deviceType",
+            key: "deviceType",
             render: (props: any) => {
                 return (
                     <div className="chip-container">
-                        <Image src={(logo as any)[props]} alt="logo" width={16} height={16} />
+                        {/* <Image src={(logo as any)[props]} alt="logo" width={16} height={16} /> */}
                         <p>{props}</p>
                     </div>
                 );

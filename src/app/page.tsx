@@ -13,7 +13,7 @@ const Home = () => {
 
     const fetchData = async () => {
         try {
-            const response = (await getDeivces({ params: { page: 1, lenth: 10 } })) as {
+            const response = (await getDeivces({ params: { page: 1, length: 10 } })) as {
                 result?: { data: any; totalCount: number };
             };
 

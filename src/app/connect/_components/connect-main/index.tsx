@@ -81,11 +81,11 @@ const ConnectMain: React.FC<Props> = ({
                 {steps[active].isCLILog && (
                     <div className="connect-main-left-section-device">
                         <div className="connect-main-left-section-device-input">
-                            <div className="input-name">Device Code</div>
+                            <div className="input-name">Device ID</div>
                             <input
                                 value={deviceCode}
                                 className="input"
-                                placeholder="Enter Device Code"
+                                placeholder="Enter Device ID"
                                 onChange={handleDeviceCode}
                             />
                         </div>
