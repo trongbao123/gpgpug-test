@@ -8,9 +8,8 @@ const Success = () => {
     return (
         <SigninContainer>
             <h1>Success</h1>
-            <div className="signin-google" onClick={() => router.push("/")}>
-                <Image width={18} height={18} src={"/images/arrow.svg"} alt="arrow" />
-                <p>Return to home</p>
+            <div className="signin-notice" onClick={() => router.push("/")}>
+                <p>The authentication process is complete. Please close this page.</p>
             </div>
         </SigninContainer>
     );
