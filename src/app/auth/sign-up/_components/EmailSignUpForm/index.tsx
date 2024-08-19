@@ -133,6 +133,7 @@ const Page = (props: Props) => {
             setIsLoading(false);
         }
     };
+    console.log(Object.keys(errors).length === 0, isCheckedCode);
 
     return (
         <>
@@ -192,7 +193,7 @@ const Page = (props: Props) => {
                 ) : (
                     <p className="no-error mb-24"></p>
                 )}
-                <Button text="Create account" type="submit" />
+                <Button text="Create account" type="submit" disabled={!isCheckedCode} />
             </form>
         </>
     );
