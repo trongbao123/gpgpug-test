@@ -46,7 +46,7 @@ const Step3: React.FC<Props> = ({ active, handleDeviceName, deviceName, congratu
         if (deviceCode !== "Windows") getDetailDevice();
     }, [deviceCode]);
 
-    return congratulation !== "success" ? (
+    return (
         <div className="step3-container">
             <div className="step3">
                 <div className="step3-header">
@@ -76,9 +76,12 @@ const Step3: React.FC<Props> = ({ active, handleDeviceName, deviceName, congratu
                 </div>
             </div>
         </div>
-    ) : (
-        <Congratulations name={deviceType} />
     );
+    // return congratulation !== "success" ? (
+
+    // ) : (
+    //     <Congratulations name={deviceType} />
+    // );
 };
 
 export default Step3;
