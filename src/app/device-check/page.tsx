@@ -9,15 +9,16 @@ import { useForm } from "react-hook-form";
 import Notification from "@component/components/common/notification";
 import { useLoading } from "@component/contexts/loadingContext";
 import * as yup from "yup";
-import TextInput from "../sign-up/_components/TextInput";
+
 import { loginCli } from "@component/services/auth";
+import TextInput from "../auth/sign-up/_components/TextInput";
 
 type Props = {};
 const Signin: React.FC<Props> = ({}) => {
     const router = useRouter();
     const { setIsLoading } = useLoading();
     const searchParams = useSearchParams();
-    const deviceCode = searchParams.get("deviceCode");
+    const deviceCode = searchParams.get("device_code");
     const schema = yup
         .object({
             email: yup.string().email("Invalid email").required("Email is required"),
@@ -50,7 +51,7 @@ const Signin: React.FC<Props> = ({}) => {
                     message: "Sign in successfully!",
                     placement: "top",
                 });
-                router.push("/auth/login-cli/success");
+                router.push("/device-check/success");
             }
         } catch (error: any) {
             Notification({
