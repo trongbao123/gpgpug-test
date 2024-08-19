@@ -3,7 +3,6 @@ import InfoBox from "./InfoBox";
 import Reboot from "./re-boot";
 import RewardHistory from "./reward-history";
 import ServiceInfoBox from "./ServiceInfo";
-import UpTime from "./uptime";
 import UptimeMonitor from "./UptimeMonitor";
 
 const Reward = () => {

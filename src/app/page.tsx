@@ -1,5 +1,4 @@
 "use client";
-import AuthWrapper from "@component/components/auth-wrapper/authWrapper";
 import "../../styles/index.scss";
 import DeviceResponsive from "./home/_components/deviceResponsive";
 import HeaderMain from "./home/_components/header-main/page";
@@ -22,4 +21,4 @@ const Home = () => {
     );
 };
 
-export default AuthWrapper(Home);
+export default Home;

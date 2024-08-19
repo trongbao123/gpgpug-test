@@ -25,6 +25,12 @@
     }
 }
 
+.loading-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 @media screen and (min-width: 1024px) and (max-width: 1240px) {
     .res {
         padding: 0 10px;
