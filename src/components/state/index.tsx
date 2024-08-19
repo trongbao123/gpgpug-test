@@ -19,7 +19,7 @@ const stateImages: any = {
 const StateComponent: React.FC<Props> = ({ state, className }) => {
     const stateImg = stateImages[state] || stateImages.Offline;
 
-    let stateClass = `state ${state.toLowerCase()}`;
+    let stateClass = `state ${state && state.toLowerCase()}`;
 
     if (["Deleted", "Paused", "Offline"].includes(state)) stateClass = "state paused";
 

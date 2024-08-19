@@ -48,7 +48,7 @@ export const projectRate = [
 
 export const provider = [
     {
-        state: "Online",
+        status: "Online",
         key: "1",
         name: "Mac-mini2",
         chip: "M2 Pro",
@@ -71,7 +71,7 @@ export const provider = [
         network: "High",
         uptime: "29D 16Hrs 46Mins",
         pool: "Flexible",
-        state: "Online",
+        status: "Online",
         hire: "Hire",
         date: "29",
         hour: "16",
@@ -86,7 +86,7 @@ export const provider = [
         network: "High",
         uptime: "29D 16Hrs 46Mins",
         pool: "Flexible",
-        state: "Online",
+        status: "Online",
         hire: "Hire",
         date: "29",
         hour: "16",
@@ -101,7 +101,7 @@ export const provider = [
         network: "High",
         uptime: "29D 16Hrs 46Mins",
         pool: "Flexible",
-        state: "Paused",
+        status: "Paused",
         hire: "Hire",
         date: "29",
         hour: "16",
@@ -116,7 +116,7 @@ export const provider = [
         network: "High",
         uptime: "29D 16Hrs 46Mins",
         pool: "Flexible",
-        state: "Deleted",
+        status: "Deleted",
         hire: "Hire",
         date: "29",
         hour: "16",
@@ -131,7 +131,7 @@ export const provider = [
         ulti: "99%",
         uptime: "29D 16Hrs 46Mins",
         pool: "Flexible",
-        state: "Blocked",
+        status: "Blocked",
         hire: "Hire",
         date: "29",
         hour: "16",
@@ -140,6 +140,7 @@ export const provider = [
 ];
 
 export const logo = {
+    ["Mac"]: "/images/apple.svg",
     ["M2 Pro"]: "/images/apple.svg",
     ["GeForce RTX 3050 Ti Laptop"]: "/images/device.svg",
     ["Mac"]: "/images/apple.svg",

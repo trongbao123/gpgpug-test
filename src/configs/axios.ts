@@ -47,26 +47,7 @@ const sendRequest = async <T>(options: RequestType): Promise<T | undefined> => {
         params,
     });
     try {
-        let response;
-
-        switch (method.toLowerCase()) {
-            case "get":
-                response = await axiosInstance.get(url, config);
-                break;
-            case "post":
-                response = await axiosInstance.post(url, requestData, config);
-                break;
-            case "put":
-            case "patch":
-                response = await axiosInstance.put(url, requestData, config);
-                break;
-            case "delete":
-                response = await axiosInstance.delete(url, config);
-                break;
-            default:
-                throw new Error(`Method HTTP '${method}' not supported`);
-        }
-
+        const response = await axiosInstance(config);
         const [data, error, statusText, status] = handleError(response);
 
         if (error) {
