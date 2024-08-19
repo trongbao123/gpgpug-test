@@ -35,4 +35,13 @@ const detailDevice = async (options?: any) => {
     });
     return data;
 };
-export { connect, createConnect, confirmConnect, detailDevice };
+
+const detailDeviceMain = async (options?: any) => {
+    const data = await request({
+        method: "GET",
+        url: `/device/detail`,
+        ...options,
+    });
+    return data;
+};
+export { connect, createConnect, confirmConnect, detailDevice, detailDeviceMain };
