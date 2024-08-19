@@ -144,6 +144,16 @@ export const logo = {
     ["GeForce RTX 3050 Ti Laptop"]: "/images/device.svg",
 };
 
+const markdownData = [
+    {
+        title: "1. Install Docker",
+        content: `curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg\n\necho "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null\n\nsudo apt-get install docker-ce docker-ce-cli containerd.io`,
+    },
+    {
+        title: "2. NVIDIA Docker Install",
+        content: `distribution=$(source /etc/os-release;echo $ID$VERSION_ID)\ncurl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add -\ncurl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | sudo tee /etc/apt/sources.list.d/nvidia-docker.list\n\nsudo apt-get updat\nsudo apt-get install -y nvidia-docker2\nsudo systemctl restart docker\n\n# check\ndocker run --rm --gpus all nvidia/cuda:11.0-base nvidia-smi`,
+    },
+];
 export const steps = [
     {
         id: 1,
@@ -155,16 +165,16 @@ export const steps = [
                 title: "Windows",
                 link: "",
             },
-            {
-                id: 2,
-                img: "/images/apple.svg",
-                title: "Mac",
-                link: "",
-            },
+            // {
+            //     id: 2,
+            //     img: "/images/apple.svg",
+            //     title: "Mac",
+            //     link: "",
+            // },
             {
                 id: 3,
                 img: "/images/untubu.svg",
-                title: "Untubu",
+                title: "Linux",
                 link: "",
             },
         ],
@@ -177,25 +187,27 @@ export const steps = [
         content: [
             {
                 id: 1,
-                img: "/images/dowload.svg",
+                img: "/images/icon_copy.svg",
                 title: "Download Docker",
                 link: "https://www.docker.com/products/docker-desktop/",
             },
             {
                 id: 2,
-                img: "/images/dowload.svg",
+                img: "/images/icon_copy.svg",
                 title: "Install and run WNC through the downloaded installer",
                 link: "https://provider.gpgpu.ai/download/window-msi",
             },
             {
                 id: 3,
-                img: "/images/dowload.svg",
+                img: "/images/icon_copy.svg",
                 title: "Copy the connection code to WNC",
                 link: "https://www.docker.com/products/docker-desktop/",
             },
         ],
         subTitle: "Set Up",
         subContent: "Follow the instructions below to set up a cennection via the WNC",
+        markdown: markdownData,
+        isCLILog: true,
     },
     {
         id: 3,

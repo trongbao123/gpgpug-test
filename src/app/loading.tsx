@@ -1,11 +1,23 @@
-'use client'
-import Loading from "@component/components/common/loading";
+import { Spin } from "antd";
 import React from "react";
 
 type Props = {};
 
-const LoadingLayout = (props: Props) => {
-    return <Loading />;
+const contentStyle: React.CSSProperties = {
+    padding: 50,
+    borderRadius: 4,
 };
 
-export default LoadingLayout;
+const content = <div style={contentStyle} />;
+
+const Loading = (props: Props) => {
+    return (
+        <div className="main loading-page">
+            <Spin tip="Loading" size="large" fullscreen>
+                {content}
+            </Spin>
+        </div>
+    );
+};
+
+export default Loading;

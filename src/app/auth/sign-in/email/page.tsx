@@ -36,33 +36,6 @@ const Email = () => {
         resolver: yupResolver(schema),
     });
 
-    // const handleSignIn = async (data: any) => {
-    //     setIsLoading(true);
-    //     try {
-    //         const response: any = await login({ data });
-    //         if (response && response.token) {
-    //             localStorage.setItem(USERKIT_TOKEN, JSON.stringify(response));
-    //             Notification({
-    //                 type: "success",
-    //                 message: "Sign in successfully!",
-    //                 placement: "topRight",
-    //             });
-    //             checkLogin();
-    //             router.push("/");
-    //         } else {
-    //             throw response;
-    //         }
-    //     } catch (error: any) {
-    //         Notification({
-    //             type: "error",
-    //             message: error.message || error,
-    //             placement: "topRight",
-    //         });
-    //     } finally {
-    //         setIsLoading(false);
-    //     }
-    // };
-
     const handlNextAuth = async (data: any) => {
         const res = await signIn("credentials", {
             redirect: false,
@@ -75,7 +48,7 @@ const Email = () => {
             Notification({
                 type: "error",
                 message: res?.error,
-                placement: "topRight",
+                placement: "top",
             });
         }
 
@@ -83,7 +56,7 @@ const Email = () => {
             Notification({
                 type: "success",
                 message: "Sign in successfully!",
-                placement: "topRight",
+                placement: "top",
             });
             router.push("/");
         }
