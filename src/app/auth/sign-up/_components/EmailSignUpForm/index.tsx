@@ -98,7 +98,11 @@ const Page = (props: Props) => {
                 throw response;
             }
         } catch (error: any) {
-            console.log(error);
+            Notification({
+                type: "error",
+                message: error?.message || error,
+                placement: "topRight",
+            });
         }
         // setIsSendingCode(false);
     };
@@ -156,7 +160,9 @@ const Page = (props: Props) => {
                     label="Verification Code"
                     type="text"
                     register={register}
-                    buttonText={isSendingCode && verificationCode && !isCheckedCode ? "Check" : isCheckedCode ? "Checked" : ""}
+                    buttonText={
+                        isSendingCode && verificationCode && !isCheckedCode ? "Check" : isCheckedCode ? "Checked" : ""
+                    }
                     disabled={!isSendingCode || isCheckedCode}
                     onButtonClick={handleCheckCode}
                 />
