@@ -1,3 +1,4 @@
+"use client";
 import HeaderMain from "../home/_components/header-main/page";
 import Image from "next/image";
 import { logo, provider } from "@/constants/constant";
@@ -5,6 +6,9 @@ import StateComponent from "@component/components/state";
 import HireStatus from "./_components/hire-status";
 import Reward from "./_components/reward-chart";
 import NavBack from "./_components/NavBack";
+import { useEffect, useState } from "react";
+import { detailDeviceMain } from "@component/services/connect";
+import Notification from "@component/components/common/notification";
 
 // export async function generateStaticParams() {
 //     return provider.map((path) => ({
@@ -12,7 +16,32 @@ import NavBack from "./_components/NavBack";
 //     }));
 // }
 const PageDetail = ({ params }: { params: { id: string } }) => {
-    const itemDetail: any = provider.find((item: any) => item.key === params.id);
+    const [deviceDetail, setDeviceDetail] = useState<any>(null);
+
+    const getDetailDevice = async () => {
+        try {
+            const response: any = await detailDeviceMain({
+                params: {
+                    deviceId: params.id,
+                },
+            });
+            if (response && response.result) {
+                setDeviceDetail(response.result);
+            } else {
+                throw response;
+            }
+        } catch (error: any) {
+            Notification({
+                type: "error",
+                message: error.message || error,
+                placement: "top",
+            });
+        }
+    };
+
+    useEffect(() => {
+        getDetailDevice();
+    }, [params.id]);
 
     return (
         <div className="detail-container">
@@ -23,7 +52,7 @@ const PageDetail = ({ params }: { params: { id: string } }) => {
                     <div className="nav">
                         <NavBack />
                         <div className="nav-title">
-                            <p>{itemDetail?.name}</p>
+                            <p>{deviceDetail?.name}</p>
                             <div className="nav-title-icon">
                                 <Image width={32} height={32} src={"/images/detail.svg"} alt="detail" />
                             </div>
@@ -31,23 +60,23 @@ const PageDetail = ({ params }: { params: { id: string } }) => {
                         <div className="flex">
                             <div className="nav-description">
                                 <div className="nav-description-item active">
-                                    <Image src={(logo as any)[itemDetail.chip]} alt="logo" width={16} height={16} />
-                                    <p>{itemDetail?.chip}</p>
+                                    <Image src={(logo as any)[deviceDetail?.os]} alt="logo" width={16} height={16} />
+                                    <p>{deviceDetail?.os}</p>
                                 </div>
                                 <div className="nav-description-item">
-                                    <StateComponent state={itemDetail?.state} />
+                                    <StateComponent state={deviceDetail?.status} />
                                 </div>
                                 <div className="nav-description-item">
                                     <p>Device ID: </p>
-                                    <p>{itemDetail?.key}</p>
+                                    <p>{deviceDetail?.id}</p>
                                 </div>
                                 <div className="nav-description-item">
-                                    <p>{itemDetail?.pool}</p>
+                                    <p>{deviceDetail?.poolType}</p>
                                 </div>
                             </div>
                             <div className="flex-right">
                                 <div className="nav-description-item">
-                                    <StateComponent state={itemDetail?.state} />
+                                    <StateComponent state={deviceDetail?.status} />
                                 </div>
                                 <div className="flex-item">
                                     <Image src={"/images/delete.svg"} width={16} height={16} alt="delete" />
@@ -60,7 +89,7 @@ const PageDetail = ({ params }: { params: { id: string } }) => {
                 <div className="line-detail" />
                 <div className="container">
                     <div className="body">
-                        <HireStatus state={itemDetail?.state} />
+                        <HireStatus state={deviceDetail?.status} />
                         <Reward />
                     </div>
                 </div>
