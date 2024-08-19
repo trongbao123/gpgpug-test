@@ -15,7 +15,6 @@ const Step2: React.FC<Props> = ({ active }) => {
     const deviceName = params.get("deviceName");
     const copyToClipboard = async () => {
         const textToCopy = document.getElementsByClassName("copy-text")[0].textContent;
-        console.log(textToCopy);
         try {
             if (!textToCopy) return;
             await navigator.clipboard.writeText(textToCopy);

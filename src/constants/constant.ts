@@ -143,6 +143,7 @@ export const logo = {
     ["Mac"]: "/images/apple.svg",
     ["M2 Pro"]: "/images/apple.svg",
     ["GeForce RTX 3050 Ti Laptop"]: "/images/device.svg",
+    ["Mac"]: "/images/apple.svg",
 };
 
 const markdownData = [

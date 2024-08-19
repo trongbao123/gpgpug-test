@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import "./index.scss";
 import Image from "next/image";
 import { steps } from "@component/constants/constant";
+import { confirmConnect } from "@component/services/connect";
+import Notification from "@component/components/common/notification";
 type Props = {
     children: React.ReactNode;
     active: number;
@@ -28,8 +30,26 @@ const ConnectMain: React.FC<Props> = ({
         setDeviceCode(e.target.value);
     };
 
-    const onClickSubmitDeviceCode = () => {
-        handleChecked(deviceCode);
+    const onClickSubmitDeviceCode = async () => {
+        try {
+            const response: any = await confirmConnect({
+                data: {
+                    deviceId: deviceCode,
+                },
+            });
+
+            if (response && response.statusCode) {
+                throw response;
+            } else {
+                handleChecked(deviceCode);
+            }
+        } catch (error: any) {
+            Notification({
+                type: "error",
+                message: error.message || error,
+                placement: "top",
+            });
+        }
     };
 
     return (
