@@ -49,7 +49,7 @@ const Connect = () => {
 
     const handleFinish = async () => {
         setIsFinish(true);
-        setCongratulation("success");
+        // setCongratulation("success");
         // try {
         //     const response: any = await createConnect({
         //         data: {
