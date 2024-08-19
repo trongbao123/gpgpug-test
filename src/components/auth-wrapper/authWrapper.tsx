@@ -18,7 +18,6 @@ const AuthWrapper = ({ children }: AuthWrapperProps) => {
         "/auth/sign-in",
         "/auth/sign-in/email",
         "/auth/sign-up",
-        "/",
         "/device-check",
         "/device-check/success",
     ];
@@ -30,13 +29,12 @@ const AuthWrapper = ({ children }: AuthWrapperProps) => {
             if (session?.accessToken) {
                 localStorage.setItem(USERKIT_TOKEN, session.accessToken);
             }
-            // if (skipAuth.includes(pathname)) {
-            //     router.push("/");
-            // }
+            if (skipAuth.includes(pathname)) {
+                router.push("/");
+            }
+        } else if (!skipAuth.includes(pathname)) {
+            router.push("/auth/sign-in");
         }
-        // else if (!skipAuth.includes(pathname)) {
-        //     router.push("/auth/sign-in");
-        // }
     };
 
     useEffect(() => {
@@ -44,11 +42,10 @@ const AuthWrapper = ({ children }: AuthWrapperProps) => {
             handleAuthentication();
         }
     }, [pathname, status]);
-    return <>{children}</>;
-    // return status === "loading" ||
-    //     (!session?.accessToken && !localStorage.getItem(USERKIT_TOKEN) && !skipAuth.includes(pathname)) ? null : (
-    //     <>{children}</>
-    // );
+    return status === "loading" ||
+        (!session?.accessToken && !localStorage.getItem(USERKIT_TOKEN) && !skipAuth.includes(pathname)) ? null : (
+        <>{children}</>
+    );
 };
 
 export default AuthWrapper;
