@@ -2,7 +2,7 @@
 import Notification from "@component/components/common/notification";
 import { IconV, IconX } from "@component/constants/Icon";
 import { useLoading } from "@component/contexts/loadingContext";
-import { signup, signupVerification } from "@component/services/auth";
+import { signup, signupVerification, verifyCode } from "@component/services/auth";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useRouter } from "next/navigation";
 import { useState, type MouseEvent } from "react";
@@ -46,14 +46,18 @@ const Page = (props: Props) => {
         resolver: yupResolver(schema),
     });
     const { setIsLoading } = useLoading();
+    const [isSendingCode, setIsSendingCode] = useState(false);
     const [isSendedCode, setIsSendedCode] = useState(false);
+    const [isCheckedCode, setIsCheckedCode] = useState(false);
     const password = watch("password", "");
     const email = watch("email", "");
+    const verificationCode = watch("verificationCode", "");
 
     const handleSendCode = async (e: MouseEvent<HTMLElement>): Promise<void> => {
         e.preventDefault();
         // Logic to send verification code
         setIsSendedCode(true);
+        setIsSendingCode(true);
         setIsLoading(true);
 
         try {
@@ -79,10 +83,25 @@ const Page = (props: Props) => {
         }
     };
 
-    // const handleCheckCode = (e: any) => {
-    //     e.preventDefault();
-    //     setIsSendingCode(false);
-    // };
+    const handleCheckCode = async (e: any) => {
+        e.preventDefault();
+        try {
+            const response: any = await verifyCode({ data: { email: email, verificationCode: verificationCode } });
+            if (response && response.message === "success") {
+                Notification({
+                    type: "success",
+                    message: response.message,
+                    placement: "topRight",
+                });
+                setIsCheckedCode(true);
+            } else {
+                throw response;
+            }
+        } catch (error: any) {
+            console.log(error);
+        }
+        // setIsSendingCode(false);
+    };
 
     const handleCreateAccount = async (data: any) => {
         // Logic to create account
@@ -127,6 +146,7 @@ const Page = (props: Props) => {
                     register={register}
                     buttonText={email && emailRegex.test(email) ? (isSendedCode ? "Sended" : "Send a code") : ""}
                     onButtonClick={(e) => (email && emailRegex.test(email) && !isSendedCode ? handleSendCode(e) : null)}
+                    disabled={isSendedCode}
                     formNoValidate
                 />
                 {errors.email ? <p className="error">{errors.email.message}</p> : <p className="no-error"></p>}
@@ -136,8 +156,9 @@ const Page = (props: Props) => {
                     label="Verification Code"
                     type="text"
                     register={register}
-                    // buttonText={isSendingCode ? "Check" : ""}
-                    // onButtonClick={handleCheckCode}
+                    buttonText={isSendingCode && verificationCode && !isCheckedCode ? "Check" : isCheckedCode ? "Checked" : ""}
+                    disabled={!isSendingCode || isCheckedCode}
+                    onButtonClick={handleCheckCode}
                 />
                 {errors.verificationCode ? (
                     <p className="error">{errors.verificationCode.message}</p>

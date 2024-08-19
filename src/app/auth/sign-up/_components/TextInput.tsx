@@ -8,9 +8,10 @@ interface TextInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
     value?: string;
     onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
     buttonText?: string;
-    onButtonClick?: (e: any) => Promise<void> | null;
+    onButtonClick?: (e: any) => Promise<void> | void | null;
     register?: any;
     placeholder?: string;
+    disabled?: boolean;
 }
 
 const TextInput: React.FC<TextInputProps> = ({
@@ -42,7 +43,7 @@ const TextInput: React.FC<TextInputProps> = ({
                 ) : (
                     <input type={type} value={value} onChange={onChange} formNoValidate placeholder={placeholder} />
                 )}
-                {buttonText && <button onClick={onButtonClick}>{buttonText}</button>}
+                {buttonText && <button onClick={onButtonClick} disabled={rest.disabled}>{buttonText}</button>}
             </div>
         </div>
     );
