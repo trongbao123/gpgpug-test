@@ -14,7 +14,14 @@ const AuthWrapper = ({ children }: AuthWrapperProps) => {
     const pathname = usePathname();
     const { data: session, status } = useSession();
 
-    const skipAuth = ["/auth/sign-in", "/auth/sign-in/email", "/auth/sign-up", "/"];
+    const skipAuth = [
+        "/auth/sign-in",
+        "/auth/sign-in/email",
+        "/auth/sign-up",
+        "/",
+        "/device-check",
+        "/device-check/success",
+    ];
 
     const handleAuthentication = () => {
         const localToken = localStorage.getItem(USERKIT_TOKEN);
