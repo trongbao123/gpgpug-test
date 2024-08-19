@@ -14,6 +14,7 @@ const SELECTED_PROVIDER = "selectedProvider";
 const Header = () => {
     const router = useRouter();
     const pathname = usePathname();
+    const checkDevice = pathname.includes("device-check");
     const [isScrolled, setIsScrolled] = useState(false);
     const [selected, setSelected] = useState("provider");
 
@@ -52,7 +53,7 @@ const Header = () => {
     }, [session]);
 
     return (
-        <header className={isScrolled ? "header_background" : ""}>
+        <header className={checkDevice ? "display-header" : isScrolled ? "header_background" : ""}>
             <div className="container">
                 <div className="menu-header">
                     <div className="header-left">

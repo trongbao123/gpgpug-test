@@ -38,14 +38,16 @@ const Signin: React.FC<Props> = ({}) => {
     const handlNextAuth = async (data: any) => {
         setIsLoading(true);
         try {
-            const response = await loginCli({
+            const response: any = await loginCli({
                 data: {
                     email: data.email,
                     password: data.password,
                     deviceCode: deviceCode,
                 },
             });
-            if (response) {
+            if (response && response.statusCode) {
+                throw response;
+            } else {
                 Notification({
                     type: "success",
                     message: "Sign in successfully!",

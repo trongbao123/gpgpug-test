@@ -27,6 +27,9 @@
 .custom-popover .ant-popover-inner-content {
     color: #555; /* Màu chữ của nội dung */
 }
+.display-header {
+    display: none;
+}
 header {
     height: 64px;
     position: fixed;

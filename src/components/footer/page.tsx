@@ -4,8 +4,9 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 const Footer = () => {
     const path = usePathname();
+    const checkDevice = path.includes("device-check");
     return (
-        <footer>
+        <footer className={checkDevice ? "footer-hidden" : ""}>
             <div className="container">
                 <div className="footer">
                     <div className="footer-icon">
