@@ -20,17 +20,17 @@ const ConnectMain: React.FC<Props> = ({
     congratulation,
     handleBackDashboard,
     handleChecked,
-    setChecked
+    setChecked,
 }) => {
     const [deviceCode, setDeviceCode] = useState("");
 
     const handleDeviceCode = (e: any) => {
         setDeviceCode(e.target.value);
-    }
+    };
 
     const onClickSubmitDeviceCode = () => {
         handleChecked(deviceCode);
-    }
+    };
 
     return (
         <div className="connect-main">
@@ -89,7 +89,7 @@ const ConnectMain: React.FC<Props> = ({
                         className={`next-step ${deviceName ? "device-connect" : "disabled"}`}
                         onClick={handleFinish}
                     >
-                        Connect {isFinish && <Image src={"/images/loading.svg"} alt="check" width={20} height={20} />}
+                        Finish {isFinish && <Image src={"/images/loading.svg"} alt="check" width={20} height={20} />}
                     </button>
                 ) : (
                     <button className={`next-step device-connect`} onClick={handleBackDashboard}>

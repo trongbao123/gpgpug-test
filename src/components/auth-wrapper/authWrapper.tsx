@@ -24,6 +24,7 @@ const AuthWrapper = ({ children }: AuthWrapperProps) => {
     ];
 
     const handleAuthentication = () => {
+        console.log("pathname", pathname);
         const localToken = localStorage.getItem(USERKIT_TOKEN);
 
         if (session?.accessToken || localToken) {

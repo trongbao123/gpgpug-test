@@ -213,7 +213,7 @@ export const steps = [
         id: 3,
         title: 3,
         content: [],
-        subTitle: "Connection",
+        subTitle: "Finish",
         subContent: "Check and confirm specifications of your connected device",
     },
 ];

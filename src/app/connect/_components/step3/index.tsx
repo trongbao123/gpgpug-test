@@ -26,10 +26,6 @@ const Step3: React.FC<Props> = ({ active, handleDeviceName, deviceName, congratu
                         <div className="step3-body-item-content">Device ID</div>
                         <div className="step3-body-item-icon">54FD432FCAJ</div>
                     </div>
-                </div>
-            </div>
-            <div className="step3">
-                <div className="step3-body">
                     <div className="step3-body-item">
                         <div className="step3-body-item-content">Device Name</div>
                         <input
@@ -38,17 +34,6 @@ const Step3: React.FC<Props> = ({ active, handleDeviceName, deviceName, congratu
                             className="step3-body-item-icon"
                             placeholder="Enter Device Name"
                         />
-                    </div>
-                </div>
-            </div>
-            <div className="step3">
-                <div className="step3-body">
-                    <div className="step3-body-item">
-                        <div className="step3-body-item-footer">
-                            <Image src={"/images/warning.svg"} alt="logo" width={24} height={24} />
-                            It may take 5-10 minutes to complete the connection. If you encounter any issues with the
-                            connection, please contact the support team.
-                        </div>
                     </div>
                 </div>
             </div>
