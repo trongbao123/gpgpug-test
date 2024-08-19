@@ -17,4 +17,22 @@ const createConnect = async (options?: any) => {
     });
     return data;
 };
-export { connect, createConnect };
+
+const confirmConnect = async (options?: any) => {
+    const data = await request({
+        method: "POST",
+        url: `/device/confirm`,
+        ...options,
+    });
+    return data;
+};
+
+const detailDevice = async (options?: any) => {
+    const data = await request({
+        method: "GET",
+        url: `/device/detail`,
+        ...options,
+    });
+    return data;
+};
+export { connect, createConnect, confirmConnect, detailDevice };

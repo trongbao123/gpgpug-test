@@ -1,13 +1,51 @@
+"use client";
 import Image from "next/image";
 import "./index.scss";
 import Congratulations from "../congratulations";
+import { useSearchParams } from "next/navigation";
+import { detailDevice } from "@component/services/connect";
+import { useEffect, useState } from "react";
+import Notification from "@component/components/common/notification";
+import { logo } from "@component/constants/constant";
 type Props = {
     active: number;
-    handleDeviceName: (e: React.ChangeEvent<HTMLInputElement>) => void;
-    deviceName: string;
+    handleDeviceName: any;
+    deviceName: boolean;
     congratulation: string;
 };
 const Step3: React.FC<Props> = ({ active, handleDeviceName, deviceName, congratulation }) => {
+    const searchParams = useSearchParams();
+    const deviceCode = searchParams.get("deviceName");
+
+    const [deviceType, setDeviceType] = useState<any>(null);
+    console.log(deviceCode);
+
+    const getDetailDevice = async () => {
+        try {
+            const response: any = await detailDevice({
+                params: {
+                    deviceId: deviceCode,
+                },
+            });
+            if (response && response.result) {
+                setDeviceType(response.result);
+                handleDeviceName(true);
+            } else {
+                throw response;
+            }
+        } catch (error: any) {
+            Notification({
+                type: "error",
+                message: error.message || error,
+                placement: "top",
+            });
+        }
+    };
+
+    useEffect(() => {
+        if (deviceCode !== "Windows") getDetailDevice();
+    }, [deviceCode]);
+
     return congratulation !== "success" ? (
         <div className="step3-container">
             <div className="step3">
@@ -18,28 +56,28 @@ const Step3: React.FC<Props> = ({ active, handleDeviceName, deviceName, congratu
                     <div className="step3-body-item">
                         <div className="step3-body-item-content">GPU Chip</div>
                         <div className="step3-body-item-icon">
-                            <Image src={"/images/device.svg"} alt="logo" width={20} height={20} />
-                            RTX 4000 SFF Ada Generation
+                            <Image src={(logo as any)[deviceType?.os]} alt="logo" width={20} height={20} />
+                            {deviceType?.deviceType}
                         </div>
                     </div>
                     <div className="step3-body-item">
                         <div className="step3-body-item-content">Device ID</div>
-                        <div className="step3-body-item-icon">54FD432FCAJ</div>
+                        <div className="step3-body-item-icon">{deviceType?.id}</div>
                     </div>
                     <div className="step3-body-item">
                         <div className="step3-body-item-content">Device Name</div>
                         <input
-                            value={deviceName}
-                            onChange={handleDeviceName}
+                            value={deviceType?.name}
                             className="step3-body-item-icon"
                             placeholder="Enter Device Name"
+                            readOnly
                         />
                     </div>
                 </div>
             </div>
         </div>
     ) : (
-        <Congratulations name={deviceName} />
+        <Congratulations name={deviceType} />
     );
 };
 
