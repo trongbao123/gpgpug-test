@@ -22,7 +22,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
                         password: credentials?.password,
                     }),
                 });
-
                 const tokenResponse = await res.json();
                 const token = tokenResponse && tokenResponse.token;
 

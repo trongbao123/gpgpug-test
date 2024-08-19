@@ -70,6 +70,7 @@ const Email = () => {
             password: data.password,
         });
 
+        console.log(res)
         if (res?.error) {
             Notification({
                 type: "error",
