@@ -15,7 +15,7 @@ import "./index.scss";
 const Connect = () => {
     const router = useRouter();
     const [active, setActive] = useState(0);
-    const [deviceName, setDeviceName] = useState("");
+    const [deviceName, setDeviceName] = useState(false);
     const [congratulation, setCongratulation] = useState("");
     const [isFinish, setIsFinish] = useState(false);
     const [checked, setChecked] = useState(false);
@@ -25,7 +25,7 @@ const Connect = () => {
         setChecked(true);
         setActiveItem(e);
     };
-    const handleDeviceName = (e: React.ChangeEvent<HTMLInputElement>) => setDeviceName(e.target.value);
+    const handleDeviceName = (isChecked: boolean) => setDeviceName(isChecked);
 
     const handleBackDashboard = () => router.push("/");
     const handleNextStep = () => {
@@ -49,38 +49,39 @@ const Connect = () => {
 
     const handleFinish = async () => {
         setIsFinish(true);
-        try {
-            const response: any = await createConnect({
-                data: {
-                    name: deviceName,
-                },
-            });
+        setCongratulation("success");
+        // try {
+        //     const response: any = await createConnect({
+        //         data: {
+        //             name: deviceName,
+        //         },
+        //     });
 
-            if (response && response.message === "success") {
-                Notification({
-                    type: "success",
-                    message: response.message,
-                    placement: "topRight",
-                });
-                setCongratulation(response.message);
-            } else throw response;
-        } catch (error: any) {
-            Notification({
-                type: "error",
-                message: error.message,
-                placement: "topRight",
-            });
-        } finally {
-            setIsFinish(false);
-        }
+        //     if (response && response.message === "success") {
+        //         Notification({
+        //             type: "success",
+        //             message: response.message,
+        //             placement: "topRight",
+        //         });
+
+        //     } else throw response;
+        // } catch (error: any) {
+        //     Notification({
+        //         type: "error",
+        //         message: error.message,
+        //         placement: "topRight",
+        //     });
+        // } finally {
+        //     setIsFinish(false);
+        // }
     };
 
-
     useEffect(() => {
-        if(checked){
-            setChecked(false)
+        if (checked) {
+            setChecked(false);
         }
-    },[active])
+    }, [active]);
+
     return (
         <div className="connect">
             <div className="overlay" />

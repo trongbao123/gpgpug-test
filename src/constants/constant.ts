@@ -142,6 +142,7 @@ export const provider = [
 export const logo = {
     ["M2 Pro"]: "/images/apple.svg",
     ["GeForce RTX 3050 Ti Laptop"]: "/images/device.svg",
+    ["Mac"]: "/images/apple.svg",
 };
 
 const markdownData = [
