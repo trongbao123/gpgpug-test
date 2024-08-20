@@ -4,7 +4,6 @@ import { login } from "@component/services/auth";
 import TextInput from "../../sign-up/_components/TextInput";
 import SigninContainer from "../_components/siginContainer";
 import { useForm } from "react-hook-form";
-import { USERKIT_TOKEN } from "@component/constants/setting";
 import { useRouter } from "next/navigation";
 import Notification from "@component/components/common/notification";
 import * as yup from "yup";
@@ -50,6 +49,7 @@ const Email = () => {
                 message: res?.error,
                 placement: "top",
             });
+            return
         }
 
         if (res?.ok) {

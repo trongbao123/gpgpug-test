@@ -201,6 +201,12 @@ export const steps = [
             {
                 id: 3,
                 img: "/images/icon_copy.svg",
+                title: "After installing the WNC installer, please open cmd or PowerShell in the folder where the file is located and execute the following command.",
+                link: "wnc_installer_windows.exe",
+            },
+            {
+                id: 4,
+                img: "/images/icon_copy.svg",
                 title: "After running the WNC installer and completing the device creation, enter the ID of the created device and click `Confirm` button.",
                 link: "",
             },
