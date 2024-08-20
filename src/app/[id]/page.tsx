@@ -60,7 +60,7 @@ const PageDetail = ({ params }: { params: { id: string } }) => {
                         <div className="flex">
                             <div className="nav-description">
                                 <div className="nav-description-item active">
-                                    <Image src={(logo as any)[deviceDetail?.os]} alt="logo" width={16} height={16} />
+                                    {/* <Image src={(logo as any)[deviceDetail?.os]} alt="logo" width={16} height={16} /> */}
                                     <p>{deviceDetail?.os}</p>
                                 </div>
                                 <div className="nav-description-item">
