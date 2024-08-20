@@ -195,7 +195,11 @@ header {
         }
     }
 }
-
+.ant-popover-content {
+    .responsive-connect {
+        display: none;
+    }
+}
 .header_background {
     background-color: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(10px);
@@ -234,22 +238,97 @@ header {
                 .header-right {
                     gap: 8px;
 
-                    .add-new-project {
-                        display: none;
-                    }
                     .popover {
                         background: black;
                     }
                     .account {
                         &-icon {
-                            display: none;
+                            display: block;
                         }
 
                         .menu-table {
-                            display: block;
+                            display: none;
                         }
                     }
+
+                    .add-new-deivce {
+                        display: none;
+                    }
+
+                    .add-new-project {
+                        display: none;
+                    }
+
+                    // &-buttons {
+                    //     display: none;
+                    // }
                 }
+            }
+        }
+    }
+
+    .ant-popover-content {
+        .responsive-popover {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            .responsive-connect {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+
+                .add-new-deivce {
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                    background: white;
+                    padding: 0px;
+                    color: black;
+                    border-radius: 100px;
+                    cursor: pointer;
+                    transition: all 0.2s ease-in-out;
+
+                    p {
+                        color: black;
+                        font-size: 14px;
+                    }
+
+                    &:hover {
+                        box-shadow: rgba(0, 0, 0, 1) 0px 0px 5px inset;
+                    }
+                }
+
+                .add-new-project {
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                    background: white;
+                    padding: 0px;
+                    color: black;
+                    border-radius: 100px;
+                    cursor: pointer;
+                    transition: all 0.2s ease-in-out;
+
+                    p {
+                        color: black;
+                        font-size: 14px;
+                    }
+
+                    &:hover {
+                        box-shadow: rgba(0, 0, 0, 1) 0px 0px 5px inset;
+                    }
+                }
+            }
+
+            .line {
+                border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+                width: 100%;
+                height: 1px;
+                background-color: rgb(44, 39, 39);
+            }
+
+            .account-popover {
+                text-align: center;
             }
         }
     }
@@ -278,18 +357,25 @@ header {
                     gap: 8px;
 
                     .add-new-deivce {
-                        display: none;
+                        padding: 10px 5px;
                     }
 
+                    .add-new-project {
+                        padding: 10px 5px;
+                    }
                     .account {
                         &-icon {
-                            display: none;
+                            display: block;
                         }
 
                         .menu-table {
-                            display: block;
+                            display: none;
                         }
                     }
+
+                    // &-buttons {
+                    //     display: none;
+                    // }
                 }
             }
         }
