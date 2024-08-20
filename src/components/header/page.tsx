@@ -133,16 +133,50 @@ const Header = () => {
                                     style={{ cursor: "pointer" }}
                                     placement="bottomRight"
                                     content={
-                                        <div
-                                            style={{ cursor: "pointer" }}
-                                            className="account-popover"
-                                            onClick={() => {
-                                                signOut({ redirect: true, callbackUrl: "/auth/sign-in" });
-                                                localStorage.removeItem(USERKIT_TOKEN);
-                                                localStorage.removeItem(SELECTED_PROVIDER);
-                                            }}
-                                        >
-                                            logout
+                                        <div className="responsive-popover">
+                                            {session?.user && (
+                                                <div className="responsive-connect">
+                                                    {selected === "provider" ? (
+                                                        <div
+                                                            className="add-new-deivce"
+                                                            onClick={() => router.push("/connect")}
+                                                        >
+                                                            <p>Connect New Device</p>
+                                                            <Image
+                                                                width={16}
+                                                                height={16}
+                                                                src={"/images/icon_plus.svg"}
+                                                                alt="search"
+                                                            />
+                                                        </div>
+                                                    ) : (
+                                                        <div
+                                                            className="add-new-project"
+                                                            onClick={() => router.push("/create-project")}
+                                                        >
+                                                            <p>Create project</p>
+                                                            <Image
+                                                                width={16}
+                                                                height={16}
+                                                                src={"/images/icon_plus.svg"}
+                                                                alt="search"
+                                                            />
+                                                        </div>
+                                                    )}
+                                                </div>
+                                            )}
+                                            <div className="line"></div>
+                                            <div
+                                                style={{ cursor: "pointer" }}
+                                                className="account-popover"
+                                                onClick={() => {
+                                                    signOut({ redirect: true, callbackUrl: "/auth/sign-in" });
+                                                    localStorage.removeItem(USERKIT_TOKEN);
+                                                    localStorage.removeItem(SELECTED_PROVIDER);
+                                                }}
+                                            >
+                                                logout
+                                            </div>
                                         </div>
                                     }
                                     trigger="click"

@@ -13,7 +13,7 @@ type Props = {
 
 export const DeviceTable = ({ tableData, loading }: Props) => {
     console.log(tableData);
-    console.log(loading)
+    console.log(loading);
     const router = useRouter();
 
     function timeDifference(createdAt: string): string {
@@ -132,7 +132,7 @@ export const DeviceTable = ({ tableData, loading }: Props) => {
                     <Table
                         onRow={(record, rowIndex) => {
                             return {
-                                onClick: () => router.push(`/${record.key}`),
+                                onClick: () => router.push(`/${record.id}`),
                             };
                         }}
                         columns={columns}

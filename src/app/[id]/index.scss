@@ -69,7 +69,7 @@
                 &-description {
                     display: grid;
                     grid-template-columns: repeat(4, 1fr);
-                    width: 32%;
+                    width: fit-content;
                     gap: 10px;
                     &-item {
                         display: flex;
@@ -80,7 +80,7 @@
                         padding: 5px 8px 5px 6px;
                         border-radius: 6px;
                         background-color: #282828;
-
+                        width: 100%;
                         p {
                             font-size: 12px;
                             font-weight: 500;
