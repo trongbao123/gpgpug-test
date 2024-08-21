@@ -202,7 +202,13 @@ export const steps = [
                 id: 3,
                 img: "/images/icon_copy.svg",
                 title: "After installing the WNC installer, please open cmd or PowerShell in the folder where the file is located and execute the following command.",
-                link: "wnc_installer_windows.exe",
+                link: [{
+                    type: 'cmd',
+                    value: 'wnc_installer_windows.exe'
+                }, {
+                    type: 'PowerShell',
+                    value: './wnc_installer_windows.exe'
+                    }],
             },
             {
                 id: 4,

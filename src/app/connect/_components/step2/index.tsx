@@ -13,6 +13,7 @@ type Props = {
 const Step2: React.FC<Props> = ({ active }) => {
     const params = useSearchParams();
     const deviceName = params.get("deviceName");
+
     const copyToClipboard = async (index:number) => {
         const textToCopy = document.getElementsByClassName("copy-text")[index].textContent;
         try {
@@ -25,6 +26,16 @@ const Step2: React.FC<Props> = ({ active }) => {
             });
         } catch (err) {}
     };
+
+     const copyToClipboardByValue = async (value: string) => {
+         await navigator.clipboard.writeText(value);
+             Notification({
+                 type: "success",
+                 message: "Copied!",
+                 placement: "top",
+             });
+     };
+
     return (
         <div className="step2">
             <div className="step2-header">
@@ -38,23 +49,57 @@ const Step2: React.FC<Props> = ({ active }) => {
                                 {item?.id}. {item?.title}
                             </div>
                             {item.link && (
-                                <div className="step2-body-item-icon">
-                                    <span className="copy-text">{item?.link}</span>
+                                <>
+                                    {typeof item.link === "string" ? (
+                                        <div className="step2-body-item-icon">
+                                            <span className="copy-text">{item?.link}</span>
 
-                                    <Image
-                                        src={item?.img}
-                                        alt="logo"
-                                        width={28}
-                                        height={28}
-                                        style={{
-                                            padding: "7px",
-                                            borderRadius: "7px",
-                                            border: "1px solid #999EA7",
-                                            cursor: "pointer",
-                                        }}
-                                        onClick={() => copyToClipboard(index)}
-                                    />
-                                </div>
+                                            <Image
+                                                src={item?.img}
+                                                alt="logo"
+                                                width={28}
+                                                height={28}
+                                                style={{
+                                                    padding: "7px",
+                                                    borderRadius: "7px",
+                                                    border: "1px solid #999EA7",
+                                                    cursor: "pointer",
+                                                }}
+                                                onClick={() => copyToClipboard(index)}
+                                            />
+                                        </div>
+                                    ) : (
+                                            <>
+
+                                                {item.link.map((e, index) => {
+                                                    return (
+                                                        <div key={index}>
+                                                            <div className="step2-body-item-content-type">{e.type}:</div>
+                                                            <div className="step2-body-item-icon">
+                                                                <span className="copy-text">{e.value}</span>
+
+                                                                <Image
+                                                                    src={item?.img}
+                                                                    alt="logo"
+                                                                    width={28}
+                                                                    height={28}
+                                                                    style={{
+                                                                        padding: "7px",
+                                                                        borderRadius: "7px",
+                                                                        border: "1px solid #999EA7",
+                                                                        cursor: "pointer",
+                                                                    }}
+                                                                    onClick={() => {
+                                                                        copyToClipboardByValue(e.value);
+                                                                    }}
+                                                                />
+                                                            </div>
+                                                        </div>
+                                                    );
+                                        })}
+                                        </>
+                                    )}
+                                </>
                             )}
                         </div>
                     ))}
