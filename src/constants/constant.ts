@@ -185,6 +185,30 @@ export const steps = [
     {
         id: 2,
         title: 2,
+        macContent: [
+            {
+                id: 1,
+                img: "/images/icon_copy.svg",
+                title: "Download Docker",
+                link: "https://www.docker.com/products/docker-desktop/",
+            },
+            {
+                id: 2,
+                img: "/images/icon_copy.svg",
+                title: "Download and run WNC installer",
+                url_title: "Apple Silicon:",
+                link: [
+                    {
+                        type: "Apple Silicon",
+                        value: "https://github.com/ServerKit-Project/wnc-installer-binary/releases/download/1.0/wnc_installer_darwin_arm64",
+                    },
+                    {
+                        type: "Intel Mac",
+                        value: "https://github.com/ServerKit-Project/wnc-installer-binary/releases/download/1.0/wnc_installer_darwin_amd64",
+                    },
+                ],
+            },
+        ],
         content: [
             {
                 id: 1,
