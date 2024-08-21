@@ -166,12 +166,12 @@ export const steps = [
                 title: "Windows",
                 link: "",
             },
-            // {
-            //     id: 2,
-            //     img: "/images/apple.svg",
-            //     title: "Mac",
-            //     link: "",
-            // },
+            {
+                id: 2,
+                img: "/images/apple.svg",
+                title: "Mac",
+                link: "",
+            },
             {
                 id: 3,
                 img: "/images/untubu.svg",
@@ -202,13 +202,16 @@ export const steps = [
                 id: 3,
                 img: "/images/icon_copy.svg",
                 title: "After installing the WNC installer, please open cmd or PowerShell in the folder where the file is located and execute the following command.",
-                link: [{
-                    type: 'cmd',
-                    value: 'wnc_installer_windows.exe'
-                }, {
-                    type: 'PowerShell',
-                    value: './wnc_installer_windows.exe'
-                    }],
+                link: [
+                    {
+                        type: "cmd",
+                        value: "wnc_installer_windows.exe",
+                    },
+                    {
+                        type: "PowerShell",
+                        value: "./wnc_installer_windows.exe",
+                    },
+                ],
             },
             {
                 id: 4,
