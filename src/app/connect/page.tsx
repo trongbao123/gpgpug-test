@@ -1,7 +1,5 @@
 "use client";
-import Notification from "@component/components/common/notification";
 import { steps } from "@component/constants/constant";
-import { createConnect } from "@component/services/connect";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import HeaderMain from "../home/_components/header-main/page";
@@ -10,10 +8,12 @@ import NavToMain from "./_components/nav-to-main";
 import Step1 from "./_components/step1";
 import Step2 from "./_components/step2";
 import Step3 from "./_components/step3";
+
 import "./index.scss";
 
 const Connect = () => {
     const router = useRouter();
+
     const [active, setActive] = useState(0);
     const [deviceName, setDeviceName] = useState(false);
     const [congratulation, setCongratulation] = useState("");
@@ -77,10 +77,24 @@ const Connect = () => {
     };
 
     useEffect(() => {
-        if (checked) {
-            setChecked(false);
-        }
+        if (active === 0) {
+        router.push("/connect");
+    }
     }, [active]);
+
+    const checkURL = () => {
+        if (window.location.pathname === "/connect" && !window.location.search) {
+            setActive(0);
+        }
+    };
+
+    useEffect(() => {
+        checkURL();
+        window.addEventListener("popstate", checkURL);
+        return () => {
+            window.removeEventListener("popstate", checkURL);
+        };
+    }, []);
 
     return (
         <div className="connect">

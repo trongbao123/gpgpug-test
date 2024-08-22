@@ -208,6 +208,12 @@ export const steps = [
                     },
                 ],
             },
+            {
+                id: 3,
+                img: "/images/icon_copy.svg",
+                title: "After running the WNC installer and completing the device creation, enter the ID of the created device and click `Confirm` button.",
+                link: "",
+            },
         ],
         content: [
             {
