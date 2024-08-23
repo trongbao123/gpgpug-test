@@ -11,12 +11,11 @@ const ListProject = () => {
     const [open, setOpen] = useState(false);
 
     const handleContainerClick = (item: any) => {
-        // Chuyển hướng đến trang detail khi nhấn vào thẻ cha
         router.push(`/project/${item.id}`);
     };
 
     const handleImageClick = (e: any, item: any) => {
-        e.stopPropagation(); // Ngăn chặn sự kiện nhấn từ thẻ cha
+        e.stopPropagation();
         setOpen(!open);
     };
     const renderProject = () => {
