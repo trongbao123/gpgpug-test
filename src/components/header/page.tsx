@@ -17,6 +17,7 @@ const Header = () => {
     const checkDevice = pathname.includes("device-check");
     const [isScrolled, setIsScrolled] = useState(false);
     const [selected, setSelected] = useState("provider");
+    const hasId = pathname.includes("/project/");
 
     const handleChange = (event: any) => {
         setSelected(event);
@@ -109,10 +110,12 @@ const Header = () => {
                                         <Image width={16} height={16} src={"/images/icon_plus.svg"} alt="search" />
                                     </div>
                                 ) : (
-                                    <div className="add-new-project" onClick={() => router.push("/create-project")}>
-                                        <p>Create project</p>
-                                        <Image width={16} height={16} src={"/images/icon_plus.svg"} alt="search" />
-                                    </div>
+                                    !hasId && (
+                                        <div className="add-new-project" onClick={() => router.push("/create-project")}>
+                                            <p>Create project</p>
+                                            <Image width={16} height={16} src={"/images/icon_plus.svg"} alt="search" />
+                                        </div>
+                                    )
                                 )}
                             </div>
                         )}

@@ -3,25 +3,45 @@ import { project } from "@component/constants/constant";
 import "./index.scss";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { Button, Popover } from "antd";
+import { useState } from "react";
+
 const ListProject = () => {
     const router = useRouter();
+    const [open, setOpen] = useState(false);
+
+    const handleContainerClick = (item: any) => {
+        router.push(`/project/${item.id}`);
+    };
+
+    const handleImageClick = (e: any, item: any) => {
+        e.stopPropagation();
+        setOpen(!open);
+    };
     const renderProject = () => {
         return project.map((item) => {
             return (
-                <div key={item.id} className="project-list-item">
+                <div
+                    style={{ cursor: "pointer" }}
+                    key={item.id}
+                    className="project-list-item"
+                    onClick={() => handleContainerClick(item)}
+                >
                     <div className="item-header">
                         <div className="item-header-left">
                             <span>{item.name}</span>
                             <p>{item.createDate}</p>
                         </div>
-                        <Image
-                            style={{ cursor: "pointer" }}
-                            src="/images/action.svg"
-                            width={24}
-                            height={24}
-                            alt="menu"
-                            onClick={() => router.push(`/project/${item.id}`)}
-                        />
+                        <Popover trigger="click" placement="bottomRight" content={<div></div>}>
+                            <Image
+                                style={{ cursor: "pointer" }}
+                                src="/images/action.svg"
+                                width={24}
+                                height={24}
+                                alt="menu"
+                                onClick={(e) => handleImageClick(e, item)}
+                            />
+                        </Popover>
                     </div>
                     <div className="billing-data">
                         <div className="billing-data-content">
