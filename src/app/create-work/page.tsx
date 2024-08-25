@@ -8,6 +8,7 @@ import CreateWorkNamePage from "./_components/create-work-name";
 import CreateWorkSelectRegion from "./_components/create-work-select-region";
 import CreateNetworkTier from "./_components/create-work-network-tier";
 import CreateWorkChooseProcessor from "./_components/create-work-choose-processor";
+import DropzoneUpload from "./_components/create-work-upload";
 
 type Props = {};
 
@@ -59,6 +60,7 @@ const Page = (props: Props) => {
                 {active === 1 && <CreateWorkSelectRegion />}
                 {active === 2 && <CreateNetworkTier />}
                 {active === 3 && <CreateWorkChooseProcessor />}
+                {active === 4 && <DropzoneUpload />}
             </CreateWorkMain>
         </div>
     );

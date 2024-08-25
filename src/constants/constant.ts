@@ -304,6 +304,7 @@ export const stepCreateWork = [
     },
     { id: 3, title: "Network Tier", subTitle: "Select the network tier" },
     { id: 4, title: "Choose Processor", subTitle: "Select the device to use" },
+    { id: 5, title: "Run Script", subTitle: "Please upload the run script" },
 ];
 
 export const dataRegion = [
