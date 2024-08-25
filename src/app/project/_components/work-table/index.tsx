@@ -4,6 +4,7 @@ import "./index.scss";
 import { Table } from "antd";
 import StateComponent from "@component/components/state";
 import { Pagination } from "antd";
+import { usePathname, useRouter } from "next/navigation";
 type WorkTableProps = {
     [key: string]: any;
 };
@@ -63,6 +64,8 @@ const WorkTable: React.FC<WorkTableProps> = ({ itemDetail }) => {
             },
         },
     ];
+    const pathname = usePathname();
+    const router = useRouter();
     return (
         <div className="work-table">
             <div className="table-header">
@@ -84,6 +87,13 @@ const WorkTable: React.FC<WorkTableProps> = ({ itemDetail }) => {
                 dataSource={itemDetail?.listWork}
                 bordered={false}
                 pagination={{ position: ["none", "none"] }}
+                onRow={(record, index) => {
+                    return {
+                        onClick: (event) => {
+                            router.push(`${pathname}/${record.id}`);
+                        },
+                    };
+                }}
             />
             <Pagination align="center" defaultCurrent={1} total={itemDetail?.listWork.length / 20} />
         </div>

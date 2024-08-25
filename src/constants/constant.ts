@@ -643,6 +643,30 @@ export const project = [
                 upTimeMinutes: 11,
                 upTimeSeconds: 32,
                 createdAt: "2024-06-30 01:42",
+                hourFee: 10,
+                dailyFee: 20,
+                error_logs: [
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                ],
             },
             {
                 id: 2,
@@ -654,6 +678,30 @@ export const project = [
                 upTimeMinutes: 11,
                 upTimeSeconds: 32,
                 createdAt: "2024-06-30 01:42",
+                hourFee: 10,
+                dailyFee: 20,
+                error_logs: [
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                ],
             },
             {
                 id: 3,
@@ -665,6 +713,30 @@ export const project = [
                 upTimeMinutes: 11,
                 upTimeSeconds: 32,
                 createdAt: "2024-06-30 01:42",
+                hourFee: 10,
+                dailyFee: 20,
+                error_logs: [
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                ],
             },
         ],
     },
@@ -687,6 +759,30 @@ export const project = [
                 upTimeMinutes: 11,
                 upTimeSeconds: 32,
                 createdAt: "2024-06-30 01:42",
+                hourFee: 10,
+                dailyFee: 20,
+                error_logs: [
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                ],
             },
             {
                 id: 2,
@@ -698,6 +794,30 @@ export const project = [
                 upTimeMinutes: 11,
                 upTimeSeconds: 32,
                 createdAt: "2024-06-30 01:42",
+                hourFee: 10,
+                dailyFee: 20,
+                error_logs: [
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                ],
             },
             {
                 id: 3,
@@ -709,6 +829,30 @@ export const project = [
                 upTimeMinutes: 11,
                 upTimeSeconds: 32,
                 createdAt: "2024-06-30 01:42",
+                hourFee: 10,
+                dailyFee: 20,
+                error_logs: [
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                ],
             },
         ],
     },
@@ -731,6 +875,30 @@ export const project = [
                 upTimeMinutes: 11,
                 upTimeSeconds: 32,
                 createdAt: "2024-06-30 01:42",
+                hourFee: 10,
+                dailyFee: 20,
+                error_logs: [
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                ],
             },
             {
                 id: 2,
@@ -742,6 +910,30 @@ export const project = [
                 upTimeMinutes: 11,
                 upTimeSeconds: 32,
                 createdAt: "2024-06-30 01:42",
+                hourFee: 10,
+                dailyFee: 20,
+                error_logs: [
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                ],
             },
             {
                 id: 3,
@@ -753,6 +945,30 @@ export const project = [
                 upTimeMinutes: 11,
                 upTimeSeconds: 32,
                 createdAt: "2024-06-30 01:42",
+                hourFee: 10,
+                dailyFee: 20,
+                error_logs: [
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                ],
             },
         ],
     },
@@ -775,6 +991,30 @@ export const project = [
                 upTimeMinutes: 11,
                 upTimeSeconds: 32,
                 createdAt: "2024-06-30 01:42",
+                hourFee: 10,
+                dailyFee: 20,
+                error_logs: [
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                ],
             },
             {
                 id: 2,
@@ -786,6 +1026,30 @@ export const project = [
                 upTimeMinutes: 11,
                 upTimeSeconds: 32,
                 createdAt: "2024-06-30 01:42",
+                hourFee: 10,
+                dailyFee: 20,
+                error_logs: [
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                ],
             },
             {
                 id: 3,
@@ -797,6 +1061,30 @@ export const project = [
                 upTimeMinutes: 11,
                 upTimeSeconds: 32,
                 createdAt: "2024-06-30 01:42",
+                hourFee: 10,
+                dailyFee: 20,
+                error_logs: [
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                ],
             },
         ],
     },
@@ -819,6 +1107,30 @@ export const project = [
                 upTimeMinutes: 11,
                 upTimeSeconds: 32,
                 createdAt: "2024-06-30 01:42",
+                hourFee: 10,
+                dailyFee: 20,
+                error_logs: [
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                ],
             },
             {
                 id: 2,
@@ -830,6 +1142,30 @@ export const project = [
                 upTimeMinutes: 11,
                 upTimeSeconds: 32,
                 createdAt: "2024-06-30 01:42",
+                hourFee: 10,
+                dailyFee: 20,
+                error_logs: [
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                ],
             },
             {
                 id: 3,
@@ -841,6 +1177,30 @@ export const project = [
                 upTimeMinutes: 11,
                 upTimeSeconds: 32,
                 createdAt: "2024-06-30 01:42",
+                hourFee: 10,
+                dailyFee: 20,
+                error_logs: [
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                ],
             },
         ],
     },
@@ -863,6 +1223,30 @@ export const project = [
                 upTimeMinutes: 11,
                 upTimeSeconds: 32,
                 createdAt: "2024-06-30 01:42",
+                hourFee: 10,
+                dailyFee: 20,
+                error_logs: [
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                ],
             },
             {
                 id: 2,
@@ -874,6 +1258,30 @@ export const project = [
                 upTimeMinutes: 11,
                 upTimeSeconds: 32,
                 createdAt: "2024-06-30 01:42",
+                hourFee: 10,
+                dailyFee: 20,
+                error_logs: [
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                ],
             },
             {
                 id: 3,
@@ -885,6 +1293,30 @@ export const project = [
                 upTimeMinutes: 11,
                 upTimeSeconds: 32,
                 createdAt: "2024-06-30 01:42",
+                hourFee: 10,
+                dailyFee: 20,
+                error_logs: [
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                ],
             },
         ],
     },

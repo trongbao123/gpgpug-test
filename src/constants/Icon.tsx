@@ -319,6 +319,133 @@ const NvidiaIcon = ({ size, className, color }: { size: number; className?: stri
         />
     </svg>
 );
+
+const IconPlay = ({ size, className, color }: { size: number; className?: string; color?: string }) => (
+    <svg
+        width={size}
+        height={size}
+        className={className}
+        viewBox="0 0 21 20"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <path
+            d="M18.0703 9.46806L6.82812 2.59306C6.73349 2.53468 6.62499 2.50261 6.51382 2.50015C6.40265 2.49769 6.29284 2.52494 6.19571 2.57907C6.09859 2.63321 6.01766 2.71228 5.96128 2.80812C5.90491 2.90397 5.87512 3.01312 5.875 3.12431V16.8743C5.87512 16.9855 5.90491 17.0947 5.96128 17.1905C6.01766 17.2863 6.09859 17.3654 6.19571 17.4195C6.29284 17.4737 6.40265 17.5009 6.51382 17.4985C6.62499 17.496 6.73349 17.4639 6.82812 17.4056L18.0703 10.5306C18.1626 10.476 18.2391 10.3983 18.2923 10.3051C18.3454 10.212 18.3733 10.1066 18.3733 9.99931C18.3733 9.89207 18.3454 9.78667 18.2923 9.69351C18.2391 9.60036 18.1626 9.52265 18.0703 9.46806Z"
+            fill={color ? color : "#E5E5E5"}
+        />
+    </svg>
+);
+const IconFile = ({ size, className, color }: { size: number; className?: string; color?: string }) => (
+    <svg width={size} height={size} viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width={size} height={size} rx="6" fill="#1A1A1A" fill-opacity="0.1" />
+        <rect
+            x="0.5"
+            y="0.5"
+            width="31"
+            height="31"
+            rx="5.5"
+            stroke="white"
+            stroke-opacity="0.1"
+            stroke-linecap="round"
+        />
+        <path
+            d="M8 22.6809V10.0309C8 9.84452 8.07404 9.66576 8.20584 9.53396C8.33764 9.40217 8.51639 9.32812 8.70278 9.32812H13.385C13.537 9.32875 13.6848 9.37801 13.8067 9.46868L16.2489 11.2959C16.3708 11.3866 16.5186 11.4358 16.6705 11.4365H22.7584C22.9448 11.4365 23.1235 11.5105 23.2553 11.6423C23.3871 11.7741 23.4611 11.9529 23.4611 12.1392V14.2476"
+            stroke="#737780"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+        />
+        <path
+            d="M8 22.6755L10.6354 16.087C10.6868 15.9567 10.7764 15.8451 10.8924 15.7667C11.0085 15.6883 11.1455 15.6468 11.2855 15.6477H15.5197C15.6567 15.6463 15.7905 15.6067 15.9063 15.5335L17.6632 14.3564C17.779 14.2832 17.9128 14.2436 18.0497 14.2422H25.2972C25.4083 14.2422 25.5178 14.2685 25.6168 14.3191C25.7158 14.3696 25.8014 14.4429 25.8665 14.5329C25.9317 14.6229 25.9746 14.7271 25.9916 14.8369C26.0087 14.9467 25.9995 15.059 25.9648 15.1646L23.4612 22.6755H8Z"
+            stroke="#737780"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+        />
+    </svg>
+);
+export const IconFilePending = ({ size, className, color }: { size: number; className?: string; color?: string }) => (
+    <svg width={size} height={size} viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width={size} height={size} rx="6" fill="#1A1A1A" fill-opacity="0.1" />
+        <rect x="0.5" y="0.5" width="31" height="31" rx="5.5" stroke="white" stroke-opacity="0.1" />
+        <path
+            d="M11.334 23.9974H10.0007C9.82384 23.9974 9.65427 23.9272 9.52925 23.8021C9.40422 23.6771 9.33398 23.5075 9.33398 23.3307V20.6641"
+            stroke="#505359"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+        />
+        <path
+            d="M15.334 8H18.0007L22.6673 12.6667V16.6667"
+            stroke="#505359"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+        />
+        <path
+            d="M9.33398 10.6667V8.66667C9.33398 8.48986 9.40422 8.32029 9.52925 8.19526C9.65427 8.07024 9.82384 8 10.0007 8H12.0007"
+            stroke="#505359"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+        />
+        <path d="M18 8V12.6667H22.6667" stroke="#505359" stroke-linecap="round" stroke-linejoin="round" />
+        <path
+            d="M22.6673 20V23.3333C22.6673 23.5101 22.5971 23.6797 22.4721 23.8047C22.347 23.9298 22.1775 24 22.0007 24H21.334"
+            stroke="#505359"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+        />
+        <path d="M9.33398 14V17.3333" stroke="#505359" stroke-linecap="round" stroke-linejoin="round" />
+        <path d="M14.668 24H18.0013" stroke="#505359" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+);
+export const IconFileUploaded = ({ size, className, color }: { size: number; className?: string; color?: string }) => (
+    <svg width={size} height={size} viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width={size} height={size} rx="6" fill="#1A1A1A" fill-opacity="0.1" />
+        <rect x="0.5" y="0.5" width="31" height="31" rx="5.5" stroke="white" stroke-opacity="0.1" />
+        <path
+            d="M11.334 23.9974H10.0007C9.82384 23.9974 9.65427 23.9272 9.52925 23.8021C9.40422 23.6771 9.33398 23.5075 9.33398 23.3307V20.6641"
+            stroke="#505359"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+        />
+        <path
+            d="M15.334 8H18.0007L22.6673 12.6667V16.6667"
+            stroke="#505359"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+        />
+        <path
+            d="M9.33398 10.6667V8.66667C9.33398 8.48986 9.40422 8.32029 9.52925 8.19526C9.65427 8.07024 9.82384 8 10.0007 8H12.0007"
+            stroke="#505359"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+        />
+        <path d="M18 8V12.6667H22.6667" stroke="#505359" stroke-linecap="round" stroke-linejoin="round" />
+        <path
+            d="M22.6673 20V23.3333C22.6673 23.5101 22.5971 23.6797 22.4721 23.8047C22.347 23.9298 22.1775 24 22.0007 24H21.334"
+            stroke="#505359"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+        />
+        <path d="M9.33398 14V17.3333" stroke="#505359" stroke-linecap="round" stroke-linejoin="round" />
+        <path d="M14.668 24H18.0013" stroke="#505359" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+);
+
+export const DownloadIcon = ({ size, className, color }: { size: number; className?: string; color?: string }) => (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 14.9489V4.32031" stroke="#999EA7" stroke-linecap="round" stroke-linejoin="round" />
+        <path
+            d="M7.99805 11.1386L12.0001 15.1406L16.0021 11.1386"
+            stroke="#999EA7"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+        />
+        <path
+            d="M5.14258 15.4532V19.1972H18.8569V15.4532"
+            stroke="#999EA7"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+        />
+    </svg>
+);
 export {
     Google,
     Envelope,
@@ -331,4 +458,6 @@ export {
     IconFlag,
     AppleIcon,
     NvidiaIcon,
+    IconPlay,
+    IconFile,
 };
