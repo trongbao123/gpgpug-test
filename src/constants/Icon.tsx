@@ -112,4 +112,223 @@ const ArrowBack = ({ size, className, color }: { size: number; className?: strin
     </svg>
 );
 
-export { Google, Envelope, IconLeft, LogoNoSlogan, IconX, IconV, ArrowBack };
+const IconSearch = ({ size, className, color }: { size: number; className?: string; color?: string }) => {
+    return (
+        <svg
+            className={className}
+            width={size}
+            height={size}
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
+            <g id="SVGRepo_iconCarrier">
+                <path
+                    d="M15.7955 15.8111L21 21M18 10.5C18 14.6421 14.6421 18 10.5 18C6.35786 18 3 14.6421 3 10.5C3 6.35786 6.35786 3 10.5 3C14.6421 3 18 6.35786 18 10.5Z"
+                    stroke="#999EA7"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                ></path>{" "}
+            </g>
+        </svg>
+    );
+};
+const IconFlag = ({ size, className, color }: { size: number; className?: string; color?: string }) => {
+    return (
+        <svg
+            className={className}
+            width={size}
+            height={size}
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <g clip-path="url(#clip0_3698_5322)">
+                <rect width="24" height="24" rx="12" fill="white" />
+                <g clip-path="url(#clip1_3698_5322)">
+                    <rect x="-1.33398" y="2" width="26.25" height="20" fill="white" />
+                    <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M18.9473 19.4252L20.2616 17.4766L21.041 18.0023L19.7267 19.9509L18.9473 19.4252Z"
+                        fill="black"
+                    />
+                    <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M20.4727 17.1673L21.787 15.2188L22.5664 15.7445L21.2521 17.6931L20.4727 17.1673Z"
+                        fill="black"
+                    />
+                    <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M17.8555 18.6908L19.1698 16.7422L19.9492 17.2679L18.6349 19.2165L17.8555 18.6908Z"
+                        fill="black"
+                    />
+                    <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M19.3809 16.433L20.6952 14.4844L21.4746 15.0101L20.1603 16.9587L19.3809 16.433Z"
+                        fill="black"
+                    />
+                    <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M16.7656 17.9564L18.08 16.0078L18.8594 16.5335L17.5451 18.4821L16.7656 17.9564Z"
+                        fill="black"
+                    />
+                    <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M18.2891 15.6908L19.6034 13.7422L20.3828 14.2679L19.0685 16.2165L18.2891 15.6908Z"
+                        fill="black"
+                    />
+                    <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M2.11147 15.2188L4.95045 19.4277L4.17101 19.9534L1.33203 15.7445L2.11147 15.2188Z"
+                        fill="black"
+                    />
+                    <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M4.7267 16.7422L6.04104 18.6908L5.26161 19.2165L3.94727 17.2679L4.7267 16.7422Z"
+                        fill="black"
+                    />
+                    <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M3.20326 14.4844L4.51761 16.433L3.73817 16.9587L2.42383 15.0101L3.20326 14.4844Z"
+                        fill="black"
+                    />
+                    <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M4.29311 13.7422L7.13209 17.9511L6.35265 18.4769L3.51367 14.2679L4.29311 13.7422Z"
+                        fill="black"
+                    />
+                    <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M12.0382 16.7172C9.18451 16.7172 6.87109 14.4019 6.87109 11.5459C6.87109 10.6235 7.11237 9.7576 7.53521 9.00781C7.35514 9.36818 7.25385 9.77485 7.25385 10.2052C7.25385 11.6861 8.45339 12.6951 9.93311 12.6951C10.5723 12.6951 11.0993 12.5668 11.5598 12.0014C11.5921 11.9583 11.6244 11.9159 11.6566 11.8742L11.7529 11.7514C11.785 11.7112 11.8171 11.6718 11.8491 11.6331L11.9453 11.5195C12.5551 10.8147 13.1782 10.3967 14.0477 10.3967C15.4746 10.3967 16.819 11.1713 16.6313 13.1739C16.5649 13.8815 16.3457 14.5263 15.8833 14.9935L15.8897 14.9934C14.9436 16.0514 13.5686 16.7172 12.0382 16.7172Z"
+                        fill="#0047A0"
+                    />
+                    <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M11.8587 6.57031C14.7124 6.57031 17.0258 8.88559 17.0258 11.7416C17.0258 12.664 16.7845 13.5299 16.3617 14.2797C16.5418 13.9193 16.6431 13.5127 16.6431 13.0823C16.6431 11.6014 15.4435 10.5924 13.9638 10.5924C13.3246 10.5924 12.7976 10.7207 12.3371 11.2861C11.5933 12.2783 10.9018 12.8908 9.84922 12.8908C8.42235 12.8908 7.07795 12.1162 7.26564 10.1136C7.33196 9.406 7.55122 8.76126 8.01363 8.29405L8.00718 8.29414C8.95333 7.23614 10.3283 6.57031 11.8587 6.57031Z"
+                        fill="#CD2E3A"
+                    />
+                    <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M19.0685 7.07031L20.3828 9.0189L19.6034 9.54464L18.2891 7.59605L19.0685 7.07031Z"
+                        fill="black"
+                    />
+                    <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M17.5451 4.80469L18.8594 6.75328L18.08 7.27901L16.7656 5.33042L17.5451 4.80469Z"
+                        fill="black"
+                    />
+                    <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M18.6349 4.07031L21.4739 8.27927L20.6944 8.805L17.8555 4.59605L18.6349 4.07031Z"
+                        fill="black"
+                    />
+                    <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M21.2521 5.59375L22.5664 7.54234L21.787 8.06808L20.4727 6.11949L21.2521 5.59375Z"
+                        fill="black"
+                    />
+                    <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M19.7267 3.33594L21.041 5.28453L20.2616 5.81026L18.9473 3.86167L19.7267 3.33594Z"
+                        fill="black"
+                    />
+                    <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M3.51367 9.01364L6.35265 4.80469L7.13209 5.33042L4.29311 9.53938L3.51367 9.01364Z"
+                        fill="black"
+                    />
+                    <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M2.42383 8.27927L5.26281 4.07031L6.04224 4.59605L3.20326 8.805L2.42383 8.27927Z"
+                        fill="black"
+                    />
+                    <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M1.33203 7.54489L4.17101 3.33594L4.95045 3.86167L2.11147 8.07063L1.33203 7.54489Z"
+                        fill="black"
+                    />
+                </g>
+            </g>
+            <defs>
+                <clipPath id="clip0_3698_5322">
+                    <rect width="24" height="24" rx="12" fill="white" />
+                </clipPath>
+                <clipPath id="clip1_3698_5322">
+                    <rect width="26.6667" height="20" fill="white" transform="translate(-1.33398 2)" />
+                </clipPath>
+            </defs>
+        </svg>
+    );
+};
+const AppleIcon = ({ size, className, color }: { size: number; className?: string; color?: string }) => {
+    return (
+        <svg
+            className={className}
+            width={size}
+            height={size}
+            viewBox="0 0 16 16"
+            fill={color ? color : "#E5E5E5"}
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <path
+                d="M11.9586 7.72024C11.9731 6.59957 12.5749 5.53918 13.5297 4.9522C12.9274 4.09199 11.9185 3.54659 10.8689 3.51375C9.7494 3.39624 8.6641 4.18363 8.09363 4.18363C7.51211 4.18363 6.63378 3.52541 5.68796 3.54487C4.45512 3.5847 3.30581 4.28562 2.70601 5.36345C1.41668 7.59573 2.3784 10.8764 3.61348 12.6808C4.23141 13.5644 4.9536 14.5514 5.89857 14.5164C6.82327 14.478 7.16863 13.9267 8.28483 13.9267C9.39067 13.9267 9.71469 14.5164 10.6788 14.4941C11.6711 14.478 12.2963 13.6066 12.8925 12.7147C13.3365 12.0851 13.6781 11.3893 13.9048 10.653C12.7387 10.1598 11.96 8.98633 11.9586 7.72024Z"
+                fill={color ? color : "#E5E5E5"}
+            />
+            <path
+                d="M10.1375 2.32708C10.6785 1.67761 10.9451 0.842822 10.8805 0C10.054 0.0868137 9.29047 0.481853 8.74214 1.10641C8.20595 1.71663 7.92692 2.53673 7.97967 3.34733C8.80652 3.35585 9.61939 2.97152 10.1375 2.32708Z"
+                fill={color ? color : "#E5E5E5"}
+            />
+        </svg>
+    );
+};
+const NvidiaIcon = ({ size, className, color }: { size: number; className?: string; color?: string }) => (
+    <svg
+        className={className}
+        width={size}
+        height={size}
+        viewBox="0 0 16 16"
+        fill={color ? color : "#E5E5E5"}
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <path
+            d="M1.63472 7.24425C1.63472 7.24425 3.08135 5.05547 5.96978 4.82903V4.03495C2.77047 4.29843 0 7.07714 0 7.07714C0 7.07714 1.56915 11.7289 5.96978 12.1548V11.3107C2.74039 10.8941 1.63472 7.24425 1.63472 7.24425ZM5.96978 9.63211V10.4051C3.52908 9.95888 2.8516 7.35711 2.8516 7.35711C2.8516 7.35711 4.02348 6.02583 5.96978 5.80994V6.65815C5.9683 6.65815 5.96727 6.65769 5.96605 6.65769C4.94453 6.53197 4.14652 7.51057 4.14652 7.51057C4.14652 7.51057 4.5938 9.15801 5.96978 9.63211ZM5.96978 2.57031V4.03495C6.0637 4.02756 6.15761 4.0213 6.25205 4.01801C9.88931 3.89229 12.2592 7.07714 12.2592 7.07714C12.2592 7.07714 9.5373 10.4713 6.70151 10.4713C6.44162 10.4713 6.19831 10.4466 5.96978 10.405V11.3107C6.1652 11.3362 6.36782 11.3511 6.57925 11.3511C9.21813 11.3511 11.1265 9.9691 12.9744 8.3334C13.2808 8.58502 14.5351 9.19717 14.7929 9.46513C13.0359 10.9736 8.94114 12.1896 6.61968 12.1896C6.39591 12.1896 6.18101 12.1757 5.96978 12.1548V13.4275H16V2.57031H5.96978ZM5.96978 5.80994V4.82903C6.06273 4.82238 6.15639 4.8173 6.25205 4.8142C8.8676 4.72995 10.5836 7.11913 10.5836 7.11913C10.5836 7.11913 8.73016 9.75881 6.74291 9.75881C6.45692 9.75881 6.20055 9.71168 5.96978 9.63211V6.65815C6.98802 6.78432 7.19289 7.24557 7.80506 8.29207L9.16658 7.11478C9.16658 7.11478 8.1727 5.7781 6.49729 5.7781C6.31517 5.77803 6.1409 5.79115 5.96978 5.80994Z"
+            fill={color ? color : "#E5E5E5"}
+        />
+    </svg>
+);
+export {
+    Google,
+    Envelope,
+    IconLeft,
+    LogoNoSlogan,
+    IconX,
+    IconV,
+    ArrowBack,
+    IconSearch,
+    IconFlag,
+    AppleIcon,
+    NvidiaIcon,
+};

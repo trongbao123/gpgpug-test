@@ -284,6 +284,193 @@ export const stepCreateProject = [
     },
 ];
 
+export const stepCreateWork = [
+    {
+        id: 1,
+        title: "Work name",
+        subTitle: "Please enter the name of the new work",
+        content: [
+            {
+                id: 1,
+                img: "/images/device.svg",
+                title: "Device",
+            },
+        ],
+    },
+    {
+        id: 2,
+        title: "Region",
+        subTitle: "Which area of device will you use?\n\nOnly one area can be selected",
+    },
+    { id: 3, title: "Network Tier", subTitle: "Select the network tier" },
+    { id: 4, title: "Choose Processor", subTitle: "Select the device to use" },
+];
+
+export const dataRegion = [
+    {
+        region: "Asia",
+        countries: [
+            { name: "Vietnam", flag: "🇻🇳", checked: false },
+            { name: "Australia", flag: "🇦🇺", checked: false },
+            { name: "China", flag: "🇨🇳", checked: false },
+            { name: "Hong Kong", flag: "🇭🇰", checked: false },
+            { name: "India", flag: "🇮🇳", checked: false },
+            { name: "Indonesia", flag: "🇮🇩", checked: false },
+            { name: "Japan", flag: "🇯🇵", checked: false },
+            { name: "Korea", flag: "🇰🇷", checked: false },
+            { name: "Malaysia", flag: "🇲🇾", checked: false },
+            { name: "Philippines", flag: "🇵🇭", checked: false },
+            { name: "Singapore", flag: "🇸🇬", checked: false },
+            { name: "Taiwan", flag: "🇹🇼", checked: false },
+            { name: "Thailand", flag: "🇹🇭", checked: false },
+        ],
+    },
+    {
+        region: "North America",
+        countries: [{ name: "Canada", flag: "🇨🇦", checked: false }],
+    },
+    {
+        region: "South America",
+        countries: [{ name: "Brazil", flag: "🇧🇷", checked: false }],
+    },
+    {
+        region: "Europe",
+        countries: [
+            { name: "France", flag: "🇫🇷", checked: false },
+            { name: "Germany", flag: "🇩🇪", checked: false },
+        ],
+    },
+];
+
+export const networkTier = [
+    {
+        id: 1,
+        label: "Ultra",
+        downloadSpeed: "1.6 Gbps",
+        uploadSpeed: "1.6 Gbps",
+        isSelected: true,
+        icon: "/images/network_icon_ultra.svg", // Đây có thể là một class hoặc tên của icon component
+    },
+    {
+        id: 2,
+        label: "High",
+        downloadSpeed: "1.6 Gbps",
+        uploadSpeed: "1.6 Gbps",
+        isSelected: false,
+        icon: "/images/network_icon_high.svg",
+    },
+    {
+        id: 3,
+        label: "Nomal", // "Normal" nếu bạn muốn sửa chính tả
+        downloadSpeed: "1.6 Gbps",
+        uploadSpeed: "1.6 Gbps",
+        isSelected: false,
+        icon: "/images/network_icon_normal.svg",
+    },
+    {
+        id: 4,
+        label: "Low",
+        downloadSpeed: "1.6 Gbps",
+        uploadSpeed: "1.6 Gbps",
+        isSelected: false,
+        icon: "/images/network_icon_low.svg",
+    },
+];
+
+export const deviceGroups = [
+    {
+        brand: "Nvidia",
+        devices: [
+            {
+                id: 1,
+                name: "RTX 4000 SFF Ada Generation",
+                quantity: 19,
+                icon: "/images/nvidia_icon.svg",
+            },
+            {
+                id: 2,
+                name: "RTX 4000 SFF Ada Generation",
+                quantity: 19,
+                icon: "/images/nvidia_icon.svg",
+            },
+            {
+                id: 3,
+                name: "RTX 4000 SFF Ada Generation",
+                brand: "NVIDIA",
+                quantity: 19,
+                icon: "/images/nvidia_icon.svg",
+            },
+            {
+                id: 4,
+                name: "RTX 4000 SFF Ada Generation",
+                brand: "NVIDIA",
+                quantity: 19,
+                icon: "/images/nvidia_icon.svg",
+            },
+            {
+                id: 5,
+                name: "RTX 4000 SFF Ada Generation",
+                brand: "NVIDIA",
+                quantity: 19,
+                icon: "/images/nvidia_icon.svg",
+            },
+            {
+                id: 6,
+                name: "RTX 4000 SFF Ada Generation",
+                brand: "NVIDIA",
+                quantity: 19,
+                icon: "/images/nvidia_icon.svg",
+            },
+            {
+                id: 7,
+                name: "RTX 4000 SFF Ada Generation",
+                brand: "NVIDIA",
+                quantity: 19,
+                icon: "/images/nvidia_icon.svg",
+            },
+            {
+                id: 8,
+                name: "RTX 4000 SFF Ada Generation",
+                brand: "NVIDIA",
+                quantity: 19,
+                icon: "/images/nvidia_icon.svg",
+            },
+            {
+                id: 9,
+                name: "RTX 4000 SFF Ada Generation",
+                brand: "NVIDIA",
+                quantity: 19,
+                icon: "/images/nvidia_icon.svg",
+            },
+            {
+                id: 10,
+                name: "RTX 4000 SFF Ada Generation",
+                brand: "NVIDIA",
+                quantity: 19,
+                icon: "/images/nvidia_icon.svg",
+            },
+        ],
+    },
+    {
+        brand: "Apple",
+        devices: [
+            {
+                id: 1,
+                name: "MacBook Pro 16-inch",
+                quantity: 10,
+                icon: "/images/mac_icon.svg",
+            },
+            {
+                id: 2,
+                name: "MacBook Air M2",
+                quantity: 15,
+                icon: "/images/mac_icon.svg",
+            },
+            // Các thiết bị Apple khác...
+        ],
+    },
+];
+
 export interface FileData {
     id: string;
     fileName: string;
