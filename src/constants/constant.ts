@@ -277,11 +277,11 @@ export const stepCreateProject = [
             },
         ],
     },
-    {
-        id: 2,
-        title: "Select Device",
-        subTitle: "Select the device you want to use for your project",
-    },
+    // {
+    //     id: 2,
+    //     title: "Select Device",
+    //     subTitle: "Select the device you want to use for your project",
+    // },
 ];
 
 export const stepCreateWork = [

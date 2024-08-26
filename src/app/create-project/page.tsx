@@ -6,14 +6,19 @@ import "./index.scss";
 import { stepCreateProject } from "@component/constants/constant";
 import CreateProjectNamePage from "./_components/create-project-name-page";
 import DropzoneUpload from "./_components/drop-zone-upload";
+import { createProject } from "@component/services/project";
+import Notification from "@component/components/common/notification";
+import { useRouter } from "next/navigation";
+import { useLoading } from "@component/contexts/loadingContext";
 
 type Props = {};
 
 const Page = (props: Props) => {
+    const router = useRouter();
     const [active, setActive] = useState<number>(0);
     const [activeItem, setActiveItem] = useState<null | number | string>(null);
     const [checked, setChecked] = useState(false);
-
+    const { setIsLoading } = useLoading();
     const handleChecked = (e: number | string) => {
         if (e) {
             setChecked(true);
@@ -41,8 +46,33 @@ const Page = (props: Props) => {
         });
     };
 
-    const handleFinish = () => {
-        console.log("done");
+    const handleFinish = async () => {
+        setIsLoading(true);
+        try {
+            const res: any = await createProject({
+                data: {
+                    name: activeItem,
+                },
+            });
+            if (res && res.statusCode === 200) {
+                Notification({
+                    type: "success",
+                    message: res.message,
+                    placement: "top",
+                });
+                router.push("/project");
+            } else {
+                throw res;
+            }
+        } catch (error: any) {
+            Notification({
+                type: "error",
+                message: error?.message || error,
+                placement: "top",
+            });
+        } finally {
+            setIsLoading(false);
+        }
     };
 
     return (
@@ -55,7 +85,7 @@ const Page = (props: Props) => {
                 checked={checked}
             >
                 {active === 0 && <CreateProjectNamePage handleChecked={handleChecked} active={active} />}
-                {active === 1 && <DropzoneUpload />}
+                {/* {active === 1 && <DropzoneUpload />} */}
             </CreateProjectMain>
         </div>
     );

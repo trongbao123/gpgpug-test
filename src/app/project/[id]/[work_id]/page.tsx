@@ -21,8 +21,7 @@ const Page = ({ params }: Props) => {
     const { id, work_id } = params;
     const workDetail = project.find((item: any) => item.id === id);
     const workItemDetail = workDetail && workDetail.listWork.find((item: any) => item.id.toString() === work_id);
-    console.log(workDetail);
-    console.log(workItemDetail);
+
     return (
         <ProjectContainer>
             <div className="infomation-work-container">
@@ -182,7 +181,9 @@ const Page = ({ params }: Props) => {
                                     <p>10MB</p>
                                 </div>
                             </div>
-                            <div className="result-btn"><DownloadIcon size={14}/> Download</div>
+                            <div className="result-btn">
+                                <DownloadIcon size={14} /> Download
+                            </div>
                         </div>
                     </InfoSection>
                 </div>
