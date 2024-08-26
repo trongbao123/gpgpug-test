@@ -12,8 +12,6 @@ type Props = {
 };
 
 export const DeviceTable = ({ tableData, loading }: Props) => {
-    console.log(tableData);
-    console.log(loading);
     const router = useRouter();
 
     function timeDifference(createdAt: string): string {

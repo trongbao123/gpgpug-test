@@ -284,6 +284,266 @@ export const stepCreateProject = [
     },
 ];
 
+export const stepCreateWork = [
+    {
+        id: 1,
+        title: "Work name",
+        subTitle: "Please enter the name of the new work",
+        content: [
+            {
+                id: 1,
+                img: "/images/device.svg",
+                title: "Device",
+            },
+        ],
+    },
+    {
+        id: 2,
+        title: "Region",
+        subTitle: "Which area of device will you use?\n\nOnly one area can be selected",
+    },
+    { id: 3, title: "Network Tier", subTitle: "Select the network tier" },
+    { id: 4, title: "Choose Processor", subTitle: "Select the device to use" },
+    { id: 5, title: "Run Script", subTitle: "Please upload the run script" },
+];
+
+export const dataRegion = [
+    {
+        region: "Asia",
+        countries: [
+            { name: "Vietnam", flag: "🇻🇳", checked: false },
+            { name: "Australia", flag: "🇦🇺", checked: false },
+            { name: "China", flag: "🇨🇳", checked: false },
+            { name: "Hong Kong", flag: "🇭🇰", checked: false },
+            { name: "India", flag: "🇮🇳", checked: false },
+            { name: "Indonesia", flag: "🇮🇩", checked: false },
+            { name: "Japan", flag: "🇯🇵", checked: false },
+            { name: "Korea", flag: "🇰🇷", checked: false },
+            { name: "Malaysia", flag: "🇲🇾", checked: false },
+            { name: "Philippines", flag: "🇵🇭", checked: false },
+            { name: "Singapore", flag: "🇸🇬", checked: false },
+            { name: "Taiwan", flag: "🇹🇼", checked: false },
+            { name: "Thailand", flag: "🇹🇭", checked: false },
+        ],
+    },
+    {
+        region: "North America",
+        countries: [{ name: "Canada", flag: "🇨🇦", checked: false }],
+    },
+    {
+        region: "South America",
+        countries: [{ name: "Brazil", flag: "🇧🇷", checked: false }],
+    },
+    {
+        region: "Europe",
+        countries: [
+            { name: "France", flag: "🇫🇷", checked: false },
+            { name: "Germany", flag: "🇩🇪", checked: false },
+        ],
+    },
+];
+
+export const networkTier = [
+    {
+        id: 1,
+        label: "Ultra",
+        downloadSpeed: "1.6 Gbps",
+        uploadSpeed: "1.6 Gbps",
+        isSelected: true,
+        icon: "/images/network_icon_ultra.svg", // Đây có thể là một class hoặc tên của icon component
+    },
+    {
+        id: 2,
+        label: "High",
+        downloadSpeed: "1.6 Gbps",
+        uploadSpeed: "1.6 Gbps",
+        isSelected: false,
+        icon: "/images/network_icon_high.svg",
+    },
+    {
+        id: 3,
+        label: "Nomal", // "Normal" nếu bạn muốn sửa chính tả
+        downloadSpeed: "1.6 Gbps",
+        uploadSpeed: "1.6 Gbps",
+        isSelected: false,
+        icon: "/images/network_icon_normal.svg",
+    },
+    {
+        id: 4,
+        label: "Low",
+        downloadSpeed: "1.6 Gbps",
+        uploadSpeed: "1.6 Gbps",
+        isSelected: false,
+        icon: "/images/network_icon_low.svg",
+    },
+];
+
+export const deviceGroups = [
+    {
+        brand: "Nvidia",
+        devices: [
+            { id: 1, name: "NVIDIA GeForce RTX 4090", brand: "NVIDIA", quantity: 20, icon: "/images/nvidia_icon.svg" },
+            {
+                id: 2,
+                name: "NVIDIA GeForce RTX 4080 SUPER",
+                brand: "NVIDIA",
+                quantity: 18,
+                icon: "/images/nvidia_icon.svg",
+            },
+            { id: 3, name: "NVIDIA GeForce RTX 4080", brand: "NVIDIA", quantity: 17, icon: "/images/nvidia_icon.svg" },
+            {
+                id: 4,
+                name: "NVIDIA GeForce RTX 4070 Ti",
+                brand: "NVIDIA",
+                quantity: 16,
+                icon: "/images/nvidia_icon.svg",
+            },
+            { id: 5, name: "NVIDIA GeForce RTX 4070", brand: "NVIDIA", quantity: 22, icon: "/images/nvidia_icon.svg" },
+            {
+                id: 6,
+                name: "NVIDIA GeForce RTX 4060 Ti",
+                brand: "NVIDIA",
+                quantity: 25,
+                icon: "/images/nvidia_icon.svg",
+            },
+            { id: 7, name: "NVIDIA GeForce RTX 4060", brand: "NVIDIA", quantity: 19, icon: "/images/nvidia_icon.svg" },
+            { id: 8, name: "NVIDIA GeForce RTX 3090", brand: "NVIDIA", quantity: 14, icon: "/images/nvidia_icon.svg" },
+            {
+                id: 9,
+                name: "NVIDIA GeForce RTX 3080 TI",
+                brand: "NVIDIA",
+                quantity: 15,
+                icon: "/images/nvidia_icon.svg",
+            },
+            { id: 10, name: "NVIDIA GeForce RTX 3080", brand: "NVIDIA", quantity: 13, icon: "/images/nvidia_icon.svg" },
+            {
+                id: 11,
+                name: "NVIDIA GeForce RTX 3070 Ti",
+                brand: "NVIDIA",
+                quantity: 12,
+                icon: "/images/nvidia_icon.svg",
+            },
+            { id: 12, name: "NVIDIA GeForce RTX 3070", brand: "NVIDIA", quantity: 16, icon: "/images/nvidia_icon.svg" },
+            {
+                id: 13,
+                name: "NVIDIA GeForce RTX 3060 Ti",
+                brand: "NVIDIA",
+                quantity: 18,
+                icon: "/images/nvidia_icon.svg",
+            },
+            {
+                id: 14,
+                name: "NVIDIA GeForce RTX 3060 Ti GDDR6X",
+                brand: "NVIDIA",
+                quantity: 15,
+                icon: "/images/nvidia_icon.svg",
+            },
+            { id: 15, name: "NVIDIA GeForce RTX 3060", brand: "NVIDIA", quantity: 17, icon: "/images/nvidia_icon.svg" },
+            { id: 16, name: "NVIDIA GeForce RTX 3050", brand: "NVIDIA", quantity: 21, icon: "/images/nvidia_icon.svg" },
+            {
+                id: 17,
+                name: "NVIDIA GeForce RTX 2080 Ti",
+                brand: "NVIDIA",
+                quantity: 10,
+                icon: "/images/nvidia_icon.svg",
+            },
+            { id: 18, name: "NVIDIA GeForce RTX 2080", brand: "NVIDIA", quantity: 12, icon: "/images/nvidia_icon.svg" },
+            {
+                id: 19,
+                name: "NVIDIA GeForce RTX 2070 SUPER",
+                brand: "NVIDIA",
+                quantity: 9,
+                icon: "/images/nvidia_icon.svg",
+            },
+            { id: 20, name: "NVIDIA GeForce RTX 2070", brand: "NVIDIA", quantity: 11, icon: "/images/nvidia_icon.svg" },
+            {
+                id: 21,
+                name: "NVIDIA GeForce RTX 2060 SUPER",
+                brand: "NVIDIA",
+                quantity: 13,
+                icon: "/images/nvidia_icon.svg",
+            },
+            { id: 22, name: "NVIDIA GeForce RTX 2060", brand: "NVIDIA", quantity: 14, icon: "/images/nvidia_icon.svg" },
+            { id: 23, name: "NVIDIA GeForce RTX 2070", brand: "NVIDIA", quantity: 11, icon: "/images/nvidia_icon.svg" },
+            {
+                id: 24,
+                name: "NVIDIA GeForce GTX 1660 Ti",
+                brand: "NVIDIA",
+                quantity: 8,
+                icon: "/images/nvidia_icon.svg",
+            },
+            {
+                id: 25,
+                name: "NVIDIA GeForce GTX 1660 SUPER",
+                brand: "NVIDIA",
+                quantity: 10,
+                icon: "/images/nvidia_icon.svg",
+            },
+            { id: 26, name: "NVIDIA GeForce GTX 1660", brand: "NVIDIA", quantity: 12, icon: "/images/nvidia_icon.svg" },
+            {
+                id: 27,
+                name: "NVIDIA GeForce GTX 1650 SUPER",
+                brand: "NVIDIA",
+                quantity: 9,
+                icon: "/images/nvidia_icon.svg",
+            },
+            {
+                id: 28,
+                name: "NVIDIA GeForce GTX 1650 GDDR6",
+                brand: "NVIDIA",
+                quantity: 11,
+                icon: "/images/nvidia_icon.svg",
+            },
+            { id: 29, name: "NVIDIA GeForce GTX 1650", brand: "NVIDIA", quantity: 13, icon: "/images/nvidia_icon.svg" },
+            { id: 30, name: "NVIDIA GeForce GTX 1630", brand: "NVIDIA", quantity: 6, icon: "/images/nvidia_icon.svg" },
+            {
+                id: 31,
+                name: "NVIDIA GeForce GTX 1080 Ti",
+                brand: "NVIDIA",
+                quantity: 5,
+                icon: "/images/nvidia_icon.svg",
+            },
+            { id: 32, name: "NVIDIA GeForce GTX 1080", brand: "NVIDIA", quantity: 8, icon: "/images/nvidia_icon.svg" },
+            {
+                id: 33,
+                name: "NVIDIA GeForce GTX 1070 Ti",
+                brand: "NVIDIA",
+                quantity: 9,
+                icon: "/images/nvidia_icon.svg",
+            },
+            { id: 34, name: "NVIDIA GeForce GTX 1070", brand: "NVIDIA", quantity: 7, icon: "/images/nvidia_icon.svg" },
+            { id: 35, name: "NVIDIA GeForce GTX 1060", brand: "NVIDIA", quantity: 10, icon: "/images/nvidia_icon.svg" },
+            {
+                id: 36,
+                name: "NVIDIA GeForce GTX 1050 Ti",
+                brand: "NVIDIA",
+                quantity: 12,
+                icon: "/images/nvidia_icon.svg",
+            },
+            { id: 37, name: "NVIDIA GeForce GTX 1050", brand: "NVIDIA", quantity: 13, icon: "/images/nvidia_icon.svg" },
+            { id: 38, name: "NVIDIA GeForce GTX 1010", brand: "NVIDIA", quantity: 4, icon: "/images/nvidia_icon.svg" },
+        ],
+    },
+    {
+        brand: "Apple",
+        devices: [
+            {
+                id: 1,
+                name: "MacBook Pro 16-inch",
+                quantity: 10,
+                icon: "/images/mac_icon.svg",
+            },
+            {
+                id: 2,
+                name: "MacBook Air M2",
+                quantity: 15,
+                icon: "/images/mac_icon.svg",
+            },
+            // Các thiết bị Apple khác...
+        ],
+    },
+];
+
 export interface FileData {
     id: string;
     fileName: string;
@@ -383,6 +643,30 @@ export const project = [
                 upTimeMinutes: 11,
                 upTimeSeconds: 32,
                 createdAt: "2024-06-30 01:42",
+                hourFee: 10,
+                dailyFee: 20,
+                error_logs: [
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                ],
             },
             {
                 id: 2,
@@ -394,6 +678,30 @@ export const project = [
                 upTimeMinutes: 11,
                 upTimeSeconds: 32,
                 createdAt: "2024-06-30 01:42",
+                hourFee: 10,
+                dailyFee: 20,
+                error_logs: [
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                ],
             },
             {
                 id: 3,
@@ -405,6 +713,30 @@ export const project = [
                 upTimeMinutes: 11,
                 upTimeSeconds: 32,
                 createdAt: "2024-06-30 01:42",
+                hourFee: 10,
+                dailyFee: 20,
+                error_logs: [
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                ],
             },
         ],
     },
@@ -427,6 +759,30 @@ export const project = [
                 upTimeMinutes: 11,
                 upTimeSeconds: 32,
                 createdAt: "2024-06-30 01:42",
+                hourFee: 10,
+                dailyFee: 20,
+                error_logs: [
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                ],
             },
             {
                 id: 2,
@@ -438,6 +794,30 @@ export const project = [
                 upTimeMinutes: 11,
                 upTimeSeconds: 32,
                 createdAt: "2024-06-30 01:42",
+                hourFee: 10,
+                dailyFee: 20,
+                error_logs: [
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                ],
             },
             {
                 id: 3,
@@ -449,6 +829,30 @@ export const project = [
                 upTimeMinutes: 11,
                 upTimeSeconds: 32,
                 createdAt: "2024-06-30 01:42",
+                hourFee: 10,
+                dailyFee: 20,
+                error_logs: [
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                ],
             },
         ],
     },
@@ -471,6 +875,30 @@ export const project = [
                 upTimeMinutes: 11,
                 upTimeSeconds: 32,
                 createdAt: "2024-06-30 01:42",
+                hourFee: 10,
+                dailyFee: 20,
+                error_logs: [
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                ],
             },
             {
                 id: 2,
@@ -482,6 +910,30 @@ export const project = [
                 upTimeMinutes: 11,
                 upTimeSeconds: 32,
                 createdAt: "2024-06-30 01:42",
+                hourFee: 10,
+                dailyFee: 20,
+                error_logs: [
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                ],
             },
             {
                 id: 3,
@@ -493,6 +945,30 @@ export const project = [
                 upTimeMinutes: 11,
                 upTimeSeconds: 32,
                 createdAt: "2024-06-30 01:42",
+                hourFee: 10,
+                dailyFee: 20,
+                error_logs: [
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                ],
             },
         ],
     },
@@ -515,6 +991,30 @@ export const project = [
                 upTimeMinutes: 11,
                 upTimeSeconds: 32,
                 createdAt: "2024-06-30 01:42",
+                hourFee: 10,
+                dailyFee: 20,
+                error_logs: [
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                ],
             },
             {
                 id: 2,
@@ -526,6 +1026,30 @@ export const project = [
                 upTimeMinutes: 11,
                 upTimeSeconds: 32,
                 createdAt: "2024-06-30 01:42",
+                hourFee: 10,
+                dailyFee: 20,
+                error_logs: [
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                ],
             },
             {
                 id: 3,
@@ -537,6 +1061,30 @@ export const project = [
                 upTimeMinutes: 11,
                 upTimeSeconds: 32,
                 createdAt: "2024-06-30 01:42",
+                hourFee: 10,
+                dailyFee: 20,
+                error_logs: [
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                ],
             },
         ],
     },
@@ -559,6 +1107,30 @@ export const project = [
                 upTimeMinutes: 11,
                 upTimeSeconds: 32,
                 createdAt: "2024-06-30 01:42",
+                hourFee: 10,
+                dailyFee: 20,
+                error_logs: [
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                ],
             },
             {
                 id: 2,
@@ -570,6 +1142,30 @@ export const project = [
                 upTimeMinutes: 11,
                 upTimeSeconds: 32,
                 createdAt: "2024-06-30 01:42",
+                hourFee: 10,
+                dailyFee: 20,
+                error_logs: [
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                ],
             },
             {
                 id: 3,
@@ -581,6 +1177,30 @@ export const project = [
                 upTimeMinutes: 11,
                 upTimeSeconds: 32,
                 createdAt: "2024-06-30 01:42",
+                hourFee: 10,
+                dailyFee: 20,
+                error_logs: [
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                ],
             },
         ],
     },
@@ -603,6 +1223,30 @@ export const project = [
                 upTimeMinutes: 11,
                 upTimeSeconds: 32,
                 createdAt: "2024-06-30 01:42",
+                hourFee: 10,
+                dailyFee: 20,
+                error_logs: [
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                ],
             },
             {
                 id: 2,
@@ -614,6 +1258,30 @@ export const project = [
                 upTimeMinutes: 11,
                 upTimeSeconds: 32,
                 createdAt: "2024-06-30 01:42",
+                hourFee: 10,
+                dailyFee: 20,
+                error_logs: [
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                ],
             },
             {
                 id: 3,
@@ -625,6 +1293,30 @@ export const project = [
                 upTimeMinutes: 11,
                 upTimeSeconds: 32,
                 createdAt: "2024-06-30 01:42",
+                hourFee: 10,
+                dailyFee: 20,
+                error_logs: [
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                    {
+                        timestamp: "2024-06-30 01:42",
+                        traceback:
+                            'Traceback (most recent call last): File "example.py", line 6, in <module> result = numerator / denominator ZeroDivisionError: division by zero',
+                    },
+                ],
             },
         ],
     },

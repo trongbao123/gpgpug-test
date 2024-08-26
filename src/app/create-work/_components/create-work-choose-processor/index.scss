@@ -1,0 +1,117 @@
+.choose-processor-main {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    border: solid 1px rgba(50, 50, 51, 1);
+    border-radius: 12px;
+    &-button {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        .ant-btn {
+            &:hover {
+                background: rgb(131, 131, 131) !important;
+                border: 1px solid rgb(131, 131, 131) !important;
+                color: unset !important;
+            }
+        }
+        .un-active {
+            background: inherit;
+            color: #e5e5e5;
+            border-color: #e5e5e5;
+            &:hover {
+                color: #e5e5e5 !important;
+            }
+        }
+    }
+    .custom-placeholder {
+        input {
+            color: white;
+        }
+        input::placeholder {
+            color: #40444b;
+        }
+    }
+    .processor-list {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        max-height: 400px;
+        overflow-y: scroll;
+        padding-right: 16px;
+        &::-webkit-scrollbar {
+            width: 10px;
+            height: 7px;
+        }
+
+        /* Track */
+        &::-webkit-scrollbar-track {
+            background: #1e1e1f;
+            border-radius: 10px;
+            border: 1px solid #505050;
+        }
+
+        /* Handle */
+        &::-webkit-scrollbar-thumb {
+            background: #505050;
+            border-radius: 10px;
+        }
+
+        /* Handle on hover */
+        &::-webkit-scrollbar-thumb:hover {
+            background: #505050;
+        }
+        .processor-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 18px 24px;
+            border: solid 1px rgba(50, 50, 51, 1);
+            border-radius: 12px;
+            .ant-radio {
+                width: 24px;
+                height: 24px;
+            }
+
+            /* Tăng kích thước của hộp kiểm */
+            .ant-radio-inner {
+                width: 24px;
+                height: 24px;
+                border-radius: 50%; /* Để có viền bo tròn như trong ảnh */
+                border: 2px solid #5b5b5b; /* Màu viền giống với ảnh */
+                background: inherit;
+                display: flex;
+                justify-content: center;
+            }
+
+            /* Đặt màu của hộp kiểm khi được chọn */
+            .ant-radio-checked .ant-radio-inner {
+                background-color: #333232; /* Màu nền khi được chọn */
+                border: 1px solid white; /* Màu viền khi được chọn */
+            }
+
+            /* Ẩn dấu tích mặc định của antd */
+            .ant-radio-checked .ant-radio-inner::after {
+                // display: none;
+                // left: 35%;
+                width: 16px;
+                height: 16px;
+                top: 50%;
+                left: 50%;
+                // transform: translateY(5px);
+                // transform: translateX(1px);
+            }
+            &__icon {
+                display: flex;
+                align-items: center;
+            }
+            &__info {
+                flex-grow: 1;
+                display: flex;
+                justify-content: space-between;
+            }
+        }
+    }
+}
