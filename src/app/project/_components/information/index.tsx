@@ -18,7 +18,7 @@ const InformationProject: React.FC<InformationProps> = ({ projectId, resulting, 
             setIsLoading(true);
             try {
                 const response: any = await deleteProject({
-                    params: {
+                    data: {
                         projectId: projectId,
                     },
                 });
