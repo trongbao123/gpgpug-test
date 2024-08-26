@@ -58,7 +58,7 @@ const Header = () => {
             <div className="container">
                 <div className="menu-header">
                     <div className="header-left">
-                        <div className="logo" onClick={() => router.push("/")}>
+                        <div className="logo" onClick={() => router.push(selected === "provider" ? "/" : "/project")}>
                             <Image
                                 width={25}
                                 height={24}

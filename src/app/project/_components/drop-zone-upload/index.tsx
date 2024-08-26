@@ -56,9 +56,11 @@ const DropzoneUpload: React.FC<Props> = ({ metadata, projectId, fetchData }) => 
         }
     };
     const handleCancelUpload = () => {
-        setFile(null);
-        if (fileInputRef.current) {
-            fileInputRef.current.value = "";
+        if (window.confirm("Are you sure you want to delete this file?")) {
+            setFile(null);
+            if (fileInputRef.current) {
+                fileInputRef.current.value = "";
+            }
         }
     };
     const handleUploadClick = () => {
