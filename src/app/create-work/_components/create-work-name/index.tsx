@@ -11,16 +11,12 @@ const CreateWorkNamePage = ({ active, handleChecked }: Props) => {
         <div className="create-work-right">
             {stepCreateProject[active]?.content?.map((item, index) => {
                 return (
-                    <div
-                        key={item.id}
-                        style={{ cursor: "pointer" }}
-                        className="create-work-right-item"
-                    >
+                    <div key={item.id} style={{ cursor: "pointer" }} className="create-work-right-item">
                         <input
                             onChange={(e) => handleChecked(e.target.value)}
                             type="text"
                             name="myRadio"
-                            placeholder="Project name"
+                            placeholder="Work name"
                         />
                     </div>
                 );
