@@ -5,13 +5,17 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { Button, Popover } from "antd";
 import { useState } from "react";
+import formatDate from "@component/utilities/format-time";
 
-const ListProject = () => {
+type Props = {
+    [key: string]: any;
+};
+const ListProject: React.FC<Props> = ({ projectList }) => {
     const router = useRouter();
     const [open, setOpen] = useState(false);
 
     const handleContainerClick = (item: any) => {
-        router.push(`/project/${item.id}`);
+        router.push(`/project/${item.id}?name=${item.name}&createdAt=${item.createdAt}&workSize=${item.workSize}`);
     };
 
     const handleImageClick = (e: any, item: any) => {
@@ -19,7 +23,7 @@ const ListProject = () => {
         setOpen(!open);
     };
     const renderProject = () => {
-        return project.map((item) => {
+        return projectList?.data.map((item: any) => {
             return (
                 <div
                     style={{ cursor: "pointer" }}
@@ -30,7 +34,7 @@ const ListProject = () => {
                     <div className="item-header">
                         <div className="item-header-left">
                             <span>{item.name}</span>
-                            <p>{item.createDate}</p>
+                            <p>{formatDate(item.createdAt)}</p>
                         </div>
                         <Popover trigger="click" placement="bottomRight" content={<div></div>}>
                             <Image
@@ -45,20 +49,20 @@ const ListProject = () => {
                     </div>
                     <div className="billing-data">
                         <div className="billing-data-content">
-                            Work: <p>{item.work}</p>
+                            Work: <p>{item.workSize}</p>
                         </div>
                         <div className="billing-data-content">
-                            Data: <p>{item.data}</p>{" "}
+                            Data: <p>{item.fileSize}</p>{" "}
                         </div>
                         <div className="billing-data-content">
-                            Billing: <p>{item.billing}</p>
+                            Billing: <p>{item.fileSize}</p>
                         </div>
                     </div>
                     <div className="item-line"></div>
                     <div className="captancy">
                         <p>Resulting capacity</p>
                         <div className="data-result">
-                            <p>{item.resulting}</p>
+                            <p>{item.fileSize} MB</p>
                             <Image src="/images/cloud.svg" width={16} height={16} alt="cloud" />
                         </div>
                     </div>

@@ -21,7 +21,7 @@ const StateComponent: React.FC<Props> = ({ state, className }) => {
 
     let stateClass = `state ${state && state.toLowerCase()}`;
 
-    if (["Deleted", "Paused", "Offline"].includes(state)) stateClass = "state paused";
+    if (["Deleted", "Paused", "Offline", "pause"].includes(state)) stateClass = "state paused";
 
     return (
         <div className={`${stateClass} ${className || ""}`}>

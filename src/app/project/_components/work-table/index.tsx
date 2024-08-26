@@ -8,12 +8,12 @@ import { usePathname, useRouter } from "next/navigation";
 type WorkTableProps = {
     [key: string]: any;
 };
-const WorkTable: React.FC<WorkTableProps> = ({ itemDetail }) => {
+const WorkTable: React.FC<WorkTableProps> = ({ keyword, workList, page, length, handleSearch, itemDetail }) => {
     const columns = [
         {
             title: "State",
-            dataIndex: "state",
-            key: "state",
+            dataIndex: "status",
+            key: "status",
             render: (text: any) => <StateComponent state={text} />,
         },
         {
@@ -23,29 +23,20 @@ const WorkTable: React.FC<WorkTableProps> = ({ itemDetail }) => {
         },
         {
             title: "Device",
-            dataIndex: "device",
-            key: "device",
+            dataIndex: "deviceChipSet",
+            key: "deviceChipSet",
         },
 
         {
             title: "Data",
-            dataIndex: "data",
-            key: "data",
+            dataIndex: "workFileSize",
+            key: "workFileSize",
             render: (text: any) => <div className="ulti">{text} GB</div>,
         },
         {
-            title: "Uptime",
-            dataIndex: "",
-            key: "uptime",
-            render: (text: any) => {
-                return (
-                    <div className="time" style={{ display: "flex", alignItems: "center", gap: "2px" }}>
-                        <p style={{ color: "#fff" }}>{text.upTimeHours}</p>Hrs
-                        <p style={{ color: "#fff" }}>{text.upTimeMinutes}</p>Mins
-                        <p style={{ color: "#fff" }}> {text.upTimeSeconds}</p>Sec
-                    </div>
-                );
-            },
+            title: "Region",
+            dataIndex: "region",
+            key: "region",
         },
         {
             title: "Create",
@@ -73,7 +64,7 @@ const WorkTable: React.FC<WorkTableProps> = ({ itemDetail }) => {
                     <span>Work</span>
                     <div className="search">
                         <Image src="/images/search.svg" width={20} height={20} alt="search" />
-                        <input placeholder="Search Work Name" />
+                        <input onChange={handleSearch} value={keyword} placeholder="Search Work Name" />
                     </div>
 
                     {/* <Input size="large" placeholder="large size" prefix={<></>} /> */}
@@ -84,7 +75,7 @@ const WorkTable: React.FC<WorkTableProps> = ({ itemDetail }) => {
             </div>
             <Table
                 columns={columns}
-                dataSource={itemDetail?.listWork}
+                dataSource={workList}
                 bordered={false}
                 pagination={{ position: ["none", "none"] }}
                 onRow={(record, index) => {
@@ -95,7 +86,7 @@ const WorkTable: React.FC<WorkTableProps> = ({ itemDetail }) => {
                     };
                 }}
             />
-            <Pagination align="center" defaultCurrent={1} total={itemDetail?.listWork.length / 20} />
+            <Pagination align="center" defaultCurrent={page} defaultPageSize={length} total={workList.length / 20} />
         </div>
     );
 };

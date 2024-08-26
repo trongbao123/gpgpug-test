@@ -3,10 +3,11 @@ import Image from "next/image";
 import React from "react";
 
 type Props = {
-    item: FileData;
+    item: any;
+    [key: string]: any;
 };
 
-const UploadedCard = ({ item }: Props) => {
+const UploadedCard = ({ item, deleteFile }: Props) => {
     return (
         <div className="uploaded-card">
             <div className="icon">
@@ -14,13 +15,13 @@ const UploadedCard = ({ item }: Props) => {
             </div>
             <div className="file-info" style={{ color: "white" }}>
                 <div className="header-info">
-                    <p>{item.fileName}</p>
+                    <p>{item.name}</p>
                 </div>
                 <div className="progress-info">
-                    <p>{item.fileSize}MB</p>
+                    <p>{item.size}MB</p>
                 </div>
             </div>
-            <div className="icon_trash">
+            <div className="icon_trash" style={{ cursor: "pointer" }} onClick={() => deleteFile(item?.id)}>
                 <Image src="/images/icon_trash.svg" alt="file" width={15} height={15} />
             </div>
         </div>

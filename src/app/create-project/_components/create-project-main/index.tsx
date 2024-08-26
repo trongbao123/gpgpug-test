@@ -41,7 +41,7 @@ const CreateProjectMain: FC<Props> = ({ children, active, handleNextStep, ...res
                 </div>
                 <h2 className="setup">{stepCreateProject[active]?.title}</h2>
                 <p className="instruction">{stepCreateProject[active]?.subTitle}</p>
-                {active !== 1 ? (
+                {/* {active !== 1 ? (
                     <button
                         disabled={checked ? false : true}
                         className={`${checked && "step-active "} next-step`}
@@ -50,14 +50,15 @@ const CreateProjectMain: FC<Props> = ({ children, active, handleNextStep, ...res
                         Next Step
                     </button>
                 ) : (
-                    <button
-                        // disabled={checked ? false : true}
-                        className={`${checked && "step-active "} next-step`}
-                        onClick={handleFinish}
-                    >
-                        Done
-                    </button>
-                )}
+                   
+                )} */}
+                <button
+                    // disabled={checked ? false : true}
+                    className={`${checked && "step-active "} next-step`}
+                    onClick={handleFinish}
+                >
+                    Done
+                </button>
             </div>
             {children}
         </div>
