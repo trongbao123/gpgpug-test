@@ -8,12 +8,14 @@ import "./index.scss";
 import { listProject } from "@component/services/project";
 import Notification from "@component/components/common/notification";
 import { useLoading } from "@component/contexts/loadingContext";
+import { Empty } from "antd";
+
 const Project = () => {
     const [projectList, setProjectList] = useState(null);
     const [page, setPage] = useState(1);
     const [length, setLength] = useState(10);
     const [searchProject, setSearchProject] = useState<string>("");
-    const { setIsLoading } = useLoading();
+    const { isLoading, setIsLoading } = useLoading();
     const apiProject = async (searchProject?: string) => {
         setIsLoading(true);
         try {
@@ -61,7 +63,7 @@ const Project = () => {
             <Rate />
             <div className="container-project">
                 <Search searchProject={searchProject} handleSearch={handleSearch} />
-                <ListProject projectList={projectList} />
+                {projectList && !isLoading ? <ListProject projectList={projectList} /> : <Empty />}
             </div>
         </ProjectContainer>
     );
