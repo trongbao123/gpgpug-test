@@ -5,6 +5,8 @@ import { deleteProject } from "@component/services/project";
 import Notification from "@component/components/common/notification";
 import { useLoading } from "@component/contexts/loadingContext";
 import { useRouter } from "next/navigation";
+import formatDate from "@component/utilities/format-time";
+import gbToMb from "@component/utilities/gbToMb";
 
 type InformationProps = {
     [key: string]: any;
@@ -50,7 +52,7 @@ const InformationProject: React.FC<InformationProps> = ({ projectId, resulting, 
                 <div className="infoproject-description-item">
                     <p>Resulting capacity: </p>
                     <p style={{ display: "flex", alignItems: "center", gap: "4px" }}>
-                        {resulting} <Image src={"/images/cloud.svg"} width={16} height={16} alt="gpu" />
+                        {`${gbToMb(resulting)} MB`} <Image src={"/images/cloud.svg"} width={16} height={16} alt="gpu" />
                     </p>
                 </div>
                 <div className="infoproject-description-item">
@@ -59,7 +61,7 @@ const InformationProject: React.FC<InformationProps> = ({ projectId, resulting, 
                 </div>
                 <div className="infoproject-description-item">
                     <p>Create date: </p>
-                    <p>{createDate}</p>
+                    <p>{formatDate(createDate)}</p>
                 </div>
             </div>
             <div className="infoproject-right">

@@ -5,6 +5,7 @@ import { Table } from "antd";
 import StateComponent from "@component/components/state";
 import { Pagination } from "antd";
 import { usePathname, useRouter } from "next/navigation";
+import formatDate from "@component/utilities/format-time";
 type WorkTableProps = {
     [key: string]: any;
 };
@@ -42,7 +43,7 @@ const WorkTable: React.FC<WorkTableProps> = ({ keyword, workList, page, length, 
             title: "Create",
             dataIndex: "createdAt",
             key: "createdAt",
-            render: (text: any) => <div className="hire">{text}</div>,
+            render: (text: any) => <div className="hire">{formatDate(text)}</div>,
         },
         {
             title: "",

@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { Button, Popover } from "antd";
 import { useState } from "react";
 import formatDate from "@component/utilities/format-time";
+import gbToMb from "@component/utilities/gbToMb";
 
 type Props = {
     [key: string]: any;
@@ -15,7 +16,7 @@ const ListProject: React.FC<Props> = ({ projectList }) => {
     const [open, setOpen] = useState(false);
 
     const handleContainerClick = (item: any) => {
-        router.push(`/project/${item.id}?name=${item.name}&createdAt=${item.createdAt}&workSize=${item.workSize}`);
+        router.push(`/project/${item.id}?name=${item.name}&createdAt=${item.createdAt}&workSize=${item.fileSize}`);
     };
 
     const handleImageClick = (e: any, item: any) => {
@@ -52,17 +53,17 @@ const ListProject: React.FC<Props> = ({ projectList }) => {
                             Work: <p>{item.workSize}</p>
                         </div>
                         <div className="billing-data-content">
-                            Data: <p>{item.fileSize}</p>{" "}
+                            Data: <p>{item.fileSize} GB</p>{" "}
                         </div>
-                        <div className="billing-data-content">
+                        {/* <div className="billing-data-content">
                             Billing: <p>{item.fileSize}</p>
-                        </div>
+                        </div> */}
                     </div>
                     <div className="item-line"></div>
                     <div className="captancy">
                         <p>Resulting capacity</p>
                         <div className="data-result">
-                            <p>{item.fileSize} MB</p>
+                            <p>{gbToMb(item?.fileSize)} MB</p>
                             <Image src="/images/cloud.svg" width={16} height={16} alt="cloud" />
                         </div>
                     </div>
