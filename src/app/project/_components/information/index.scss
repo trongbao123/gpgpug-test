@@ -27,8 +27,8 @@
     }
 
     &-description {
-        display: grid;
-        grid-template-columns: 1fr 2fr 2fr;
+        display: flex;
+        // grid-template-columns: 2fr 2fr 2fr;
         width: auto;
         gap: 10px;
         &-item {

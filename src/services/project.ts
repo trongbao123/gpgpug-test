@@ -62,3 +62,13 @@ export const saveMetaData = async (options?: any) => {
     });
     return data;
 };
+
+
+export const projectTotal = async (options?: any) => {
+    const data = await request({
+        method: "GET",
+        url: `/engineer/project/total`,
+        ...options,
+    });
+    return data;
+}
