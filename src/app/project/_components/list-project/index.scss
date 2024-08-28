@@ -41,16 +41,17 @@
         }
 
         .billing-data {
-            display: grid;
+            display: flex;
             grid-template-columns: 1fr 1fr 1fr;
             gap: 8px;
-            width: 85%;
+            // width: 85%;
             &-content {
                 display: flex;
                 justify-content: start;
                 align-items: center;
                 gap: 6px;
                 padding: 4px 8px;
+                width: fit-content;
                 border-radius: 6px;
                 background-color: rgba(255, 255, 255, 0.05);
                 font-size: 12px;
