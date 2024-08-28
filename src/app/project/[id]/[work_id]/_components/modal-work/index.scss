@@ -1,4 +1,4 @@
-:where(.css-dev-only-do-not-override-1uq9j6g).ant-modal .ant-modal-content {
+.ant-modal .ant-modal-content {
     background-color: rgba(10, 10, 10, 1);
     border: 1px solid rgba(50, 50, 51, 1);
 }
@@ -6,14 +6,14 @@
     background-color: rgba(10, 10, 10, 1);
     color: #fff;
 }
-:where(.css-dev-only-do-not-override-1uq9j6g).ant-modal .ant-modal-title {
+.ant-modal .ant-modal-title {
     color: #fff;
     text-align: center;
     font-size: 24px;
     font-weight: 500;
     line-height: 28px;
 }
-:where(.css-dev-only-do-not-override-1uq9j6g).ant-modal .ant-modal-close-x {
+.ant-modal .ant-modal-close-x {
     color: #fff;
 }
 
