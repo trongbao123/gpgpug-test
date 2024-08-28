@@ -10,8 +10,10 @@ const renderRate = (projectRate: any[]) => {
         projectRate.map((item) => {
             return (
                 <div key={item.id} className="rate-item">
-                    <div className="rate-item-top">{item.title}</div>
-                    <div className="rate-item-bottom">{item.content}</div>
+                    <div className="rate-item-top">{item.title === "Totalgpus" ? "Total GPUs" : item.title}</div>
+                    <div className="rate-item-bottom">
+                        {item.content} {item?.title === "Storage" ? "GB" : ""}
+                    </div>
                 </div>
             );
         })
@@ -30,7 +32,7 @@ const Rate = () => {
             const res: any = await projectTotal();
 
             if (res) {
-                const resMapping = _.map(res.data, (value, key) => ({
+                const resMapping = _.map(res.data, (value: any, key: any) => ({
                     title: _.capitalize(key),
                     content: value,
                 }));

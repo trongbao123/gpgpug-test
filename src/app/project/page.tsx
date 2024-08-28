@@ -63,7 +63,11 @@ const Project = () => {
             <Rate />
             <div className="container-project">
                 <Search searchProject={searchProject} handleSearch={handleSearch} />
-                {projectList && !isLoading ? <ListProject projectList={projectList} /> : <Empty />}
+                {projectList && !isLoading ? (
+                    <ListProject projectList={projectList} />
+                ) : (
+                    <div className="empty-project">please like other page (devicelist or work list page)</div>
+                )}
             </div>
         </ProjectContainer>
     );

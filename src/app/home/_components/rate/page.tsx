@@ -13,7 +13,7 @@ const renderRate = () => {
 };
 const Rate = () => {
     return (
-        <section className="rate-container">
+        <section className="home-rate-container">
             <div className="grid-rate">{renderRate()}</div>
         </section>
     );

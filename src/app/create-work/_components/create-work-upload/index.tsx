@@ -1,13 +1,16 @@
 import axios from "axios";
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
 import { fileData } from "@component/constants/constant";
 import UploadingCard from "./UploadingCard";
 import UploadedCard from "./UploadedCard";
 import "./CreateWorkUpload.scss";
-type Props = {};
+type Props = {
+    [key: string]: any;
+};
 
-const CreateWorkDropzoneUpload = (props: Props) => {
+const CreateWorkDropzoneUpload = ({ setChecked }: Props) => {
+    useEffect(() => {}, []);
     return (
         <div className="create-work-upload-container">
             <div className="create-work-upload-container-select-zone">
