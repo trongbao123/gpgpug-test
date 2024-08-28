@@ -1,5 +1,5 @@
+import HeaderMain from "@component/app/home/_components/header-main/page";
 import React from "react";
-import HeaderMain from "../home/_components/header-main/page";
 
 type Props = {
     children: React.ReactNode;

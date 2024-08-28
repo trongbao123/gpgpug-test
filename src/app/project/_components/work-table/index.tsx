@@ -82,7 +82,9 @@ const WorkTable: React.FC<WorkTableProps> = ({ keyword, workList, page, length, 
                 onRow={(record, index) => {
                     return {
                         onClick: (event) => {
-                            router.push(`${pathname}/${record.id}`);
+                            router.push(
+                                `${pathname}/${record.id}?name=${record.name}&createdAt=${record.createdAt}&deviceChipSet=${record.deviceChipSet}&region=${record.region}&status=${record.status}`
+                            );
                         },
                     };
                 }}

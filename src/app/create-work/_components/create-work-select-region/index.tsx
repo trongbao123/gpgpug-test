@@ -5,12 +5,15 @@ import { Checkbox, Input, Radio } from "antd";
 import { useEffect, useState } from "react";
 import "./index.scss";
 
-type Props = {};
+type Props = {
+    [key: string]: any;
+};
 
-const CreateWorkSelectRegion = (props: Props) => {
-    const [selectedRegion, setSelectedRegion] = useState<string | null>(null);
+const CreateWorkSelectRegion = ({ setChecked, setSelectedCountry, selectedCountry }: Props) => {
+    const [selectedRegion, setSelectedRegion] = useState<string | null>("Asia");
     const [countries, setCountries] = useState<any[]>([]);
-    const [selectedCountry, setSelectedCountry] = useState<string[]>([]);
+    const [searchTerm, setSearchTerm] = useState("");
+
     const getCountries = (region: string) => {
         return dataRegion.filter((item) => item.region === region);
     };
@@ -23,10 +26,17 @@ const CreateWorkSelectRegion = (props: Props) => {
             prev.map((country) => (country.name === item.name ? { ...country, checked: !country.checked } : country))
         );
 
-        setSelectedCountry((prev) =>
-            prev.includes(item.name) ? prev.filter((name) => name !== item.name) : prev.concat(item.name)
+        setSelectedCountry((prev: any) =>
+            prev.includes(item.name) ? prev.filter((name: any) => name !== item.name) : prev.concat(item.name)
         );
+
+        setChecked(true);
     };
+
+    const filteredCountries = countries.filter((country) =>
+        country.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+
     useEffect(() => {
         if (selectedRegion) {
             setCountries(getCountries(selectedRegion)[0].countries);
@@ -34,6 +44,10 @@ const CreateWorkSelectRegion = (props: Props) => {
         }
         setCountries(dataRegion.map((item) => item.countries).flat());
     }, [selectedRegion]);
+
+    useEffect(() => {
+        if (selectedCountry.length <= 0) setChecked(false);
+    }, [selectedCountry]);
 
     return (
         <div className="select-region-main">
@@ -45,7 +59,9 @@ const CreateWorkSelectRegion = (props: Props) => {
                 style={{
                     background: "inherit",
                     border: "1px solid #40444B",
+                    color: "white",
                 }}
+                onChange={(e) => setSearchTerm(e.target.value)}
             />
             <div className="select-region-content">
                 <div className="content-left">
@@ -68,21 +84,37 @@ const CreateWorkSelectRegion = (props: Props) => {
                     })}
                 </div>
                 <div className="content-right">
-                    {countries.map((item, index) => {
-                        return (
-                            <div key={item.name} className="select-country-item">
-                                <Checkbox
-                                    value={item.name}
-                                    checked={selectedCountry.includes(item.name)}
-                                    onChange={() => changeSelectCountry(item)}
-                                />
-                                <div>
-                                    <p>{item.flag}</p>
-                                    <p>{item.name}</p>
+                    {filteredCountries.length === 0 ? (
+                        <p
+                            style={{
+                                textAlign: "center",
+                                color: "white",
+                                justifyContent: "center",
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "center",
+                                height: "50%",
+                            }}
+                        >
+                            No results found
+                        </p>
+                    ) : (
+                        filteredCountries.map((item, index) => {
+                            return (
+                                <div key={item.name} className="select-country-item">
+                                    <Checkbox
+                                        value={item.name}
+                                        checked={selectedCountry.includes(item.name)}
+                                        onChange={() => changeSelectCountry(item)}
+                                    />
+                                    <div>
+                                        <p>{item.flag}</p>
+                                        <p>{item.name}</p>
+                                    </div>
                                 </div>
-                            </div>
-                        );
-                    })}
+                            );
+                        })
+                    )}
                 </div>
             </div>
         </div>
