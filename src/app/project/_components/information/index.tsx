@@ -11,7 +11,7 @@ import gbToMb from "@component/utilities/gbToMb";
 type InformationProps = {
     [key: string]: any;
 };
-const InformationProject: React.FC<InformationProps> = ({ projectId, resulting, createDate }) => {
+const InformationProject: React.FC<InformationProps> = ({ projectSingle, projectId, resulting }) => {
     const { setIsLoading } = useLoading();
 
     const router = useRouter();
@@ -61,7 +61,7 @@ const InformationProject: React.FC<InformationProps> = ({ projectId, resulting, 
                 </div>
                 <div className="infoproject-description-item">
                     <p>Create date: </p>
-                    <p>{formatDate(createDate)}</p>
+                    <p>{formatDate(projectSingle?.createdAt)}</p>
                 </div>
             </div>
             <div className="infoproject-right">

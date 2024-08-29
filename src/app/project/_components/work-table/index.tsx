@@ -9,7 +9,7 @@ import formatDate from "@component/utilities/format-time";
 type WorkTableProps = {
     [key: string]: any;
 };
-const WorkTable: React.FC<WorkTableProps> = ({ keyword, workList, page, length, handleSearch, itemDetail }) => {
+const WorkTable: React.FC<WorkTableProps> = ({ keyword, workList, page, length, handleSearch }) => {
     const columns = [
         {
             title: "State",

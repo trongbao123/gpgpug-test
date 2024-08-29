@@ -14,6 +14,7 @@ const stateImages: any = {
     Paused: "/images/default.svg",
     Blocked: "/images/blocked.svg",
     Offline: "/images/default.svg",
+    working: "/images/online.svg",
 };
 
 const StateComponent: React.FC<Props> = ({ state, className }) => {
@@ -24,7 +25,7 @@ const StateComponent: React.FC<Props> = ({ state, className }) => {
     if (["Deleted", "Paused", "Offline", "pause"].includes(state)) stateClass = "state paused";
 
     return (
-        <div className={`${stateClass} ${className || ""}`}>
+        <div style={{ display: "flex", alignItems: "center" }} className={`${stateClass} ${className || ""}`}>
             <Image src={stateImg} alt={state} width={12} height={12} />
             {state}
         </div>

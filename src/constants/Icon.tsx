@@ -335,6 +335,20 @@ const IconPlay = ({ size, className, color }: { size: number; className?: string
         />
     </svg>
 );
+
+const IconPause = ({ size, className, color }: { size: number; className?: string; color?: string }) => (
+    <svg
+        width={size}
+        height={size}
+        className={className}
+        viewBox="0 0 21 20"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <rect x="4.41602" y="2.91406" width="3.33333" height="14.1667" fill={color ? color : "#E5E5E5"} />
+        <rect x="12.75" y="2.91406" width="3.33333" height="14.1667" fill={color ? color : "#E5E5E5"} />
+    </svg>
+);
 const IconFile = ({ size, className, color }: { size: number; className?: string; color?: string }) => (
     <svg width={size} height={size} viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect width={size} height={size} rx="6" fill="#1A1A1A" fill-opacity="0.1" />
@@ -460,4 +474,5 @@ export {
     NvidiaIcon,
     IconPlay,
     IconFile,
+    IconPause,
 };

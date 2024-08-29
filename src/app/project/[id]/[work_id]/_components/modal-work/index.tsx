@@ -9,7 +9,7 @@ type Props = {
     [key: string]: any;
 };
 
-const ModalWork = ({ workId, modalWork, setModalWork, isRunning }: Props) => {
+const ModalWork = ({ workId, modalWork, setModalWork, isRunning, fetchData }: Props) => {
     const { setIsLoading } = useLoading();
     const handleUpdate = async () => {
         setIsLoading(true);
@@ -29,6 +29,7 @@ const ModalWork = ({ workId, modalWork, setModalWork, isRunning }: Props) => {
                 });
 
                 setModalWork(false);
+                fetchData?.();
             } else throw response;
         } catch (error: any) {
             Notification({

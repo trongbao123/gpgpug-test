@@ -4,18 +4,17 @@ import ProjectContainer from "../../_components/project-container/projectContain
 import NavToMain from "../../_components/nav-to-main";
 import { project } from "@component/constants/constant";
 import Image from "next/image";
-import InformationProject from "../../_components/information";
 import InformationWork from "./_components/information-work";
 import "./index.scss";
 import { Button } from "antd";
-import { DownloadIcon, IconFile, IconFilePending, IconPlay, NvidiaIcon } from "@component/constants/Icon";
+import { DownloadIcon, IconFile, IconFilePending, IconPause, IconPlay, NvidiaIcon } from "@component/constants/Icon";
 import InfoSection from "./_components/info-section";
-import { useSearchParams } from "next/navigation";
 import Notification from "@component/components/common/notification";
 import { useLoading } from "@component/contexts/loadingContext";
-import { deleteWorkMetada, metadataWorkList, saveWorkMetada } from "@component/services/work";
+import { deleteWorkMetada, metadataWorkList, saveWorkMetada, workSingleApi } from "@component/services/work";
 import gbToMb from "@component/utilities/gbToMb";
 import ModalWork from "./_components/modal-work";
+import StateComponent from "@component/components/state";
 
 type Props = {
     params: {
@@ -29,29 +28,38 @@ const Page = ({ params }: Props) => {
     const [file, setFile] = useState<File | null>(null);
     const fileInputRef = useRef<HTMLInputElement>(null);
     const [metadataList, setMetadataList] = useState([]);
-    const [isRunning, setIsRunning] = useState("");
     const [modalWork, setModalWork] = useState(false);
+    const [workSingle, setWorkSingle] = useState<any>(null);
     const workDetail = project.find((item: any) => item.id === id);
     const workItemDetail = workDetail && workDetail.listWork.find((item: any) => item.id.toString() === work_id);
-    const searchParams = useSearchParams();
-    const name = searchParams.get("name");
-    const createdAt = searchParams.get("createdAt");
-    const deviceChipSet = searchParams.get("deviceChipSet");
-    const status = searchParams.get("status");
+
     const { setIsLoading } = useLoading();
-    const apiMetadataWorkList = async (searchProject?: string) => {
+    const fetchData = async () => {
         setIsLoading(true);
         try {
-            const res: any = await metadataWorkList({
-                params: {
-                    workId: work_id,
-                },
-            });
+            const [metadataResponse, workSingleResponse] = await Promise.all([
+                metadataWorkList({
+                    params: {
+                        workId: work_id,
+                    },
+                }),
+                workSingleApi({
+                    params: {
+                        workId: work_id,
+                    },
+                }),
+            ]);
 
-            if (res && res.result) {
-                setMetadataList(res.result);
+            if (metadataResponse && (metadataResponse as any).result) {
+                setMetadataList((metadataResponse as any).result);
             } else {
-                throw res;
+                throw metadataResponse;
+            }
+
+            if (workSingleResponse && (workSingleResponse as any).data) {
+                setWorkSingle((workSingleResponse as any).data);
+            } else {
+                throw workSingleResponse;
             }
         } catch (error: any) {
             Notification({
@@ -65,7 +73,7 @@ const Page = ({ params }: Props) => {
     };
 
     useEffect(() => {
-        apiMetadataWorkList();
+        fetchData();
     }, []);
 
     const handldeDeleteWorkMetadata = async (id: any) => {
@@ -85,7 +93,7 @@ const Page = ({ params }: Props) => {
                         message: res.message,
                         placement: "top",
                     });
-                    apiMetadataWorkList();
+                    fetchData();
                 } else {
                     throw res;
                 }
@@ -127,7 +135,7 @@ const Page = ({ params }: Props) => {
                         message: res.message,
                         placement: "top",
                     });
-                    apiMetadataWorkList?.();
+                    fetchData?.();
                 } else {
                     throw res;
                 }
@@ -162,14 +170,14 @@ const Page = ({ params }: Props) => {
 
     const handleModalWork = () => {
         setModalWork(!modalWork);
-        setIsRunning(status === "working" ? "working" : "pause");
     };
+
     return (
         <ProjectContainer>
             <div className="infomation-work-container">
                 <NavToMain />
                 <div className="nav-title">
-                    <p>{name}</p>
+                    <p>{workSingle?.name}</p>
                     <div className="nav-title-icon">
                         <Image width={32} height={32} src={"/images/detail.svg"} alt="detail" />
                     </div>
@@ -178,7 +186,7 @@ const Page = ({ params }: Props) => {
                     work_id={work_id}
                     projectId={id}
                     resulting={workDetail?.resulting}
-                    createDate={createdAt}
+                    createDate={workSingle?.createdAt}
                 />
             </div>
             <div className="line-detail" />
@@ -186,11 +194,12 @@ const Page = ({ params }: Props) => {
                 <div className="work-status">
                     <div className="work-status-header">
                         <div className="infowork-tag-item">
-                            <p>Work status</p>
+                            <p>Work status:</p>
+                            <StateComponent state={workSingle?.status} />
                         </div>
                         <Image src={"/images/01.png"} width={272} height={272} alt="progress" />
                         <Button onClick={handleModalWork} shape="round" className="btn-gradient">
-                            <IconPlay size={20} />
+                            {workSingle?.status === "pause" ? <IconPlay size={20} /> : <IconPause size={20} />}
                         </Button>
                     </div>
                     <div className="line" />
@@ -229,7 +238,7 @@ const Page = ({ params }: Props) => {
                         <div className="device-info">
                             <div className="title">
                                 <NvidiaIcon color="#77B900" size={20} />
-                                <p className="text-primary">{deviceChipSet}</p>
+                                <p className="text-primary">{workSingle?.deviceChipSet}</p>
                             </div>
                             <div className="count">26</div>
                         </div>
@@ -355,7 +364,13 @@ const Page = ({ params }: Props) => {
                     </InfoSection>
                 </div>
             </div>
-            <ModalWork workId={work_id} isRunning={isRunning} modalWork={modalWork} setModalWork={setModalWork} />
+            <ModalWork
+                workId={work_id}
+                isRunning={workSingle?.status}
+                modalWork={modalWork}
+                setModalWork={setModalWork}
+                fetchData={fetchData}
+            />
         </ProjectContainer>
     );
 };
