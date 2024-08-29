@@ -53,3 +53,12 @@ export const updateWorkStatus = async (options?: any) => {
     });
     return data;
 };
+
+export const workSingleApi = async (options?: any) => {
+    const data = await request({
+        method: "GET",
+        url: `/engineer/work/single`,
+        ...options,
+    });
+    return data;
+};

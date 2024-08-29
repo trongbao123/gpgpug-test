@@ -16,7 +16,7 @@ const ListProject: React.FC<Props> = ({ projectList }) => {
     const [open, setOpen] = useState(false);
 
     const handleContainerClick = (item: any) => {
-        router.push(`/project/${item.id}?name=${item.name}&createdAt=${item.createdAt}&workSize=${item.fileSize}`);
+        router.push(`/project/${item.id}?&workSize=${item.fileSize}`);
     };
 
     const handleImageClick = (e: any, item: any) => {

@@ -63,7 +63,6 @@ export const saveMetaData = async (options?: any) => {
     return data;
 };
 
-
 export const projectTotal = async (options?: any) => {
     const data = await request({
         method: "GET",
@@ -71,4 +70,13 @@ export const projectTotal = async (options?: any) => {
         ...options,
     });
     return data;
-}
+};
+
+export const projectSingleApi = async (options?: any) => {
+    const data = await request({
+        method: "GET",
+        url: `/engineer/project/single`,
+        ...options,
+    });
+    return data;
+};
