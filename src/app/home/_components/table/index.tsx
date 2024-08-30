@@ -5,6 +5,8 @@ import { Popover, Skeleton, Table } from "antd";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import "./index.scss";
+import { useState } from "react";
+import ModalHistory from "../modal-history";
 
 type Props = {
     tableData: any[];
@@ -109,6 +111,8 @@ export const DeviceTable = ({ tableData, loading }: Props) => {
         },
     ];
 
+    const [historyModal, setHistoryModal] = useState(false);
+
     return (
         <section className="table-container">
             <div className="table-header">
@@ -121,7 +125,7 @@ export const DeviceTable = ({ tableData, loading }: Props) => {
 
                     {/* <Input size="large" placeholder="large size" prefix={<></>} /> */}
                 </div>
-                <div className="table-header-right">
+                <div className="table-header-right" onClick={() => setHistoryModal(true)}>
                     <Image src="/images/menu-table.svg" width={32} height={32} alt="menu" />
                 </div>
             </div>
@@ -143,6 +147,7 @@ export const DeviceTable = ({ tableData, loading }: Props) => {
                     <Skeleton />
                 )}
             </div>
+            <ModalHistory tableData={tableData} open={historyModal} setOpen={setHistoryModal} />
         </section>
     );
 };

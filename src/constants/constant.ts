@@ -1321,3 +1321,24 @@ export const project = [
         ],
     },
 ];
+
+export const history_hire = [
+    {
+        id: 1,
+        device: "GeForce RTX 3050",
+        startTime: "2024-01-24 12:32",
+        endTime: "2024-03-24 12:32",
+        hireFee: "41.34 USDC 0.37/h",
+        state: "working",
+    },
+];
+
+export const system_log = [
+    {
+        id: "3FG4FWH423FG4FWH4234",
+        device: "GeForce RTX 3050",
+        time: "2024-01-24 12:32",
+        message: "“The device has switched to Ready status”",
+        state: "Online",
+    },
+];

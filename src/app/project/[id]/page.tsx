@@ -110,6 +110,7 @@ const ProjectDetail = ({ params }: { params: { id: string } }) => {
                         page={page}
                         length={length}
                         handleSearch={handleSearch}
+                        projectId={params?.id}
                     />
                 </div>
             </div>

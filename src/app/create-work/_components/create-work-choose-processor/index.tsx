@@ -32,6 +32,9 @@ const ButtonType = [
 const CreateWorkChooseProcessor = ({ setChecked, selected, setSelected, processorList, setProcessorList }: Props) => {
     const [selectedProcessor, setSelectedProcessor] = React.useState<any>("All");
     const [searchTerm, setSearchTerm] = useState("");
+    const [hoveredItemId, setHoveredItemId] = useState(null);
+    const [quantities, setQuantities] = useState({});
+
     const filteredProcess = processorList.filter((processor: any) =>
         processor.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
@@ -55,7 +58,21 @@ const CreateWorkChooseProcessor = ({ setChecked, selected, setSelected, processo
         }
         setProcessorList(deviceGroups.map((item: any) => item.devices).flat());
     }, [selectedProcessor]);
+    const handleIncrement = (e: any, item: any) => {
+        e.stopPropagation();
+        setQuantities((prevQuantities: any) => ({
+            ...prevQuantities,
+            [item.id]: (prevQuantities[item.id] || 0) + 1,
+        }));
+    };
 
+    const handleDecrement = (e: any, item: any) => {
+        e.stopPropagation();
+        setQuantities((prevQuantities: any) => {
+            const currentQuantity = prevQuantities[item.id] || 0;
+            return currentQuantity > 0 ? { ...prevQuantities, [item.id]: currentQuantity - 1 } : prevQuantities;
+        });
+    };
     useEffect(() => {
         if (selected.length <= 0) setChecked(false);
     }, []);
@@ -91,17 +108,40 @@ const CreateWorkChooseProcessor = ({ setChecked, selected, setSelected, processo
                 {filteredProcess.length > 0 ? (
                     filteredProcess.map((item: any) => {
                         return (
-                            <div key={item.id} className="processor-item">
+                            <div
+                                key={item.id}
+                                className="processor-item"
+                                onClick={() => changeSelected(item)}
+                                style={{ cursor: "pointer" }}
+                            >
                                 <Radio
                                     checked={selected.length > 0 && selected.includes(item.id)}
-                                    onClick={() => changeSelected(item)}
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                    }}
                                 />
                                 <div className="processor-item__icon">
                                     <Image width={24} height={24} src={item.icon} alt="icon" />
                                 </div>
                                 <div className="processor-item__info">
                                     <p className="text-secondary">{item.name}</p>
-                                    <p className="text-secondary">{item.quantity}</p>
+                                    <div
+                                        className="quantity-container"
+                                        onMouseEnter={() => setHoveredItemId(item.id)}
+                                        onMouseLeave={() => setHoveredItemId(null)}
+                                    >
+                                        {hoveredItemId === item.id && (
+                                            <button onClick={(e) => handleDecrement(e, item)}>-</button>
+                                        )}
+                                        <p className="text-secondary">
+                                            {hoveredItemId === item.id
+                                                ? `${(quantities as any)[item.id] || 1}/${item.quantity}`
+                                                : item.quantity}
+                                        </p>
+                                        {hoveredItemId === item.id && (
+                                            <button onClick={(e) => handleIncrement(e, item)}>+</button>
+                                        )}
+                                    </div>
                                 </div>
                             </div>
                         );
