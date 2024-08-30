@@ -9,7 +9,7 @@ import formatDate from "@component/utilities/format-time";
 type WorkTableProps = {
     [key: string]: any;
 };
-const WorkTable: React.FC<WorkTableProps> = ({ keyword, workList, page, length, handleSearch }) => {
+const WorkTable: React.FC<WorkTableProps> = ({ projectId, keyword, workList, page, length, handleSearch }) => {
     const columns = [
         {
             title: "State",
@@ -60,6 +60,12 @@ const WorkTable: React.FC<WorkTableProps> = ({ keyword, workList, page, length, 
     const router = useRouter();
     return (
         <div className="work-table">
+            <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: "20px" }}>
+                <div className="add-new-project" onClick={() => router.push(`/create-work/${projectId}`)}>
+                    <p>Create work</p>
+                    <Image width={16} height={16} src={"/images/icon_plus.svg"} alt="search" />
+                </div>
+            </div>
             <div className="table-header">
                 <div className="table-header-left">
                     <span>Work</span>

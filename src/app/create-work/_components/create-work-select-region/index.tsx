@@ -101,7 +101,12 @@ const CreateWorkSelectRegion = ({ setChecked, setSelectedCountry, selectedCountr
                     ) : (
                         filteredCountries.map((item, index) => {
                             return (
-                                <div key={item.name} className="select-country-item">
+                                <div
+                                    key={item.name}
+                                    className="select-country-item"
+                                    onClick={() => changeSelectCountry(item)}
+                                    style={{ cursor: "pointer" }}
+                                >
                                     <Checkbox
                                         value={item.name}
                                         checked={selectedCountry.includes(item.name)}

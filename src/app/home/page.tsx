@@ -6,6 +6,7 @@ import HeaderMain from "./_components/header-main/page";
 import Rate from "./_components/rate/page";
 import { DeviceTable } from "./_components/table";
 import DeviceResponsive from "./_components/deviceResponsive";
+import Notification from "@component/components/common/notification";
 
 const HomePage = () => {
     const [tableData, setTableData] = useState([]);
@@ -19,9 +20,15 @@ const HomePage = () => {
 
             if (response && response?.result) {
                 setTableData(response.result.data);
+            } else {
+                throw response;
             }
         } catch (error: any) {
-            console.log(error);
+            Notification({
+                type: "error",
+                message: error.message || error,
+                placement: "top",
+            });
         } finally {
             setLoading(false);
         }

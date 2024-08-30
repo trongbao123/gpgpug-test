@@ -111,6 +111,29 @@
                 flex-grow: 1;
                 display: flex;
                 justify-content: space-between;
+                align-items: center;
+            }
+        }
+    }
+
+    .quantity-container {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        button {
+            border-radius: 4px;
+            color: rgba(10, 10, 10, 0.3);
+            cursor: pointer;
+            background-color: transparent;
+            border: none;
+            color: rgba(217, 217, 217, 1);
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 17px;
+            padding: 6px 8px;
+            &:hover {
+                background-color: rgba(255, 255, 255, 0.1);
             }
         }
     }
