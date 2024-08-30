@@ -6,13 +6,14 @@ import { useEffect, useState } from "react";
 import _ from "lodash";
 
 const renderRate = (projectRate: any[]) => {
+  
     return projectRate ? (
         projectRate.map((item) => {
             return (
                 <div key={item.id} className="rate-item">
                     <div className="rate-item-top">{item.title === "Totalgpus" ? "Total GPUs" : item.title}</div>
                     <div className="rate-item-bottom">
-                        {item.content} {item?.title === "Storage" ? "GB" : ""}
+                        {item?.title === 'Storage' ? Number(item.content ?? 0).toLocaleString("en-US"):item.content} {item?.title === "Storage" ? "GB" : ""}
                     </div>
                 </div>
             );
@@ -36,7 +37,7 @@ const Rate = () => {
                     title: _.capitalize(key),
                     content: value,
                 }));
-                setProjectRate(resMapping);
+                setProjectRate([...resMapping, { title: "Billing", content: "24.53$" }]);
             }
         } catch (error) {}
     };
