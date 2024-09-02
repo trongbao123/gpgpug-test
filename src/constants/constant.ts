@@ -528,13 +528,13 @@ export const deviceGroups: any = [
         brand: "Apple",
         devices: [
             {
-                id: 1,
+                id: 39,
                 name: "MacBook Pro 16-inch",
                 quantity: 10,
                 icon: "/images/mac_icon.svg",
             },
             {
-                id: 2,
+                id: 40,
                 name: "MacBook Air M2",
                 quantity: 15,
                 icon: "/images/mac_icon.svg",

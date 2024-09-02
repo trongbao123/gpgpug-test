@@ -28,12 +28,12 @@
                 }
                 p.active {
                     background: inherit;
-                    color: #E6E8EC;
+                    color: #e6e8ec;
                 }
             }
             .select-region-item.active {
                 background: inherit;
-                border: 1px solid #E6E8EC;
+                border: 1px solid #e6e8ec;
             }
         }
         .content-right {
@@ -51,9 +51,9 @@
 
             /* Track */
             &::-webkit-scrollbar-track {
-                background: #1E1E1F;
+                background: #1e1e1f;
                 border-radius: 10px;
-                border: 1px solid #505050
+                border: 1px solid #505050;
             }
 
             /* Handle */
@@ -83,17 +83,16 @@
                     }
                 }
 
-                /* Tăng kích thước checkbox */
-                .ant-checkbox {
+                .ant-radio {
                     width: 24px;
                     height: 24px;
                 }
 
                 /* Tăng kích thước của hộp kiểm */
-                .ant-checkbox-inner {
+                .ant-radio-inner {
                     width: 24px;
                     height: 24px;
-                    border-radius: 4px; /* Để có viền bo tròn như trong ảnh */
+                    border-radius: 50%; /* Để có viền bo tròn như trong ảnh */
                     border: 2px solid #5b5b5b; /* Màu viền giống với ảnh */
                     background: inherit;
                     display: flex;
@@ -101,18 +100,21 @@
                 }
 
                 /* Đặt màu của hộp kiểm khi được chọn */
-                .ant-checkbox-checked .ant-checkbox-inner {
-                    background-color: white; /* Màu nền khi được chọn */
-                    border-color: white; /* Màu viền khi được chọn */
+                .ant-radio-checked .ant-radio-inner {
+                    background-color: #333232; /* Màu nền khi được chọn */
+                    border: 1px solid white; /* Màu viền khi được chọn */
                 }
 
                 /* Ẩn dấu tích mặc định của antd */
-                .ant-checkbox-checked .ant-checkbox-inner::after {
+                .ant-radio-checked .ant-radio-inner::after {
                     // display: none;
-                    left: 35%;
-                    border: 2px solid black;
-                    border-top: 0;
-                    border-left: 0
+                    // left: 35%;
+                    width: 16px;
+                    height: 16px;
+                    top: 50%;
+                    left: 50%;
+                    // transform: translateY(5px);
+                    // transform: translateX(1px);
                 }
             }
         }

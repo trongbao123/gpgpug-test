@@ -22,14 +22,11 @@ const CreateWorkSelectRegion = ({ setChecked, setSelectedCountry, selectedCountr
     };
 
     const changeSelectCountry = (item: any) => {
-        setCountries((prev) =>
-            prev.map((country) => (country.name === item.name ? { ...country, checked: !country.checked } : country))
-        );
-
-        setSelectedCountry((prev: any) =>
-            prev.includes(item.name) ? prev.filter((name: any) => name !== item.name) : prev.concat(item.name)
-        );
-
+        setSelectedCountry([
+            {
+                ...item,
+            },
+        ]);
         setChecked(true);
     };
 
@@ -101,15 +98,10 @@ const CreateWorkSelectRegion = ({ setChecked, setSelectedCountry, selectedCountr
                     ) : (
                         filteredCountries.map((item, index) => {
                             return (
-                                <div
-                                    key={item.name}
-                                    className="select-country-item"
-                                    onClick={() => changeSelectCountry(item)}
-                                    style={{ cursor: "pointer" }}
-                                >
-                                    <Checkbox
+                                <div key={item.name} className="select-country-item">
+                                    <Radio
                                         value={item.name}
-                                        checked={selectedCountry.includes(item.name)}
+                                        checked={selectedCountry[0] && selectedCountry[0].name === item.name}
                                         onChange={() => changeSelectCountry(item)}
                                     />
                                     <div>

@@ -117,11 +117,14 @@
                 }
             }
             .count {
-                padding: 6px 8px;
+                padding: 4px 8px;
                 background: #0a0a0a;
                 border: 1px solid #323233;
                 color: #e5e5e5;
                 border-radius: 100px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
             }
         }
         .monitoring-section {
