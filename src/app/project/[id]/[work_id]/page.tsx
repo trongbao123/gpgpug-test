@@ -231,7 +231,11 @@ const Page = ({ params }: Props) => {
                                 <NvidiaIcon color="#77B900" size={20} />
                                 <p className="text-primary">{deviceChipSet}</p>
                             </div>
-                            <div className="count">26</div>
+                            <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                                <div className="count">-</div>
+                                <div className="count">26</div>
+                                <div className="count">+</div>
+                            </div>
                         </div>
                     </InfoSection>
                     <InfoSection title="Monitoring">
@@ -303,8 +307,8 @@ const Page = ({ params }: Props) => {
                                 </div>
                             )}
                             {metadataList.length > 0 &&
-                                metadataList.map((item: any) => (
-                                    <div className="uploaded-card">
+                                metadataList.map((item: any, index: number) => (
+                                    <div className="uploaded-card" key={index}>
                                         <IconFilePending size={32} />
                                         <div className="file-info" style={{ color: "white" }}>
                                             <div className="header-info">

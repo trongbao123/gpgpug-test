@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Navigation from "../_components/navigation";
 import { deviceGroups, networkTier, stepCreateWork } from "@component/constants/constant";
 import CreateWorkMain from "../_components/create-work-main/page";
@@ -24,10 +24,11 @@ const Page: React.FC<PropData> = ({ params }) => {
     const [active, setActive] = useState<number>(0);
     const [activeItem, setActiveItem] = useState<null | number | string>(null);
     const [checked, setChecked] = useState(false);
-    const [selectedCountry, setSelectedCountry] = useState<string[]>([]);
+    const [selectedCountry, setSelectedCountry] = useState<any[]>([]);
     const [selectedNetworkTier, setSelectedNetworkTier] = React.useState<any>([]);
     const [selectedDevice, setSelectedDevice] = React.useState<any>([]);
     const [processorList, setProcessorList] = React.useState<any>([]);
+    const [deviceChipSetCount, setDeviceChipSetCount] = React.useState<number>(0);
     const { setIsLoading } = useLoading();
 
     const handleChecked = (e: number | string) => {
@@ -64,9 +65,10 @@ const Page: React.FC<PropData> = ({ params }) => {
                 data: {
                     name: activeItem,
                     projectId: params?.id,
-                    region: selectedCountry[0],
-                    networkTear: networkTier[selectedNetworkTier[0]]?.label,
-                    deviceChipSet: processorList[selectedDevice[0]]?.name,
+                    region: selectedCountry[0].name,
+                    networkTier: networkTier[selectedNetworkTier[0]]?.label,
+                    deviceChipSet: processorList[selectedDevice[0].id - 1]?.name,
+                    deviceChipSetCount,
                 },
             });
 
@@ -88,6 +90,11 @@ const Page: React.FC<PropData> = ({ params }) => {
             setIsLoading(false);
         }
     };
+
+    useEffect(() => {
+        setChecked(false);
+    }, [active]);
+
     return (
         <div className="container">
             <Navigation handlePrevStep={handlePrevStep} active={active} />
@@ -119,6 +126,8 @@ const Page: React.FC<PropData> = ({ params }) => {
                         processorList={processorList}
                         setProcessorList={setProcessorList}
                         setChecked={setChecked}
+                        deviceChipSetCount={deviceChipSetCount}
+                        setDeviceChipSetCount={setDeviceChipSetCount}
                     />
                 )}
                 {/* {active === 4 && <DropzoneUpload setChecked={setChecked} />} */}

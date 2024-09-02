@@ -40,6 +40,7 @@ const CreateNetworkTier = ({ setChecked, selected, setSelected }: Props) => {
                                 <Radio
                                     checked={selected.length > 0 && selected.includes(item.id)}
                                     onClick={(e) => {
+                                        changeSelected(item);
                                         e.stopPropagation();
                                     }}
                                 />

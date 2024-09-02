@@ -5,6 +5,7 @@ import { AppleIcon, IconSearch, NvidiaIcon } from "@component/constants/Icon";
 import { icons } from "antd/es/image/PreviewGroup";
 import { deviceGroups } from "@component/constants/constant";
 import Image from "next/image";
+import Notification from "@component/components/common/notification";
 
 type Props = {
     [key: string]: any;
@@ -29,7 +30,15 @@ const ButtonType = [
     },
 ];
 
-const CreateWorkChooseProcessor = ({ setChecked, selected, setSelected, processorList, setProcessorList }: Props) => {
+const CreateWorkChooseProcessor = ({
+    setChecked,
+    selected,
+    setSelected,
+    processorList,
+    setProcessorList,
+    deviceChipSetCount,
+    setDeviceChipSetCount,
+}: Props) => {
     const [selectedProcessor, setSelectedProcessor] = React.useState<any>("All");
     const [searchTerm, setSearchTerm] = useState("");
     const filteredProcess = processorList.filter((processor: any) =>
@@ -37,13 +46,55 @@ const CreateWorkChooseProcessor = ({ setChecked, selected, setSelected, processo
     );
     const changeSelected = (item: any) => {
         if (selected.includes(item.id)) {
-            setSelected(selected.filter((i: any) => i !== item.id));
+            setSelected(selected.filter((i: any) => i.id !== item.id));
             setChecked(true);
         } else {
-            setSelected([item.id]);
+            setSelected([
+                {
+                    ...item,
+                    maxQuantity: item.quantity,
+                    quantity: 1,
+                },
+            ]);
+
             setChecked(true);
         }
     };
+
+    const increaseQuantity = (item: any) => {
+        const index = selected.findIndex((i: any) => i.id === item.id);
+        if (selected[index].quantity < selected[index].maxQuantity) {
+            selected[index].quantity += 1;
+            setSelected([...selected]);
+            setDeviceChipSetCount((prev: any) => {
+                return (prev += 1);
+            });
+        } else {
+            Notification({
+                type: "error",
+                message: "Quantity can't exceed the maximum quantity",
+                placement: "top",
+            });
+        }
+    };
+
+    const decreaseQuantity = (item: any) => {
+        const index = selected.findIndex((i: any) => i.id === item.id);
+        if (selected[index].quantity > 1) {
+            selected[index].quantity -= 1;
+            setSelected([...selected]);
+            setDeviceChipSetCount((prev: any) => {
+                return (prev -= 1);
+            });
+        } else {
+            Notification({
+                type: "error",
+                message: "Quantity can't be less than 1",
+                placement: "top",
+            });
+        }
+    };
+
     useEffect(() => {
         if (selectedProcessor !== "All") {
             setProcessorList(
@@ -59,6 +110,7 @@ const CreateWorkChooseProcessor = ({ setChecked, selected, setSelected, processo
     useEffect(() => {
         if (selected.length <= 0) setChecked(false);
     }, []);
+    console.log(selected);
 
     return (
         <div className="choose-processor-main">
@@ -89,11 +141,13 @@ const CreateWorkChooseProcessor = ({ setChecked, selected, setSelected, processo
             />
             <div className="processor-list">
                 {filteredProcess.length > 0 ? (
-                    filteredProcess.map((item: any) => {
+                    filteredProcess.map((item: any, index: number) => {
                         return (
                             <div key={item.id} className="processor-item">
                                 <Radio
-                                    checked={selected.length > 0 && selected.includes(item.id)}
+                                    checked={
+                                        selected.length > 0 && selected.findIndex((i: any) => i.id === item.id) !== -1
+                                    }
                                     onClick={() => changeSelected(item)}
                                 />
                                 <div className="processor-item__icon">
@@ -101,7 +155,31 @@ const CreateWorkChooseProcessor = ({ setChecked, selected, setSelected, processo
                                 </div>
                                 <div className="processor-item__info">
                                     <p className="text-secondary">{item.name}</p>
-                                    <p className="text-secondary">{item.quantity}</p>
+                                    <div style={{ display: "flex", alignItems: "center", gap: "5px" }}>
+                                        {selected.findIndex((i: any) => i.id === item.id) !== -1 && (
+                                            <p
+                                                className="text-secondary"
+                                                style={{ cursor: "pointer", padding: "2px 5px" }}
+                                                onClick={() => decreaseQuantity(item)}
+                                            >
+                                                -
+                                            </p>
+                                        )}
+                                        <p className="text-secondary">
+                                            {selected.findIndex((i: any) => i.id === item.id) !== -1
+                                                ? deviceChipSetCount
+                                                : item.quantity}
+                                        </p>
+                                        {selected.findIndex((i: any) => i.id === item.id) !== -1 && (
+                                            <p
+                                                className="text-secondary"
+                                                style={{ cursor: "pointer", padding: "2px 5px" }}
+                                                onClick={() => increaseQuantity(item)}
+                                            >
+                                                +
+                                            </p>
+                                        )}
+                                    </div>
                                 </div>
                             </div>
                         );
