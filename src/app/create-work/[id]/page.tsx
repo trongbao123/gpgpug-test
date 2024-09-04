@@ -43,6 +43,7 @@ const Page: React.FC<PropData> = ({ params }) => {
     const handlePrevStep = () => {
         setActive((prevStep) => {
             if (prevStep > 0) {
+                setChecked(true);
                 return prevStep - 1;
             }
             return prevStep;
@@ -91,9 +92,9 @@ const Page: React.FC<PropData> = ({ params }) => {
         }
     };
 
-    useEffect(() => {
-        setChecked(false);
-    }, [active]);
+    // useEffect(() => {
+    //     setChecked(false);
+    // }, [active]);
 
     return (
         <div className="container">
@@ -103,8 +104,11 @@ const Page: React.FC<PropData> = ({ params }) => {
                 handleNextStep={handleNextStep}
                 handleFinish={handleFinish}
                 checked={checked}
+                activeItem={activeItem}
             >
-                {active === 0 && <CreateWorkNamePage handleChecked={handleChecked} active={active} />}
+                {active === 0 && (
+                    <CreateWorkNamePage handleChecked={handleChecked} active={active} activeItem={activeItem} />
+                )}
                 {active === 1 && (
                     <CreateWorkSelectRegion
                         setSelectedCountry={setSelectedCountry}

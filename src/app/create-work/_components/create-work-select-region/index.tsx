@@ -98,11 +98,19 @@ const CreateWorkSelectRegion = ({ setChecked, setSelectedCountry, selectedCountr
                     ) : (
                         filteredCountries.map((item, index) => {
                             return (
-                                <div key={item.name} className="select-country-item">
+                                <div
+                                    style={{ cursor: "pointer" }}
+                                    onClick={() => changeSelectCountry(item)}
+                                    key={item.name}
+                                    className="select-country-item"
+                                >
                                     <Radio
                                         value={item.name}
                                         checked={selectedCountry[0] && selectedCountry[0].name === item.name}
-                                        onChange={() => changeSelectCountry(item)}
+                                        onChange={(e) => {
+                                            changeSelectCountry(item);
+                                            e.stopPropagation();
+                                        }}
                                     />
                                     <div>
                                         <p>{item.flag}</p>

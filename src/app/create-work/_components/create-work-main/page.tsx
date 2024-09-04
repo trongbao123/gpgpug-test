@@ -10,7 +10,7 @@ type Props = {
     [key: string]: any;
 };
 
-const CreateWorkMain: FC<Props> = ({ children, active, handleNextStep, ...rest }) => {
+const CreateWorkMain: FC<Props> = ({ activeItem, children, active, handleNextStep, ...rest }) => {
     const { checked, isFinish, handleFinish, deviceName, congratulation, handleBackDashboard } = rest;
 
     return (
