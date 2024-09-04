@@ -7,7 +7,7 @@ type Props = {
     [key: string]: any;
 };
 
-const UploadingCard = ({ item, deleteFile }: Props) => {
+const UploadingCard = ({ item, deleteFile, progress, isError }: Props) => {
     return (
         <div className="uploading-card">
             <div className="icon">
@@ -18,17 +18,18 @@ const UploadingCard = ({ item, deleteFile }: Props) => {
                     <p>{item?.name}</p>
                     <Image src="/images/icon_close.svg" alt="file" width={10} height={10} />
                 </div>
-                <div className={!item?.error ? "progress-bar" : "error-progress"}>
+                <div className={!isError ? "progress-bar" : "error-progress"}>
                     <div
-                        className={!item?.error ? "progress" : "error-progress-bar"}
-                        style={{ width: `${item?.progress}%` }}
+                        className={!isError ? "progress" : "error-progress-bar"}
+                        style={{ width: `${((progress / item?.size) * 100).toFixed(2)}%` }}
                     ></div>
                 </div>
                 <div className="progress-info">
                     <p>
                         {item?.size} / {item?.size} MB
                     </p>
-                    {/* <p>{`${((item?.uploadedSize / item?.fileSize) * 100).toFixed(2)}%`} </p> */}
+                    {!isError && <p>{`${((progress / item?.size) * 100).toFixed(2)}%`}</p>}
+                    {isError && <p style={{ color: "#cc2929" }}>Error</p>}
                 </div>
             </div>
         </div>
