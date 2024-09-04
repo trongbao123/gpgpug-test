@@ -122,6 +122,8 @@
                 gap: 6px;
                 flex-grow: 1;
                 .progress-info {
+                    display: flex;
+                    justify-content: space-between;
                     font-size: 12px;
                     color: rgba(115, 119, 128, 1);
                 }
