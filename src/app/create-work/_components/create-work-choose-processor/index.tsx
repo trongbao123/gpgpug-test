@@ -160,7 +160,14 @@ const CreateWorkChooseProcessor = ({
                 {filteredProcess.length > 0 ? (
                     filteredProcess.map((item: any, index: number) => {
                         return (
-                            <div key={item.id} className="processor-item">
+                            <div
+                                style={{ cursor: "pointer" }}
+                                onClick={() => {
+                                    changeSelected(item);
+                                }}
+                                key={item.id}
+                                className="processor-item"
+                            >
                                 <Radio
                                     checked={
                                         selected.length > 0 && selected.findIndex((i: any) => i.id === item.id) !== -1
@@ -180,7 +187,10 @@ const CreateWorkChooseProcessor = ({
                                             <p
                                                 className="text-secondary"
                                                 style={{ cursor: "pointer", padding: "2px 5px" }}
-                                                onClick={() => decreaseQuantity(item)}
+                                                onClick={(e) => {
+                                                    decreaseQuantity(item);
+                                                    e.stopPropagation();
+                                                }}
                                             >
                                                 -
                                             </p>
@@ -194,7 +204,10 @@ const CreateWorkChooseProcessor = ({
                                             <p
                                                 className="text-secondary"
                                                 style={{ cursor: "pointer", padding: "2px 5px" }}
-                                                onClick={() => increaseQuantity(item)}
+                                                onClick={(e) => {
+                                                    increaseQuantity(item);
+                                                    e.stopPropagation();
+                                                }}
                                             >
                                                 +
                                             </p>

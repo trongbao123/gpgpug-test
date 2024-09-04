@@ -15,6 +15,7 @@ import { deleteWorkMetada, metadataWorkList, saveWorkMetada, workSingleApi } fro
 import gbToMb from "@component/utilities/gbToMb";
 import ModalWork from "./_components/modal-work";
 import StateComponent from "@component/components/state";
+import { updateWorkDeviceChipset } from "@component/services/device";
 
 type Props = {
     params: {
@@ -32,6 +33,7 @@ const Page = ({ params }: Props) => {
     const [workSingle, setWorkSingle] = useState<any>(null);
     const workDetail = project.find((item: any) => item.id === id);
     const workItemDetail = workDetail && workDetail.listWork.find((item: any) => item.id.toString() === work_id);
+    const [updateTimeout, setUpdateTimeout] = useState<NodeJS.Timeout | null>(null);
 
     const { setIsLoading } = useLoading();
     const fetchData = async () => {
@@ -75,6 +77,53 @@ const Page = ({ params }: Props) => {
     useEffect(() => {
         fetchData();
     }, []);
+
+    const updateChipset = async (item: any) => {
+        setIsLoading(true);
+        try {
+            const res: any = await updateWorkDeviceChipset({
+                data: {
+                    workId: work_id,
+                    deviceChipSetName: workSingle.deviceChipSet,
+                    deviceChipSetCount: item,
+                },
+            });
+            if (res && res.statusCode === 200) {
+                Notification({
+                    type: "success",
+                    message: res.message,
+                    placement: "top",
+                });
+            } else {
+                throw res;
+            }
+        } catch (error: any) {
+            Notification({
+                type: "error",
+                message: error?.message || error,
+                placement: "top",
+            });
+        } finally {
+            setIsLoading(false);
+        }
+    };
+    const handleQuantityChange = (change: any) => {
+        if (workSingle) {
+            const newCount = workSingle.deviceChipSetCount + change;
+            if (newCount >= 0) {
+                setWorkSingle((prev: any) => ({
+                    ...prev,
+                    deviceChipSetCount: newCount,
+                }));
+
+                if (updateTimeout) clearTimeout(updateTimeout);
+
+                const timeout = setTimeout(() => updateChipset(newCount), 500);
+
+                setUpdateTimeout(timeout);
+            }
+        }
+    };
 
     const handldeDeleteWorkMetadata = async (id: any) => {
         if (window.confirm("Are you sure you want to delete this file?")) {
@@ -241,9 +290,25 @@ const Page = ({ params }: Props) => {
                                 <p className="text-primary">{workSingle?.deviceChipSet}</p>
                             </div>
                             <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-                                <div className="count">-</div>
-                                <div className="count">26</div>
-                                <div className="count">+</div>
+                                <div
+                                    className="count"
+                                    onClick={(e) => {
+                                        handleQuantityChange(-1);
+                                    }}
+                                    style={{ cursor: "pointer" }}
+                                >
+                                    -
+                                </div>
+                                <div className="count">{workSingle?.deviceChipSetCount}</div>
+                                <div
+                                    className="count"
+                                    onClick={(e) => {
+                                        handleQuantityChange(1);
+                                    }}
+                                    style={{ cursor: "pointer" }}
+                                >
+                                    +
+                                </div>
                             </div>
                         </div>
                     </InfoSection>
