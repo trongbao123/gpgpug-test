@@ -11,12 +11,19 @@ import { DownloadIcon, IconFile, IconFilePending, IconPause, IconPlay, NvidiaIco
 import InfoSection from "./_components/info-section";
 import Notification from "@component/components/common/notification";
 import { useLoading } from "@component/contexts/loadingContext";
-import { deleteWorkMetada, metadataWorkList, saveWorkMetada, workSingleApi } from "@component/services/work";
+import {
+    deleteSasTokenWork,
+    deleteWorkMetada,
+    getSasTokenWork,
+    metadataWorkList,
+    saveWorkMetada,
+    workSingleApi,
+} from "@component/services/work";
 import gbToMb from "@component/utilities/gbToMb";
 import ModalWork from "./_components/modal-work";
 import StateComponent from "@component/components/state";
 import { updateWorkDeviceChipset } from "@component/services/device";
-
+import { BlobServiceClient } from "@azure/storage-blob";
 type Props = {
     params: {
         id: string;
@@ -34,7 +41,8 @@ const Page = ({ params }: Props) => {
     const workDetail = project.find((item: any) => item.id === id);
     const workItemDetail = workDetail && workDetail.listWork.find((item: any) => item.id.toString() === work_id);
     const [updateTimeout, setUpdateTimeout] = useState<NodeJS.Timeout | null>(null);
-
+    const [progress, setProgress] = useState(0);
+    const [errorFile, setErrorFile] = useState<File | null>(null);
     const { setIsLoading } = useLoading();
     const fetchData = async () => {
         setIsLoading(true);
@@ -125,27 +133,35 @@ const Page = ({ params }: Props) => {
         }
     };
 
-    const handldeDeleteWorkMetadata = async (id: any) => {
+    const handldeDeleteWorkMetadata = async (id: any, file: any) => {
         if (window.confirm("Are you sure you want to delete this file?")) {
             setIsLoading(true);
-            try {
-                const res: any = await deleteWorkMetada({
-                    data: {
-                        workId: work_id,
-                        metaDataId: id,
-                    },
-                });
 
-                if (res && res.statusCode === 200) {
-                    Notification({
-                        type: "success",
-                        message: res.message,
-                        placement: "top",
-                    });
-                    fetchData();
-                } else {
-                    throw res;
+            try {
+                const [deleteSasToken, deleteWork] = await Promise.all([
+                    deleteSasTokenWork(file, id, work_id),
+                    deleteWorkMetada({
+                        data: {
+                            workId: work_id,
+                            metaDataId: id,
+                        },
+                    }),
+                ]);
+
+                if (deleteSasToken && deleteSasToken.statusCode !== 200) {
+                    throw deleteSasToken;
                 }
+
+                if (deleteWork && (deleteWork as any).statusCode === 401) {
+                    throw deleteWork;
+                }
+
+                Notification({
+                    type: "success",
+                    message: (deleteWork as any).message,
+                    placement: "top",
+                });
+                fetchData();
             } catch (error: any) {
                 Notification({
                     type: "error",
@@ -158,54 +174,83 @@ const Page = ({ params }: Props) => {
         }
     };
 
+    const onProgress = ({ loadedBytes }: { loadedBytes: number }) => {
+        setProgress(loadedBytes);
+    };
     const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
         if (fileInputRef.current?.files && fileInputRef.current.files.length > 0) {
             const file = fileInputRef.current.files[0];
-            const fileUrl = URL.createObjectURL(file);
-            setFile(file);
-            try {
-                const res: any = await saveWorkMetada({
-                    data: {
-                        data: [
-                            {
-                                name: file.name,
-                                extension: "",
-                                size: file.size,
-                                url: fileUrl,
-                                workId: work_id,
-                            },
-                        ],
-                    },
-                });
+            if (file && (file.type === "application/zip" || file.type === "text/html")) {
+                const fileUrl = URL.createObjectURL(file);
+                const { sas, blobPath } = await getSasTokenWork(file, id, work_id);
+                const baseUrl = `https://${process.env.NEXT_PUBLIC_ACCOUNT}.blob.core.windows.net`;
+                const blobServiceClient = new BlobServiceClient(`${baseUrl}?${sas}`);
+                const containerClient = blobServiceClient.getContainerClient(process.env.NEXT_PUBLIC_CONTAINER_NAME!);
+                const blockBlobClient = containerClient.getBlockBlobClient(blobPath);
+                setFile(file);
 
-                if (res && res.statusCode === 200) {
+                //we can check upload progress by onProgress function
+                const result = await blockBlobClient.uploadData(file, {
+                    onProgress,
+                });
+                if (!result.errorCode) {
+                    try {
+                        const res: any = await saveWorkMetada({
+                            data: {
+                                data: [
+                                    {
+                                        name: file.name,
+                                        extension: file.name.split(".").pop() || "",
+                                        size: file.size,
+                                        url: fileUrl,
+                                        workId: work_id,
+                                    },
+                                ],
+                            },
+                        });
+
+                        if (res && res.statusCode === 200) {
+                            Notification({
+                                type: "success",
+                                message: res.message,
+                                placement: "top",
+                            });
+                            fetchData?.();
+                        } else {
+                            throw res;
+                        }
+                    } catch (error: any) {
+                        Notification({
+                            type: "error",
+                            message: error?.message || error,
+                            placement: "top",
+                        });
+                    } finally {
+                        setFile(null);
+                        setProgress(0);
+                    }
+                    fileInputRef.current.value = "";
+                } else {
+                    setErrorFile(file);
                     Notification({
-                        type: "success",
-                        message: res.message,
+                        type: "error",
+                        message: "Upload failed",
                         placement: "top",
                     });
-                    fetchData?.();
-                } else {
-                    throw res;
                 }
-            } catch (error: any) {
+            } else {
+                setFile(null);
                 Notification({
                     type: "error",
-                    message: error?.message || error,
+                    message: "Please select a valid ZIP or HTML file.",
                     placement: "top",
                 });
             }
-        } else {
-            setFile(null);
         }
     };
 
     const handleUploadClick = () => {
         fileInputRef.current?.click();
-        if (file) {
-            try {
-            } catch (error) {}
-        }
     };
 
     const handleCancelUpload = () => {
@@ -362,24 +407,26 @@ const Page = ({ params }: Props) => {
                                         <div className={true ? "progress-bar" : "error-progress"}>
                                             <div
                                                 className={true ? "progress" : "error-progress-bar"}
-                                                style={{ width: `${(30 / 40) * 100}%` }}
+                                                style={{ width: `${(progress / file?.size) * 100}%` }}
                                             ></div>
                                         </div>
                                         <div className="progress-container">
                                             <div
                                                 className="progress-bar"
-                                                style={{ width: `${((file?.size / file?.size) * 100).toFixed(2)}%` }}
+                                                style={{ width: `${((progress / file?.size) * 100).toFixed(2)}%` }}
                                             ></div>
                                         </div>
                                         <div className="progress-info">
                                             <p>
                                                 {file?.size} / {file?.size} MB
                                             </p>
-                                            <p>{`${((file?.size / file?.size) * 100).toFixed(2)}%`}</p>
+                                            {!errorFile && <p>{`${((progress / file?.size) * 100).toFixed(2)}%`}</p>}
+                                            {errorFile && <p style={{ color: "#cc2929" }}>Error</p>}
                                         </div>
                                     </div>
                                 </div>
                             )}
+
                             {metadataList.length > 0 &&
                                 metadataList.map((item: any, index: number) => (
                                     <div className="uploaded-card" key={index}>
@@ -395,7 +442,7 @@ const Page = ({ params }: Props) => {
                                         <div
                                             className="icon_trash"
                                             style={{ cursor: "pointer" }}
-                                            onClick={() => handldeDeleteWorkMetadata(item?.id)}
+                                            onClick={() => handldeDeleteWorkMetadata(item?.id, file)}
                                         >
                                             <Image src="/images/icon_trash.svg" alt="file" width={15} height={15} />
                                         </div>
