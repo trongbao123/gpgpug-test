@@ -64,7 +64,6 @@ export const workSingleApi = async (options?: any) => {
     });
     return data;
 };
-
 export const getSasTokenWork = async (file: File, projectId: string, work_id: string): Promise<any> => {
     const storedData = localStorage.getItem(USERKIT_TOKEN);
     const parsedData = storedData ? storedData : null;

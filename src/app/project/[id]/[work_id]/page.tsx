@@ -136,7 +136,7 @@ const Page = ({ params }: Props) => {
     const handldeDeleteWorkMetadata = async (id: any, file: any) => {
         if (window.confirm("Are you sure you want to delete this file?")) {
             setIsLoading(true);
-
+            // @ts-ignore
             try {
                 const [deleteSasToken, deleteWork] = await Promise.all([
                     deleteSasTokenWork(file, id, work_id),
