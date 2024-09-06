@@ -148,13 +148,9 @@ const Page = ({ params }: Props) => {
                     }),
                 ]);
 
-                if (deleteSasToken && deleteSasToken.statusCode !== 200) {
-                    throw deleteSasToken;
-                }
+                if (deleteSasToken && deleteSasToken.statusCode === 401) throw deleteSasToken;
 
-                if (deleteWork && (deleteWork as any).statusCode === 401) {
-                    throw deleteWork;
-                }
+                if (deleteWork && (deleteWork as any).statusCode !== 200) throw deleteWork;
 
                 Notification({
                     type: "success",
