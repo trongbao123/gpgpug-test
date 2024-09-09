@@ -23,7 +23,8 @@ const DropzoneUpload: React.FC<Props> = ({ metadata, projectId, fetchData }) => 
     const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
         if (fileInputRef.current?.files && fileInputRef.current.files.length > 0) {
             const file = fileInputRef.current.files[0];
-            if (file) {
+            if (file && (file.type === "application/zip" || file.type === "text/html")) {
+                const fileUrl = URL.createObjectURL(file);
                 const { sas, blobPath } = await getSasToken(file, projectId);
                 const baseUrl = `https://${process.env.NEXT_PUBLIC_ACCOUNT}.blob.core.windows.net`;
                 const blobServiceClient = new BlobServiceClient(`${baseUrl}?${sas}`);
@@ -42,7 +43,7 @@ const DropzoneUpload: React.FC<Props> = ({ metadata, projectId, fetchData }) => 
                                 data: [
                                     {
                                         name: file.name,
-                                        extension: file.name.split(".").pop() || "",
+                                        extension: "2",
                                         size: file.size,
                                         url: blobPath,
                                         projectId: projectId,
@@ -79,7 +80,6 @@ const DropzoneUpload: React.FC<Props> = ({ metadata, projectId, fetchData }) => 
                         placement: "top",
                     });
                 }
-                fileInputRef.current.value = "";
             } else {
                 setFile(null);
                 Notification({
@@ -137,7 +137,13 @@ const DropzoneUpload: React.FC<Props> = ({ metadata, projectId, fetchData }) => 
                     <div className="data-number">{metadata?.length}</div>
                 </div>
                 <div>
-                    <input type="file" ref={fileInputRef} style={{ display: "none" }} onChange={handleFileChange} />
+                    <input
+                        type="file"
+                        ref={fileInputRef}
+                        style={{ display: "none" }}
+                        onChange={handleFileChange}
+                        accept=".zip"
+                    />
                     <div className="icon-upload" style={{ cursor: "pointer" }} onClick={handleUploadClick}>
                         <Image src="/images/upload.svg" alt="upload" width={24} height={24} />
                     </div>

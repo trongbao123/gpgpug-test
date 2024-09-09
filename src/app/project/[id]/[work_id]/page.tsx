@@ -176,7 +176,7 @@ const Page = ({ params }: Props) => {
     const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
         if (fileInputRef.current?.files && fileInputRef.current.files.length > 0) {
             const file = fileInputRef.current.files[0];
-            if (file) {
+            if (file && (file.type === "application/zip" || file.type === "text/html")) {
                 const fileUrl = URL.createObjectURL(file);
                 const { sas, blobPath } = await getSasTokenWork(file, id, work_id);
                 const baseUrl = `https://${process.env.NEXT_PUBLIC_ACCOUNT}.blob.core.windows.net`;
@@ -375,6 +375,7 @@ const Page = ({ params }: Props) => {
                                     ref={fileInputRef}
                                     style={{ display: "none" }}
                                     onChange={handleFileChange}
+                                    accept="application/zip, text/html"
                                 />
                                 <div className="icon-upload" style={{ cursor: "pointer" }} onClick={handleUploadClick}>
                                     <Image src="/images/upload.svg" alt="upload" width={24} height={24} />
