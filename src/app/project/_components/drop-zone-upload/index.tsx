@@ -79,6 +79,7 @@ const DropzoneUpload: React.FC<Props> = ({ metadata, projectId, fetchData }) => 
                         placement: "top",
                     });
                 }
+                fileInputRef.current.value = "";
             } else {
                 setFile(null);
                 Notification({
@@ -136,13 +137,7 @@ const DropzoneUpload: React.FC<Props> = ({ metadata, projectId, fetchData }) => 
                     <div className="data-number">{metadata?.length}</div>
                 </div>
                 <div>
-                    <input
-                        type="file"
-                        ref={fileInputRef}
-                        style={{ display: "none" }}
-                        onChange={handleFileChange}
-                        accept=".zip"
-                    />
+                    <input type="file" ref={fileInputRef} style={{ display: "none" }} onChange={handleFileChange} />
                     <div className="icon-upload" style={{ cursor: "pointer" }} onClick={handleUploadClick}>
                         <Image src="/images/upload.svg" alt="upload" width={24} height={24} />
                     </div>
