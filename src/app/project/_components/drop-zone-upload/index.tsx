@@ -23,8 +23,7 @@ const DropzoneUpload: React.FC<Props> = ({ metadata, projectId, fetchData }) => 
     const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
         if (fileInputRef.current?.files && fileInputRef.current.files.length > 0) {
             const file = fileInputRef.current.files[0];
-            if (file && (file.type === "application/zip" || file.type === "text/html")) {
-                const fileUrl = URL.createObjectURL(file);
+            if (file) {
                 const { sas, blobPath } = await getSasToken(file, projectId);
                 const baseUrl = `https://${process.env.NEXT_PUBLIC_ACCOUNT}.blob.core.windows.net`;
                 const blobServiceClient = new BlobServiceClient(`${baseUrl}?${sas}`);
@@ -43,9 +42,9 @@ const DropzoneUpload: React.FC<Props> = ({ metadata, projectId, fetchData }) => 
                                 data: [
                                     {
                                         name: file.name,
-                                        extension: "2",
+                                        extension: file.name.split(".").pop() || "",
                                         size: file.size,
-                                        url: fileUrl,
+                                        url: blobPath,
                                         projectId: projectId,
                                     },
                                 ],
