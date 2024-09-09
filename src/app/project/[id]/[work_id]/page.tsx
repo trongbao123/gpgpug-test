@@ -176,7 +176,7 @@ const Page = ({ params }: Props) => {
     const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
         if (fileInputRef.current?.files && fileInputRef.current.files.length > 0) {
             const file = fileInputRef.current.files[0];
-            if (file && (file.type === "application/zip" || file.type === "text/html")) {
+            if (file) {
                 const fileUrl = URL.createObjectURL(file);
                 const { sas, blobPath } = await getSasTokenWork(file, id, work_id);
                 const baseUrl = `https://${process.env.NEXT_PUBLIC_ACCOUNT}.blob.core.windows.net`;
@@ -198,7 +198,7 @@ const Page = ({ params }: Props) => {
                                         name: file.name,
                                         extension: file.name.split(".").pop() || "",
                                         size: file.size,
-                                        url: fileUrl,
+                                        url: blobPath,
                                         workId: work_id,
                                     },
                                 ],
